@@ -1578,3 +1578,29 @@ section,
 }
 
 
+            .twente-logo {
+                margin-top: 30px;
+            }
+            .education-card {
+                min-height: 420px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: stretch;
+                height: 100%;
+                padding-bottom: 32px;
+            }
+            .btn-custom {
+                background-color: #b8a07e;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            .btn-custom:hover {
+                background-color: #9e8c6f;
+                /* Slightly darker shade for hover effect */
+            }
