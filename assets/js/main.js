@@ -261,17 +261,39 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Dynamic section-based image loading priority observer
+   */
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const section = entry.target;
+          const images = section.querySelectorAll('img');
+          images.forEach(img => {
+            if (img.getAttribute('loading') === 'lazy') {
+              img.setAttribute('loading', 'eager');
+            }
+            img.setAttribute('fetchpriority', 'high');
+          });
+        } else {
+          const section = entry.target;
+          const images = section.querySelectorAll('img');
+          images.forEach(img => {
+            img.setAttribute('fetchpriority', 'low');
+          });
+        }
+      });
+    }, {
+      rootMargin: '150px 0px 150px 0px',
+      threshold: 0.05
+    });
 
-
+    document.querySelectorAll('section').forEach(section => {
+      sectionObserver.observe(section);
+    });
+  }
 
 // Hover functionality moved to CSS for performance
 
-
-
-
-
-
-
 })();
-
-
