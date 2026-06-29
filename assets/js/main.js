@@ -63,9 +63,16 @@
    */
   const preloader = document.querySelector('#preloader');
   if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
+    const removePreloader = () => {
+      preloader.style.opacity = '0';
+      preloader.style.visibility = 'hidden';
+      setTimeout(() => {
+        preloader.remove();
+      }, 600);
+    };
+    document.addEventListener('DOMContentLoaded', removePreloader);
+    // Fallback: hide preloader after 1.0 seconds anyway
+    setTimeout(removePreloader, 1000);
   }
 
   /**
@@ -128,7 +135,11 @@
       );
 
       if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
+        if (typeof initSwiperWithCustomPagination === 'function') {
+          initSwiperWithCustomPagination(swiperElement, config);
+        } else {
+          new Swiper(swiperElement, config);
+        }
       } else {
         new Swiper(swiperElement, config);
       }
@@ -149,15 +160,28 @@
    */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+
+    let activeFilterGroup = '*';
+    let showAll = false;
+
+    function getCombinedFilter() {
+      if (!showAll) {
+        if (activeFilterGroup === '*') {
+          return ':not(.project-hidden)';
+        } else {
+          return activeFilterGroup + ':not(.project-hidden)';
+        }
+      }
+      return activeFilterGroup;
+    }
 
     let initIsotope;
     imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
       initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
         itemSelector: '.isotope-item',
         layoutMode: layout,
-        filter: filter,
+        filter: getCombinedFilter(),
         sortBy: sort
       });
     });
@@ -166,8 +190,9 @@
       filters.addEventListener('click', function() {
         isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
         this.classList.add('filter-active');
+        activeFilterGroup = this.getAttribute('data-filter');
         initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
+          filter: getCombinedFilter()
         });
         if (typeof aosInit === 'function') {
           aosInit();
@@ -175,6 +200,25 @@
       }, false);
     });
 
+    // See More button handler
+    const seeMoreBtn = document.getElementById('see-more-btn');
+    if (seeMoreBtn) {
+      seeMoreBtn.addEventListener('click', function() {
+        showAll = !showAll;
+        initIsotope.arrange({
+          filter: getCombinedFilter()
+        });
+        if (showAll) {
+          seeMoreBtn.textContent = 'See Less';
+        } else {
+          seeMoreBtn.textContent = 'See More Projects';
+          const expSection = document.getElementById('experiences');
+          if (expSection) {
+            expSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    }
   });
 
   /**
@@ -220,27 +264,7 @@
 
 
 
-// assets/js/portfolio-hover.js
-
-document.addEventListener("DOMContentLoaded", function () {
-  const portfolioItems = document.querySelectorAll(".portfolio-content");
-
-  portfolioItems.forEach(item => {
-    const img = item.querySelector("img");
-    const originalSrc = img.getAttribute("src");
-    const hoverSrc = img.getAttribute("data-hover");
-
-    item.addEventListener("mouseover", function () {
-      if (hoverSrc) {
-        img.setAttribute("src", hoverSrc);
-      }
-    });
-
-    item.addEventListener("mouseout", function () {
-      img.setAttribute("src", originalSrc);
-    });
-  });
-});
+// Hover functionality moved to CSS for performance
 
 
 

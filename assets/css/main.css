@@ -966,7 +966,40 @@ section,
 }
 
 .portfolio .portfolio-content img {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
   transition: 0.3s;
+  border-radius: 8px;
+}
+
+.portfolio h5 {
+  font-size: 16px;
+  line-height: 1.4;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.portfolio .portfolio-content .base-img {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio .portfolio-content .hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .portfolio .portfolio-content .portfolio-info {
@@ -980,12 +1013,7 @@ section,
 }
 
 .portfolio .portfolio-content .portfolio-info h4 {
-  font-size: 14px;
-  padding: 5px 10px;
-  font-weight: 400;
-  color: #ffffff;
-  display: inline-block;
-  background-color: var(--accent-color);
+  display: none !important;
 }
 
 .portfolio .portfolio-content .portfolio-info p {
@@ -1000,33 +1028,30 @@ section,
   color: rgba(255, 255, 255, 0.8);
 }
 
-.portfolio .portfolio-content .portfolio-info .preview-link,
 .portfolio .portfolio-content .portfolio-info .details-link {
   position: absolute;
-  left: 50%; /* Position the link horizontally to the center */
-  top: 50%; /* Position the link vertically to the center */
-  transform: translate(-50%, -50%); /* Adjust the link to be centered */
-  font-size: 26px;
-  color: #fff;
-  transition: 0.3s;
-  line-height: 1.2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transform: none;
+  z-index: 4;
+  opacity: 0;
 }
 
-.portfolio .portfolio-content .portfolio-info .preview-link:hover,
-.portfolio .portfolio-content .portfolio-info .details-link:hover {
-  color: var(--accent-color);
-}
 
-.portfolio .portfolio-content .portfolio-info .details-link {
-  font-size: 34px;
-  line-height: 0;
-}
 
 .portfolio .portfolio-content:hover .portfolio-info {
   opacity: 1;
 }
 
-.portfolio .portfolio-content:hover img {
+.portfolio .portfolio-content:hover .base-img {
+  transform: scale(1.05);
+}
+
+.portfolio .portfolio-content:hover .hover-img {
+  opacity: 1;
   transform: scale(1.05);
 }
 
@@ -1555,9 +1580,10 @@ section,
 
 
 .custom-img-height {
-  height: 400px; /* Set the desired height */
-  object-fit: contain; /* Ensures the image is scaled correctly */
-  width: 100%; /* Optional: Makes the image fill its container */
+  height: 250px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 8px;
 }
 
 
