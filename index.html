@@ -221,25 +221,47 @@
                     <div class="experience-story-grid">
 
                         <!-- Left Sticky Column: Synchronized Role Navigator -->
-                        <div class="exp-sticky-nav">
-                            <div class="exp-nav-item active" id="exp-nav-fip" onclick="jumpToExpIndex(0)">
-                                <div class="exp-nav-title">Fraunhofer Innovation Platform</div>
-                                <div class="exp-nav-role">CV &amp; Robotics Engineer</div>
-                                <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Oct. 2025 – Present &bull;
-                                    Enschede, NL</div>
+                        <div class="exp-sticky-nav" id="exp-nav-container">
+
+                            <!-- Role 1 -->
+                            <div class="exp-timeline-row active" id="exp-nav-fip" onclick="jumpToExpIndex(0)">
+                                <div class="exp-timeline-col">
+                                    <div class="timeline-bullet"></div>
+                                </div>
+                                <div class="exp-nav-card">
+                                    <div class="exp-nav-title">Fraunhofer Innovation Platform</div>
+                                    <div class="exp-nav-role">CV &amp; Robotics Engineer</div>
+                                    <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Oct. 2025 – Present &bull;
+                                        Enschede, NL</div>
+                                </div>
                             </div>
-                            <div class="exp-nav-item" id="exp-nav-smartory" onclick="jumpToExpIndex(1)">
-                                <div class="exp-nav-title">Smartory Labs</div>
-                                <div class="exp-nav-role">AI &amp; Computer Vision Engineer</div>
-                                <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Mar. 2023 – Sep. 2024 &bull;
-                                    Istanbul, TR</div>
+
+                            <!-- Role 2 -->
+                            <div class="exp-timeline-row" id="exp-nav-smartory" onclick="jumpToExpIndex(1)">
+                                <div class="exp-timeline-col">
+                                    <div class="timeline-bullet"></div>
+                                </div>
+                                <div class="exp-nav-card">
+                                    <div class="exp-nav-title">Smartory Labs</div>
+                                    <div class="exp-nav-role">AI &amp; Computer Vision Engineer</div>
+                                    <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Mar. 2023 – Sep. 2024
+                                        &bull; Istanbul, TR</div>
+                                </div>
                             </div>
-                            <div class="exp-nav-item" id="exp-nav-apac" onclick="jumpToExpIndex(2)">
-                                <div class="exp-nav-title">APAC Research Group</div>
-                                <div class="exp-nav-role">Technical Manager &amp; CV Engineer</div>
-                                <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Jun. 2022 – Sep. 2025 &bull;
-                                    Medical AI</div>
+
+                            <!-- Role 3 -->
+                            <div class="exp-timeline-row" id="exp-nav-apac" onclick="jumpToExpIndex(2)">
+                                <div class="exp-timeline-col">
+                                    <div class="timeline-bullet"></div>
+                                </div>
+                                <div class="exp-nav-card">
+                                    <div class="exp-nav-title">APAC Research Group</div>
+                                    <div class="exp-nav-role">Technical Manager &amp; CV Engineer</div>
+                                    <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Jun. 2022 – Sep. 2025
+                                        &bull; Medical AI</div>
+                                </div>
                             </div>
+
                         </div>
 
                         <!-- Right Column: Sticky Stage Viewport (Shows Exactly 1 Card) -->
@@ -255,11 +277,9 @@
                                                 <h3 class="company-title">Fraunhofer Innovation Platform</h3>
                                                 <div class="role-title">Computer Vision and Robotic Engineer</div>
                                             </div>
-                                            <div class="text-end">
-                                                <span class="period-badge"><i class="bi bi-calendar-event"></i> Oct.
-                                                    2025 to Present</span>
-                                                <div class="location-badge mt-1"><i class="bi bi-geo-alt"></i> Enschede,
-                                                    Netherlands</div>
+                                            <div class="exp-header-meta">
+                                                <span class="period-badge"><i class="bi bi-calendar-event"></i> Oct. 2025 to Present</span>
+                                                <div class="location-badge mt-1"><i class="bi bi-geo-alt"></i> Enschede, Netherlands</div>
                                             </div>
                                         </div>
                                         <ul class="experience-highlights">
@@ -309,7 +329,7 @@
                                                 <h3 class="company-title">Smartory Labs</h3>
                                                 <div class="role-title">AI and Computer Vision Engineer</div>
                                             </div>
-                                            <div class="text-end">
+                                            <div class="exp-header-meta">
                                                 <span class="period-badge"><i class="bi bi-calendar-event"></i> Mar.
                                                     2023 to Sep. 2024</span>
                                                 <div class="location-badge mt-1"><i class="bi bi-geo-alt"></i> Istanbul,
@@ -356,7 +376,7 @@
                                                 <div class="role-title">Technical Manager and Computer Vision Engineer
                                                 </div>
                                             </div>
-                                            <div class="text-end">
+                                            <div class="exp-header-meta">
                                                 <span class="period-badge"><i class="bi bi-calendar-event"></i> Jun.
                                                     2022 to Sep. 2025</span>
                                                 <div class="location-badge mt-1"><i class="bi bi-hospital"></i> Medical
@@ -367,7 +387,10 @@
                                             <li>Developed deep learning triage pipelines for intracranial hemorrhage
                                                 diagnosis on non-contrast head CT scans and tumor detection on brain
                                                 MRI.</li>
-                                            <li>Leveraged generative AI and self-supervised foundation representations to dramatically reduce reliance on manual pixel-level annotations, combining them with Grad-CAM heatmaps to deliver interpretable, clinical-grade decision support.</li>
+                                            <li>Leveraged generative AI and self-supervised foundation representations
+                                                to dramatically reduce reliance on manual pixel-level annotations,
+                                                combining them with Grad-CAM heatmaps to deliver interpretable,
+                                                clinical-grade decision support.</li>
                                             <li>Curated a 300-patient CT scan research dataset (Hemorrica) and developed
                                                 a web-based medical image annotation tool for multi-specialist labeling.
                                             </li>
@@ -376,14 +399,13 @@
                                             <h5>Key Initiatives</h5>
                                             <div class="deliverable-pills">
                                                 <a href="projects/ICH.html" class="deliverable-pill"><i
-                                                        class="bi bi-heart-pulse"></i> ICH Head CT Triage <span
-                                                        class="metric-chip">1.00 Sensitivity</span></a>
+                                                        class="bi bi-heart-pulse"></i> ICH Head CT Triage</a>
                                                 <a href="projects/ICH.html" class="deliverable-pill"><i
                                                         class="bi bi-file-medical"></i> MRI Tumor Segmentation</a>
                                                 <a href="projects/ICH.html" class="deliverable-pill"><i
                                                         class="bi bi-eye"></i> Visual Explainability</a>
                                                 <a href="projects/ICH.html" class="deliverable-pill"><i
-                                                        class="bi bi-database"></i> 300-Patient Dataset</a>
+                                                        class="bi bi-database"></i> Hemorica Dataset</a>
                                             </div>
                                         </div>
                                         <div class="mt-3">

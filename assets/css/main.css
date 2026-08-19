@@ -1780,22 +1780,51 @@ section,
   margin-top: 4px;
 }
 
+.experience .exp-header-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 6px;
+}
+
 .experience .period-badge {
   background: color-mix(in srgb, var(--accent-color), transparent 88%);
   color: var(--heading-color);
-  padding: 6px 14px;
+  padding: 5px 12px;
   border-radius: 20px;
   font-size: 13px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.experience .period-badge i {
+  width: 14px;
+  text-align: center;
+  font-size: 14px;
+  display: inline-block;
+  color: var(--accent-color);
 }
 
 .experience .location-badge {
   color: var(--default-color);
   font-size: 13px;
   opacity: 0.85;
+  padding-left: 12px; /* Matches period-badge horizontal padding */
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Matches period-badge gap */
+}
+
+.experience .location-badge i {
+  width: 14px; /* Matches period-badge icon width exactly */
+  text-align: center;
+  font-size: 14px;
+  display: inline-block;
+  color: var(--accent-color);
 }
 
 .experience .experience-highlights {
@@ -2490,40 +2519,112 @@ section,
   z-index: 10;
 }
 
-/* Left Column: Role Selector */
+/* Left Column: Role Selector Container */
 .exp-sticky-nav {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
+  position: relative;
 }
 
-.exp-nav-item {
+/* Individual Timeline Row (Flex: Bullet Track Column + Nav Card) */
+.exp-timeline-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   position: relative;
+  cursor: pointer;
+}
+
+/* Dedicated Continuous Timeline Column (28px wide) */
+.exp-timeline-col {
+  width: 28px;
+  flex: 0 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  align-self: stretch; /* Stretches to full row height so line seamlessly joins */
+}
+
+/* Vertical Line Passing Exactly Through the Center of the Column */
+.exp-timeline-col::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e2e8f0;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Hide top segment of line on first item and bottom segment on last item */
+.exp-timeline-row:first-child .exp-timeline-col::before {
+  top: 50%;
+}
+
+.exp-timeline-row:last-child .exp-timeline-col::before {
+  bottom: 50%;
+}
+
+/* Circular Bullet Node Centered with Perfect Symmetry */
+.timeline-bullet {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  box-shadow: 0 0 0 4px var(--surface-color, #ffffff);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 2;
+}
+
+/* Clickable Role Card */
+.exp-nav-card {
+  flex: 1;
   background: var(--surface-color);
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 16px 18px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   text-align: left;
   border-left: 4px solid transparent;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.exp-nav-item:hover {
+.exp-timeline-row:hover .exp-nav-card {
   border-color: var(--accent-color);
   background: #faf8f5;
   transform: translateX(4px);
 }
 
-.exp-nav-item.active {
+.exp-timeline-row:hover .timeline-bullet {
+  border-color: var(--accent-color);
+  background: #faf8f5;
+}
+
+/* Active State: Glowing Center Bullet & Card Highlight */
+.exp-timeline-row.active .timeline-bullet {
+  background: var(--accent-color);
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px var(--accent-color), 0 0 14px rgba(184, 160, 126, 0.6);
+  transform: scale(1.25);
+}
+
+.exp-timeline-row.active .exp-nav-card {
   border-left-color: var(--accent-color);
   background: #ffffff;
   box-shadow: 0 8px 24px rgba(184, 160, 126, 0.22);
   border-color: #cbd5e1;
   border-left-width: 4px;
-  transform: translateX(6px);
+  transform: translateX(4px);
+}
+
+.exp-timeline-row.active .exp-nav-title {
+  color: #1a1a1a;
 }
 
 .exp-nav-title {
@@ -2624,12 +2725,17 @@ section,
     gap: 10px;
   }
 
-  .exp-sticky-nav::-webkit-scrollbar {
+  .exp-timeline-col {
     display: none;
-    /* Safari & Chrome */
   }
 
-  .exp-nav-item {
+  .exp-timeline-row {
+    flex: 0 0 240px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .exp-nav-card {
     flex: 0 0 240px;
     padding: 12px 14px;
     border-radius: 10px;
@@ -2637,11 +2743,11 @@ section,
     border-top: 3px solid transparent;
   }
 
-  .exp-nav-item:hover {
+  .exp-timeline-row:hover .exp-nav-card {
     transform: none;
   }
 
-  .exp-nav-item.active {
+  .exp-timeline-row.active .exp-nav-card {
     transform: none;
     border-left-color: #cbd5e1;
     border-top-color: var(--accent-color);
