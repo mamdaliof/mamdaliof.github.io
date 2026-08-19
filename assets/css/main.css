@@ -2187,6 +2187,78 @@ section,
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
+/*--------------------------------------------------------------
+# Multi-Modality Clinical Showcase Cards
+--------------------------------------------------------------*/
+.clinical-showcase-card {
+  background: var(--surface-color, #ffffff);
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.clinical-showcase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-color: #cbd5e1;
+}
+
+.showcase-img-frame {
+  position: relative;
+  background: #0f172a;
+  overflow: hidden;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.clinical-showcase-card:hover .showcase-img-frame img {
+  transform: scale(1.04);
+}
+
+.showcase-zoom-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.clinical-showcase-card:hover .showcase-zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.showcase-card-body {
+  padding: 18px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .project-section-block h3 {
   font-size: 20px;
   font-weight: 700;
