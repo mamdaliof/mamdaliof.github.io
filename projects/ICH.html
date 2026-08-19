@@ -123,11 +123,11 @@
           </div>
 
           <!-- ==============================================================
-               TAB 1: AI Hemorrhage Triage (Supervised DL & CT-as-Video)
+               TAB 1: AI Hemorrhage Triage (Supervised DL & Segmentation)
                ============================================================== -->
           <div id="tab-brain-triage" class="subproject-tab-pane active">
             <div class="project-section-block">
-              <h3><i class="bi bi-heart-pulse text-primary"></i> Automated AI Hemorrhage Triage &amp; CT-as-Video</h3>
+              <h3><i class="bi bi-heart-pulse text-primary"></i> Automated AI Hemorrhage Triage &amp; Segmentation</h3>
 
               <h5 class="fw-bold text-dark mt-3">The Clinical Challenge</h5>
               <p>
@@ -136,13 +136,15 @@
                 classification loses inter-slice anatomical continuity, risking missed hematoma margins.
               </p>
 
-              <h5 class="fw-bold text-dark mt-3">Supervised Sequence Modeling (CT-as-Video)</h5>
+              <h5 class="fw-bold text-dark mt-3">Supervised Deep Learning &amp; Foundation Vision Pipeline</h5>
               <p>
-                To replicate how emergency specialists scroll through consecutive CT slices to evaluate bleeding
-                progression, we formulated non-contrast head CT series as continuous spatio-temporal video sequences.
-                Combining convolutional feature backbones with temporal Transformer attention yielded a <strong>98%
-                  F1-score</strong> on binary hemorrhage triage with zero missed cases across our evaluation cohort.
+                We engineered an end-to-end clinical diagnostic framework combining supervised deep learning models, foundation vision encoders, and specialized medical imaging pipelines:
               </p>
+              <ul>
+                <li><strong>Tailored Pre-Processing &amp; Post-Processing:</strong> Implemented specialized Hounsfield Unit (HU) windowing (brain, subdural, and bone windows), contrast normalization, and artifact removal, combined with morphological and threshold post-processing to eliminate spurious false detections.</li>
+                <li><strong>Multi-Scale Classification &amp; Segmentation:</strong> Deployed high-capacity deep CNNs and vision foundation backbones for joint slice-level defect classification and pixel-level lesion segmentation.</li>
+                <li><strong>Spatio-Temporal Sequence Modeling (CT-as-Video):</strong> Incorporated sequential slice modeling imitating clinician scroll dynamics to aggregate inter-slice contextual continuity across the axial volume.</li>
+              </ul>
 
               <!-- Side-by-Side 3-Slider Comparison Gallery -->
               <div class="my-4">
@@ -222,19 +224,24 @@
               <!-- Impact Stats Grid -->
               <div class="impact-stat-grid">
                 <div class="stat-card">
-                  <div class="stat-number">98%</div>
-                  <div class="stat-label">Hemorrhage F1-Score</div>
-                  <div class="stat-desc">Binary diagnosis using spatio-temporal Transformers</div>
+                  <div class="stat-number">&gt; 98%</div>
+                  <div class="stat-label">Slice F1-Score</div>
+                  <div class="stat-desc">Fine-grained slice-wise classification</div>
                 </div>
                 <div class="stat-card">
-                  <div class="stat-number">1.00</div>
-                  <div class="stat-label">Patient Sensitivity</div>
-                  <div class="stat-desc">Zero missed hemorrhage cases across emergency triage</div>
+                  <div class="stat-number">100%</div>
+                  <div class="stat-label">Patient Diagnosis</div>
+                  <div class="stat-desc">Zero missed hemorrhage cases in triage</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">0.86</div>
+                  <div class="stat-label">Segmentation Dice</div>
+                  <div class="stat-desc">Accurate volumetric lesion contouring</div>
                 </div>
                 <div class="stat-card">
                   <div class="stat-number">&lt; 3s</div>
                   <div class="stat-label">Inference / Volume</div>
-                  <div class="stat-desc">Instant 3D triage report for emergency departments</div>
+                  <div class="stat-desc">Instant 3D emergency triage report</div>
                 </div>
               </div>
             </div>
