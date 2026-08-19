@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJZSNX0CWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EJZSNX0CWV');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>LeRobot SmolVLA Intent-Conditioned Manipulation - Farhad Hoseyni</title>
+  <meta name="description" content="LeRobot SmolVLA - Two-stage intent classification (BERT F1 85%) and Vision-Language-Action manipulation on SO-101 robot arm." />
+  <meta name="keywords" content="LeRobot, SmolVLA, VLA, Robot Learning, Action Chunking, Hugging Face, SO-101, PyTorch" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="portfolio-details-page">
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">LeRobot SmolVLA</h1>
+      </a>
+      <nav id="navmenu" class="navmenu" style="background-color: #333">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <section id="hero" class="section light-background">
+      <div class="page-title light-background">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray">LeRobot SmolVLA Intent-Conditioned Manipulation</h1>
+          <p class="mx-auto" style="max-width: 800px;">
+            Two-Stage Intent Classification (BERT F1 85%), SO-101 Robot Arm Manipulation and Hugging Face Dataset
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="single-column-wrapper">
+
+          <!-- Project Overview Card -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-robot text-primary"></i> Project Overview</h3>
+            <p>
+              Vision-Language-Action (VLA) models enable robots to follow human instructions. This project addresses prompt ambiguity and policy stability on the <strong>SO-101 robotic arm</strong> using a two-stage intent pipeline and Hugging Face's LeRobot framework.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-robot"></i> SO-101 Robot Arm</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-chat-text"></i> BERT Intent Classifier</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-database"></i> 170-Episode Dataset</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-code-slash"></i> Hugging Face LeRobot</span>
+            </div>
+          </div>
+
+          <!-- Section 1: The Challenge -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
+            <p>
+              End-to-end VLA models often struggle when user instructions are phrased in informal or ambiguous ways. Training large monolithic models directly on diverse natural language requires huge datasets and frequently leads to incorrect grasping motions.
+            </p>
+          </div>
+
+          <!-- Section 2: The Solution & Technical Approach -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <p>
+              I engineered a decoupled, reliable architecture:
+            </p>
+            <ul>
+              <li><strong>Two-Stage Intent Disambiguation:</strong> Built a fine-tuned BERT intent classifier that parses unstructured user text, extracts goal parameters, and resolves ambiguity before the policy executes.</li>
+              <li><strong>170-Episode Teleoperated Dataset:</strong> Collected and formatted a multimodal dataset of physical manipulation demonstrations on the SO-101 arm following Hugging Face LeRobot standards.</li>
+              <li><strong>Action Chunking with Transformers (ACT):</strong> Deployed flow-based action prediction for smooth pick-and-place trajectories.</li>
+            </ul>
+          </div>
+
+          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-images text-primary"></i> Robot Arm and Manipulation Setup</h3>
+            <div class="portfolio-details-slider swiper init-swiper my-3">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 3500
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/lerobot/so101.webp" alt="SO-101 Robot Arm Platform" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/lerobot/so101-grasp.jpeg" alt="SO-101 Grasping Execution" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+              </div>
+              <div class="swiper-pagination mt-2"></div>
+            </div>
+          </div>
+
+          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-trophy text-primary"></i> Benchmarks and Results</h3>
+            <p>
+              The intent-guided policy achieved reliable command parsing and physical execution:
+            </p>
+
+            <div class="impact-stat-grid">
+              <div class="stat-card">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Intent F1 Score</div>
+                <div class="stat-desc">Accurate semantic grounding of user commands</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">170</div>
+                <div class="stat-label">Curated Episodes</div>
+                <div class="stat-desc">Multimodal teleoperated demonstration dataset</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">SO-101</div>
+                <div class="stat-label">Physical Hardware</div>
+                <div class="stat-desc">Validated on real 6-DOF robotic manipulator</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Hugging Face</div>
+                <div class="stat-label">Open Community</div>
+                <div class="stat-desc">Standard LeRobot dataset format</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-secondary">Hugging Face LeRobot</span>
+              <span class="badge bg-secondary">PyTorch</span>
+              <span class="badge bg-secondary">BERT NLP</span>
+              <span class="badge bg-secondary">Action Chunking (ACT)</span>
+              <span class="badge bg-secondary">SO-101 Manipulator</span>
+              <span class="badge bg-secondary">Teleoperation</span>
+            </div>
+
+            <div class="resource-link-grid">
+              <a href="MeanFlow.html" class="resource-link-card">
+                <i class="bi bi-activity"></i>
+                <div>
+                  <div>MeanFlow 1-Step Policy</div>
+                  <small class="text-muted">Fast flow matching generative policy</small>
+                </div>
+              </a>
+              <a href="https://youtu.be/5bHl2b14s9s" target="_blank" class="resource-link-card">
+                <i class="bi bi-play-circle"></i>
+                <div>
+                  <div>YouTube Video Demo</div>
+                  <small class="text-muted">Watch physical robot arm execution</small>
+                </div>
+              </a>
+              <a href="https://huggingface.co/datasets/Farhad-Hoseyni/so100_teleop" target="_blank" class="resource-link-card">
+                <i class="bi bi-database"></i>
+                <div>
+                  <div>Hugging Face Dataset</div>
+                  <small class="text-muted">Explore 170-episode dataset</small>
+                </div>
+              </a>
+              <a href="../index.html#projects" class="resource-link-card">
+                <i class="bi bi-grid-3x3-gap"></i>
+                <div>
+                  <div>Back to All Projects</div>
+                  <small class="text-muted">Explore complete portfolio</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Contact</h3>
+      <p>Feel free to reach out for research collaboration or engineering inquiries:</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:farhadhosini60@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-hoseyni/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://t.me/mamdaliof" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/mamdaliof" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Farhad Hoseyni</strong> <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

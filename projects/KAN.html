@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJZSNX0CWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EJZSNX0CWV');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Kolmogorov-Arnold Networks (KAN) Review - Farhad Hoseyni</title>
+  <meta name="description" content="Comprehensive review and benchmark of Kolmogorov-Arnold Networks (KAN), analyzing edge-learnable spline activations, U-KAN, and interpretability." />
+  <meta name="keywords" content="Kolmogorov-Arnold Networks, KAN, U-KAN, Fast-KAN, Deep Learning, Interpretability, Splines, Neural Networks" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="portfolio-details-page">
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">KAN Review</h1>
+      </a>
+      <nav id="navmenu" class="navmenu" style="background-color: #333">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <section id="hero" class="section light-background">
+      <div class="page-title light-background">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray">Kolmogorov-Arnold Networks (KAN) Review</h1>
+          <p class="mx-auto" style="max-width: 800px;">
+            Review, Implementations and Benchmarks of Edge-Learnable Spline Architectures
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="single-column-wrapper">
+
+          <!-- Project Overview Card -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-2 text-primary"></i> Research and Review Overview</h3>
+            <p>
+              <strong>Kolmogorov-Arnold Networks (KAN)</strong> represent an alternative to traditional Multi-Layer Perceptrons (MLPs). Based on the Kolmogorov-Arnold representation theorem, KANs replace fixed activation functions on nodes with learnable 1D univariate spline functions parameterized on edges.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-journal-text"></i> Pre-Print Review</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-diagram-3"></i> B-Splines & Radial Basis</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> U-KAN Medical Segmentation</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-eye"></i> Symbolic Interpretability</span>
+            </div>
+          </div>
+
+          <!-- Section 1: The Challenge -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
+            <p>
+              Standard deep neural networks rely on linear weight combinations followed by fixed activations (like ReLU or GELU). While effective, they act as uninterpretable black boxes and require large parameter counts to approximate non-linear mathematical physical laws accurately.
+            </p>
+          </div>
+
+          <!-- Section 2: The Solution & Technical Approach -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering & Review Approach</h3>
+            <p>
+              In this comprehensive review, I implemented, benchmarked, and evaluated KAN variants across multiple datasets:
+            </p>
+            <ul>
+              <li><strong>Spline Formulations:</strong> Evaluated B-splines, Radial Basis Function (RBF) KANs, and Fractional KANs for continuous function fitting and parameter efficiency.</li>
+              <li><strong>U-KAN for Medical Segmentation:</strong> Implemented KAN layers inside U-Net architectures, substituting standard bottleneck linear projections with learnable spline channels for biomedical imaging.</li>
+              <li><strong>Symbolic Pruning and Interpretability:</strong> Demonstrated how KAN edge activations can be pruned to extract exact closed-form algebraic equations from trained networks.</li>
+            </ul>
+          </div>
+
+          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-images text-primary"></i> KAN Architecture and Spline Dynamics</h3>
+            <div class="portfolio-details-slider swiper init-swiper my-3">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 3500
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/kan/KAN_U-KAN.webp" alt="U-KAN Architecture Diagram" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/kan/KAN_theme.webp" alt="KAN Edge Activation Graph" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+              </div>
+              <div class="swiper-pagination mt-2"></div>
+            </div>
+          </div>
+
+          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-trophy text-primary"></i> Key Review Insights</h3>
+            <p>
+              The study evaluated KAN scaling, convergence speed, and symbolic recovery across diverse problems:
+            </p>
+
+            <div class="impact-stat-grid">
+              <div class="stat-card">
+                <div class="stat-number">Edge Splines</div>
+                <div class="stat-label">Learnable Activations</div>
+                <div class="stat-desc">Replaces rigid node activations with flexible 1D curves</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Symbolic</div>
+                <div class="stat-label">Equation Recovery</div>
+                <div class="stat-desc">Enables direct algebraic formula extraction from weights</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">U-KAN</div>
+                <div class="stat-label">Biomedical Segmentation</div>
+                <div class="stat-desc">Parameter-efficient bottleneck for medical imagery</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Survey</div>
+                <div class="stat-label">Benchmark Study</div>
+                <div class="stat-desc">Systematic comparison of 6+ KAN variants</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-secondary">PyTorch</span>
+              <span class="badge bg-secondary">Kolmogorov-Arnold Networks</span>
+              <span class="badge bg-secondary">Fast-KAN</span>
+              <span class="badge bg-secondary">U-KAN</span>
+              <span class="badge bg-secondary">B-Spline Interpolation</span>
+              <span class="badge bg-secondary">Symbolic Regression</span>
+            </div>
+
+            <div class="resource-link-grid">
+              <a href="ClassAgnosticCounting.html" class="resource-link-card">
+                <i class="bi bi-bounding-box-circles"></i>
+                <div>
+                  <div>Counting & MoCA PEFT</div>
+                  <small class="text-muted">Gaussian splatting & DINOv2</small>
+                </div>
+              </a>
+              <a href="YoDINO.html" class="resource-link-card">
+                <i class="bi bi-shield-check"></i>
+                <div>
+                  <div>YoDINO Foundation Vision</div>
+                  <small class="text-muted">Parameter-efficient anomaly AI</small>
+                </div>
+              </a>
+              <a href="../index.html#projects" class="resource-link-card">
+                <i class="bi bi-grid-3x3-gap"></i>
+                <div>
+                  <div>Back to All Projects</div>
+                  <small class="text-muted">Explore complete portfolio</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Contact</h3>
+      <p>Feel free to reach out for research collaboration or engineering inquiries:</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:farhadhosini60@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-hoseyni/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://t.me/mamdaliof" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/mamdaliof" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Farhad Hoseyni</strong> <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

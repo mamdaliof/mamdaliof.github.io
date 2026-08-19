@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJZSNX0CWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EJZSNX0CWV');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Smartory Labs Dental AI & Clinical Assistant - Farhad Hoseyni</title>
+  <meta name="description"
+    content="Smartory Labs - Clinical assistant tools for automated dental radiography diagnosis, patient profiling, and the AugmenTory framework." />
+  <meta name="keywords"
+    content="Dental AI, Medical Imaging, Computer Vision, Smartory Labs, AugmenTory, X-ray Segmentation, Deep Learning" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="portfolio-details-page">
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Smartory Labs Dental AI</h1>
+      </a>
+      <nav id="navmenu" class="navmenu" style="background-color: #333">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">Dental AI
+            Diagnostic Assistant & Clinical Tools</h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            AI and Computer Vision Engineer at Smartory Labs
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="single-column-wrapper">
+
+          <!-- Role Overview Card -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-activity text-primary"></i> Role and Mission Overview</h3>
+            <p>
+              At <strong>Smartory Labs</strong>, clinical AI tools were engineered for automated dental radiograph
+              diagnosis, at-home treatment follow-up, and daily oral hygiene monitoring using smartphone cameras.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-calendar3"></i> Mar. 2023 to Sep.
+                2024</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-geo-alt"></i> Istanbul, Turkey</span>
+            </div>
+          </div>
+
+          <!-- Interactive Sub-Project Navigation Tabs -->
+          <div class="subproject-tab-nav">
+            <button class="subproject-tab-btn active" data-tab-target="tab-dental-diagnostic">
+              <i class="bi bi-hospital"></i> AI Diagnostic Assistant
+            </button>
+            <button class="subproject-tab-btn" data-tab-target="tab-dental-profiling">
+              <i class="bi bi-phone"></i> Daily Hygiene &amp; Profiling
+            </button>
+            <button class="subproject-tab-btn" data-tab-target="tab-dental-augmentory">
+              <i class="bi bi-bounding-box"></i> AugmenTory Framework
+            </button>
+          </div>
+
+          <!-- SUB-PROJECT PANE 1: AI Diagnostic Agent -->
+          <div id="tab-dental-diagnostic" class="subproject-tab-pane active">
+            <div class="project-section-block">
+              <h3><i class="bi bi-shield-plus text-primary"></i> Automated Dental Radiograph Diagnosis</h3>
+
+              <h5 class="fw-bold text-dark mt-3">The Challenge</h5>
+              <p>
+                Subtle early-stage cavities, hidden restorations, and overlapping anatomy in dental radiographs often
+                present significant diagnostic challenges during rapid chairside evaluation.
+              </p>
+
+              <h5 class="fw-bold text-dark mt-3">The Solution and System Architecture</h5>
+              <p>
+                A two-stage deep learning diagnostic pipeline was engineered: an initial model detects individual teeth
+                and update their profile in the application, after which a secondary model
+                crops each tooth to diagnose defects. Diagnostic flags are generated for subtle
+                abnormalities, providing clinicians with an automated chairside second opinion.
+              </p>
+
+              <!-- Interactive Before / After Image Comparison Slider -->
+              <div class="my-4">
+                <div class="image-compare-container" id="dental-compare-container">
+                  <!-- Before (Right side / Original image) -->
+                  <img id="dental-img-base" src="../assets/img/projects/dental/dental_theme.webp"
+                    alt="Dental Radiograph Original (Before)" loading="lazy" />
+
+                  <!-- After (Left side / AI Detection hover overlay) -->
+                  <div class="image-compare-overlay" id="dental-compare-overlay">
+                    <img id="dental-img-overlay" src="../assets/img/projects/dental/dental_theme_hover.webp"
+                      alt="Dental AI Detections (After)" loading="lazy" />
+                  </div>
+
+                  <!-- Badges -->
+                  <span class="image-compare-badge left">AI Detection (After)</span>
+                  <span class="image-compare-badge right">Original (Before)</span>
+
+                  <!-- Handle & Range Slider Input -->
+                  <div class="image-compare-handle" id="dental-compare-handle" style="left: 35%;">
+                    <i class="bi bi-arrows-expand" style="transform: rotate(45deg);"></i>
+                  </div>
+                  <input type="range" min="0" max="100" value="35" class="image-compare-slider"
+                    id="dental-compare-slider" aria-label="Compare original and AI detection" />
+                </div>
+
+              </div>
+
+              <!-- Stat Badges -->
+              <div class="impact-stat-grid">
+                <div class="stat-card">
+                  <div class="stat-number">60%+</div>
+                  <div class="stat-label">Hidden Cavity Catch</div>
+                  <div class="stat-desc">Detects subtle interproximal cavities and restorations</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">&gt; 90%</div>
+                  <div class="stat-label">Automated Profiling Accuracy</div>
+                  <div class="stat-desc">Update tooth with every new image</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">Instant</div>
+                  <div class="stat-label">Chairside Output</div>
+                  <div class="stat-desc">Generates complete radiographic report in seconds</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-PROJECT PANE 2: Daily Hygiene & Smart Profiling -->
+          <div id="tab-dental-profiling" class="subproject-tab-pane">
+            <div class="project-section-block">
+              <h3><i class="bi bi-phone text-primary"></i> Smartphone Hygiene Monitoring and Patient Profiling</h3>
+
+              <h5 class="fw-bold text-dark mt-3">The Challenge</h5>
+              <p>
+                Post-treatment follow-up and preventative oral hygiene tracking between clinical appointments have
+                traditionally been hindered by arbitrary camera angles, inconsistent lighting, and lack of continuous
+                monitoring tools.
+              </p>
+
+              <h5 class="fw-bold text-dark mt-3">The Solution and System Architecture</h5>
+              <p>
+                A mobile computer vision pipeline was developed alongside a custom-designed physical smartphone holder
+                to standardize camera alignment and illumination during at-home imaging. The system was designed for
+                treatment follow-up and daily oral hygiene monitoring, allowing longitudinal patient profiles to be
+                tracked and updated automatically.
+              </p>
+
+              <!-- Stat Badges -->
+              <div class="impact-stat-grid">
+                <div class="stat-card">
+                  <div class="stat-number">Daily</div>
+                  <div class="stat-label">Hygiene Monitoring</div>
+                  <div class="stat-desc">Continuous post-treatment tracking between visits</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">Hardware</div>
+                  <div class="stat-label">Custom Phone Holder</div>
+                  <div class="stat-desc">Standardized camera alignment and illumination</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">Automated</div>
+                  <div class="stat-label">Patient Profiling</div>
+                  <div class="stat-desc">Structured historical tracking for clinician review</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SUB-PROJECT PANE 3: AugmenTory Framework -->
+          <div id="tab-dental-augmentory" class="subproject-tab-pane">
+            <div class="project-section-block">
+              <h3><i class="bi bi-bounding-box text-primary"></i> AugmenTory Open-Source Polygon Library</h3>
+
+              <h5 class="fw-bold text-dark mt-3">The Challenge</h5>
+              <p>
+                Instance segmentation models require extensive data augmentation, yet traditional raster mask tools
+                consume excessive memory and introduce substantial throughput bottlenecks during high-resolution dental
+                imaging training.
+              </p>
+
+              <h5 class="fw-bold text-dark mt-3">The Solution and System Architecture</h5>
+              <p>
+                <strong>AugmenTory</strong> was conceived and released as an open-source Python library for native
+                vector polygon transformations. By executing geometric calculations directly on coordinate vertices
+                instead of pixel masks, spatial memory overhead was reduced to 1.2% while accelerating training batch
+                generation by 1.7x.
+              </p>
+
+              <!-- Visual Transformation Flow: Original vs Augmented & Cropped -->
+              <div class="my-4">
+                <h6 class="fw-bold text-dark mb-2"><i class="bi bi-diagram-3-fill text-primary"></i> Vector Polygon Augmentation &amp; Crop Pipeline:</h6>
+                
+                <div class="transform-flow-grid">
+                  <!-- Stage 1: Original Image -->
+                  <div class="transform-card original-card">
+                    <div class="transform-card-header">
+                      <span class="badge bg-primary">Stage 1: Raw Radiograph</span>
+                      <small class="text-primary fw-bold">Original</small>
+                    </div>
+                    <div class="transform-card-img">
+                      <img src="../assets/img/projects/augmentory/AugmenTory Dental 1.webp" alt="AugmenTory Dental Original Annotations" loading="lazy" />
+                    </div>
+                    <div class="fw-semibold text-dark small mb-1">Multi-Object Ground Truth</div>
+                    <div class="transform-card-desc">
+                      Full field-of-view with raw vector polygon annotations for restorations (<span class="text-primary fw-bold">blue</span>) and caries (<span class="text-danger fw-bold">red</span>).
+                    </div>
+                  </div>
+
+                  <!-- Arrow Connector -->
+                  <div class="flow-arrow-col">
+                    <i class="bi bi-arrow-right-circle-fill"></i>
+                  </div>
+
+                  <!-- Stage 2: Augmented Crop 1 -->
+                  <div class="transform-card">
+                    <div class="transform-card-header">
+                      <span class="badge bg-secondary">Stage 2: Affine Transform</span>
+                      <small class="text-muted fw-bold">Augmented</small>
+                    </div>
+                    <div class="transform-card-img">
+                      <img src="../assets/img/projects/augmentory/AugmenTory Dental 2.webp" alt="AugmenTory Dental Affine Rotation & Crop" loading="lazy" />
+                    </div>
+                    <div class="fw-semibold text-dark small mb-1">Rotation, Scale &amp; Crop</div>
+                    <div class="transform-card-desc">
+                      Vector vertices recalculated directly in coordinate space under rotation and translation, automatically clipping boundaries without pixel mask rasterization.
+                    </div>
+                  </div>
+
+                  <!-- Stage 3: Augmented Crop 2 -->
+                  <div class="transform-card">
+                    <div class="transform-card-header">
+                      <span class="badge bg-secondary">Stage 3: Sub-Pixel Crop</span>
+                      <small class="text-muted fw-bold">Augmented</small>
+                    </div>
+                    <div class="transform-card-img">
+                      <img src="../assets/img/projects/augmentory/AugmenTory Dental 3.webp" alt="AugmenTory Dental RoI Tooth Crop" loading="lazy" />
+                    </div>
+                    <div class="fw-semibold text-dark small mb-1">Isolated Tooth Region (RoI)</div>
+                    <div class="transform-card-desc">
+                      High-resolution localized zoom preserving exact sub-pixel polygon contours and eliminating degenerate sliver vertices.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stat Badges -->
+              <div class="impact-stat-grid">
+                <div class="stat-card">
+                  <div class="stat-number">98.8%</div>
+                  <div class="stat-label">Memory Overhead Cut</div>
+                  <div class="stat-desc">Operates purely on vector polygon vertices</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">1.7x</div>
+                  <div class="stat-label">Faster Training Pipelines</div>
+                  <div class="stat-desc">Eliminates pixel-mask rasterization bottlenecks</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">Open Source</div>
+                  <div class="stat-label">Python Library</div>
+                  <div class="stat-desc">Publicly available on PyPI &amp; GitHub</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technologies & Related Links Block -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies and Resources</h3>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-secondary">PyTorch</span>
+              <span class="badge bg-secondary">CNN Instance Segmentation</span>
+              <span class="badge bg-secondary">YOLOv8</span>
+              <span class="badge bg-secondary">Qwen</span>
+              <span class="badge bg-secondary">LLMs &amp; Multimodal AI</span>
+              <span class="badge bg-secondary">AugmenTory</span>
+              <span class="badge bg-secondary">OpenCV</span>
+              <span class="badge bg-secondary">FastAPI</span>
+              <span class="badge bg-secondary">Medical Imaging</span>
+            </div>
+
+            <div class="resource-link-grid">
+              <a href="AugmenTory.html" class="resource-link-card">
+                <i class="bi bi-bounding-box"></i>
+                <div>
+                  <div>AugmenTory Deep-Dive</div>
+                  <small class="text-muted">Explore the polygon framework</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Contact</h3>
+      <p>Feel free to reach out for research collaboration or engineering inquiries:</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:farhadhosini60@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-hoseyni/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://t.me/mamdaliof" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/mamdaliof" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Farhad Hoseyni</strong> <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dynamic Network Particle Graph Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const canvas = document.getElementById('network-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      let width, height;
+      let particles = [];
+      const particleCount = 83;
+      const maxDistance = 173;
+      const dotOpacity = 0.28;
+      const lineOpacity = 0.31;
+      let mouse = { x: null, y: null, radius: 150 };
+
+      // Dark shades compatible with website theme (#545454 heading, #b8a07e accent, #333 header)
+      const brandPalette = {
+        dots: ['rgba(84, 84, 84, ', 'rgba(51, 51, 51, ', 'rgba(184, 160, 126, '],
+        line: '84, 84, 84',
+        mouseLine: '184, 160, 126'
+      };
+
+      function resize() {
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+
+      canvas.parentElement.addEventListener('mousemove', function (e) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      canvas.parentElement.addEventListener('mouseleave', function () {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.75;
+          this.vy = (Math.random() - 0.5) * 0.75;
+          this.radius = Math.random() * 2.2 + 1.8;
+          this.colorIndex = Math.floor(Math.random() * 3);
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+
+          if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const force = (mouse.radius - dist) / mouse.radius;
+              this.x -= (dx / dist) * force * 1.5;
+              this.y -= (dy / dist) * force * 1.5;
+            }
+          }
+        }
+
+        draw() {
+          const colorPrefix = brandPalette.dots[this.colorIndex];
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = colorPrefix + dotOpacity + ')';
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw connections between dots
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < maxDistance) {
+              const alpha = (1 - dist / maxDistance) * lineOpacity;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(${brandPalette.line}, ${alpha})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Draw connections to mouse cursor
+        if (mouse.x !== null && mouse.y !== null) {
+          for (let i = 0; i < particles.length; i++) {
+            const dx = mouse.x - particles[i].x;
+            const dy = mouse.y - particles[i].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const alpha = (1 - dist / mouse.radius) * lineOpacity * 1.4;
+              ctx.beginPath();
+              ctx.moveTo(mouse.x, mouse.y);
+              ctx.lineTo(particles[i].x, particles[i].y);
+              ctx.strokeStyle = `rgba(${brandPalette.mouseLine}, ${alpha})`;
+              ctx.lineWidth = 1.2;
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Update and draw particles
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      initParticles();
+      animate();
+    });
+
+    // Interactive Image Comparison Slider Logic
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.getElementById('dental-compare-container');
+      const overlay = document.getElementById('dental-compare-overlay');
+      const overlayImg = document.getElementById('dental-img-overlay');
+      const baseImg = document.getElementById('dental-img-base');
+      const slider = document.getElementById('dental-compare-slider');
+      const handle = document.getElementById('dental-compare-handle');
+
+      if (!container || !slider || !overlay || !overlayImg) return;
+
+      function syncImageWidth() {
+        if (baseImg) {
+          const width = baseImg.getBoundingClientRect().width;
+          overlayImg.style.width = width + 'px';
+        }
+      }
+
+      function updateCompare() {
+        const val = slider.value;
+        overlay.style.width = val + '%';
+        handle.style.left = val + '%';
+        syncImageWidth();
+      }
+
+      slider.addEventListener('input', updateCompare);
+      window.addEventListener('resize', syncImageWidth);
+      if (baseImg.complete) {
+        syncImageWidth();
+      } else {
+        baseImg.addEventListener('load', syncImageWidth);
+      }
+      updateCompare();
+    });
+  </script>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

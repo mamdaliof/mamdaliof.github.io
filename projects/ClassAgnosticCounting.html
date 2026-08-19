@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJZSNX0CWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EJZSNX0CWV');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Class-Agnostic Counting & MoCA PEFT - Farhad Hoseyni</title>
+  <meta name="description" content="2D Gaussian Splatting Class-Agnostic Counting (CARPK MAE 14.91) and MoCA Cognitive Screening via prompt-tuned DINOv2." />
+  <meta name="keywords" content="Class-Agnostic Counting, 2D Gaussian Splatting, DINOv2, MoCA, PEFT, Computer Vision, Deep Learning" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="portfolio-details-page">
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Counting & MoCA AI</h1>
+      </a>
+      <nav id="navmenu" class="navmenu" style="background-color: #333">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <section id="hero" class="section light-background">
+      <div class="page-title light-background">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray">Class-Agnostic Counting & MoCA Vision Screening</h1>
+          <p class="mx-auto" style="max-width: 800px;">
+            2D Gaussian Splatting Density Modeling and DINOv2 Parameter-Efficient Adaptation
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="single-column-wrapper">
+
+          <!-- Project Overview Card -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-bounding-box-circles text-primary"></i> Project Overview</h3>
+            <p>
+              This research explores foundational vision adaptation across two tasks: <strong>Class-Agnostic Counting (CAC)</strong>, which estimates counts of novel object categories using few visual exemplars, and <strong>Montreal Cognitive Assessment (MoCA) Screening</strong>, which analyzes hand-drawn clock tests for automated cognitive impairment detection.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-circle"></i> 2D Gaussian Splatting</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-eye"></i> DINOv2 Prompt Tuning</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-graph-up"></i> CARPK MAE 14.91</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-hospital"></i> Clinical MoCA Screening</span>
+            </div>
+          </div>
+
+          <!-- Section 1: The Challenge -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
+            <p>
+              Standard density-map counting models fail when object scales or categories change (for instance, counting microscopic cells versus vehicles). In cognitive screening, patient drawings have wide stylistic variations that confuse rigid rule-based systems, while training data is scarce.
+            </p>
+          </div>
+
+          <!-- Section 2: The Solution & Technical Approach -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <p>
+              I engineered density representation and prompt-tuning architectures:
+            </p>
+            <ul>
+              <li><strong>2D Gaussian Splatting for Counting:</strong> Replaced static isotropic Gaussian kernels with learnable 2D anisotropic Gaussian splats, capturing directional object orientations and reducing CARPK Mean Absolute Error (MAE) from 23.40 down to <strong>14.91</strong>.</li>
+              <li><strong>DINO Channel Bypass:</strong> Passed exemplar query tokens directly into intermediate attention layers without altering pretrained backbone features.</li>
+              <li><strong>Prompt-Tuned DINOv2 for MoCA:</strong> Fine-tuned soft prefix visual prompts on frozen DINOv2 encoders to evaluate drawing distortion markers with high diagnostic reliability.</li>
+            </ul>
+          </div>
+
+          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-images text-primary"></i> Gaussian Splatting and Interpretability</h3>
+            <div class="portfolio-details-slider swiper init-swiper my-3">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 3500
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/others/cac-gaussian-splat.jpg" alt="2D Gaussian Splatting Density Map" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/others/GradCam.webp" alt="GradCAM Attention Localization" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+              </div>
+              <div class="swiper-pagination mt-2"></div>
+            </div>
+          </div>
+
+          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-trophy text-primary"></i> Benchmarks and Counting Results</h3>
+            <p>
+              The Gaussian splatting formulation improved density localization and counting accuracy:
+            </p>
+
+            <div class="impact-stat-grid">
+              <div class="stat-card">
+                <div class="stat-number">14.91</div>
+                <div class="stat-label">CARPK Dataset MAE</div>
+                <div class="stat-desc">Substantial error reduction versus 23.40 baseline</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">2D Splats</div>
+                <div class="stat-label">Anisotropic Density</div>
+                <div class="stat-desc">Adaptive spatial orientation for crowded scenes</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">DINOv2</div>
+                <div class="stat-label">Prompt-Tuned MoCA</div>
+                <div class="stat-desc">Zero-shot feature transfer for cognitive screening</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Few-Shot</div>
+                <div class="stat-label">Class-Agnostic</div>
+                <div class="stat-desc">Generalizes to novel categories from 3 exemplars</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-secondary">PyTorch</span>
+              <span class="badge bg-secondary">2D Gaussian Splatting</span>
+              <span class="badge bg-secondary">DINOv2</span>
+              <span class="badge bg-secondary">Prompt Tuning</span>
+              <span class="badge bg-secondary">Class-Agnostic Counting</span>
+              <span class="badge bg-secondary">GradCAM</span>
+            </div>
+
+            <div class="resource-link-grid">
+              <a href="YoDINO.html" class="resource-link-card">
+                <i class="bi bi-shield-check"></i>
+                <div>
+                  <div>YoDINO Foundation Vision</div>
+                  <small class="text-muted">Parameter-efficient anomaly AI</small>
+                </div>
+              </a>
+              <a href="KAN.html" class="resource-link-card">
+                <i class="bi bi-diagram-2"></i>
+                <div>
+                  <div>KAN Networks Review</div>
+                  <small class="text-muted">Spline activation architectures</small>
+                </div>
+              </a>
+              <a href="../index.html#projects" class="resource-link-card">
+                <i class="bi bi-grid-3x3-gap"></i>
+                <div>
+                  <div>Back to All Projects</div>
+                  <small class="text-muted">Explore complete portfolio</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Contact</h3>
+      <p>Feel free to reach out for research collaboration or engineering inquiries:</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:farhadhosini60@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-hoseyni/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://t.me/mamdaliof" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/mamdaliof" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Farhad Hoseyni</strong> <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

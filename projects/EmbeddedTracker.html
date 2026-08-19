@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJZSNX0CWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EJZSNX0CWV');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>JIWY Embedded Vision Tracker - Farhad Hoseyni</title>
+  <meta name="description" content="JIWY - Altera DE10-Nano FPGA and ARM co-design, real-time 3D LUT color segmentation (12 ms), and 100 Hz PID servo tracking." />
+  <meta name="keywords" content="JIWY, Embedded Vision, FPGA, Altera DE10-Nano, ARM Cortex-A9, PID Control, Real-Time C++, University of Twente" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="portfolio-details-page">
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">JIWY Embedded Tracker</h1>
+      </a>
+      <nav id="navmenu" class="navmenu" style="background-color: #333">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <section id="hero" class="section light-background">
+      <div class="page-title light-background">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray">JIWY Embedded Vision & 2-Axis Servo Tracker</h1>
+          <p class="mx-auto" style="max-width: 800px;">
+            Altera DE10-Nano FPGA and ARM Co-Design, Real-Time 3D LUT Color Segmentation, and 100 Hz PID Control
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="single-column-wrapper">
+
+          <!-- Project Overview Card -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-cpu text-primary"></i> Project Overview</h3>
+            <p>
+              The <strong>JIWY Embedded Tracker</strong> is a pan-tilt robotic vision platform developed at the University of Twente (Robotics and Mechatronics Lab). It demonstrates low-level embedded software engineering, custom memory-mapped I/O, and hardware/software co-design to track moving targets with minimal latency.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-motherboard"></i> Altera DE10-Nano FPGA</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> ARM Cortex-A9 Core</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-speedometer2"></i> 100 Hz PID Servo Loop</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-code-slash"></i> Embedded C++ / Linux</span>
+            </div>
+          </div>
+
+          <!-- Section 1: The Challenge -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
+            <p>
+              Standard image segmentation in RGB color space is computationally heavy and sensitive to changing lighting. Running complex vision models on low-power embedded processors often causes frame drops and sluggish servo response.
+            </p>
+          </div>
+
+          <!-- Section 2: The Solution & Technical Approach -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <p>
+              I engineered an optimized embedded vision and motion control pipeline:
+            </p>
+            <ul>
+              <li><strong>3D Look-Up Table (LUT) Segmentation:</strong> Built a pre-computed 3D indexing table in YUV color space, processing camera frames in just <strong>12.05 ms</strong> with direct bounding-box centroid extraction.</li>
+              <li><strong>FPGA and ARM Co-Design:</strong> Connected the Linux userspace application to FPGA fabric registers via memory-mapped <code>/dev/mem</code> interfaces, controlling a hardware-enforced 20 kHz PWM driver.</li>
+              <li><strong>100 Hz PID Control with Hardware Safety:</strong> Tuned digital PID controllers with software angle limits and hardware watchdog monitors to prevent mechanical overshoot.</li>
+            </ul>
+          </div>
+
+          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-images text-primary"></i> JIWY Platform and Experimental Setup</h3>
+            <div class="portfolio-details-slider swiper init-swiper my-3">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 3500
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/embedded-tracker/JIWY.webp" alt="JIWY Pan-Tilt Platform" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/embedded-tracker/JIWY-Realsetup.png" alt="JIWY Real Experimental Hardware Setup" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+              </div>
+              <div class="swiper-pagination mt-2"></div>
+            </div>
+          </div>
+
+          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-trophy text-primary"></i> Embedded Benchmarks and Results</h3>
+            <p>
+              The co-design achieved fast frame processing and smooth target tracking:
+            </p>
+
+            <div class="impact-stat-grid">
+              <div class="stat-card">
+                <div class="stat-number">12.05 ms</div>
+                <div class="stat-label">Frame Time</div>
+                <div class="stat-desc">3D Look-Up Table color segmentation</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">100 Hz</div>
+                <div class="stat-label">PID Feedback Rate</div>
+                <div class="stat-desc">Low-latency pan-tilt target tracking</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">20 kHz</div>
+                <div class="stat-label">FPGA PWM Driver</div>
+                <div class="stat-desc">Hardware-enforced motor safety and silent drive</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">FPGA + ARM</div>
+                <div class="stat-label">Memory-Mapped I/O</div>
+                <div class="stat-desc">Direct hardware register control with zero OS lag</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-secondary">Altera DE10-Nano</span>
+              <span class="badge bg-secondary">ARM Cortex-A9</span>
+              <span class="badge bg-secondary">Embedded C++</span>
+              <span class="badge bg-secondary">3D LUT YUV</span>
+              <span class="badge bg-secondary">PWM Motor Driver</span>
+              <span class="badge bg-secondary">PID Servo Control</span>
+              <span class="badge bg-secondary">POSIX Threads</span>
+            </div>
+
+            <div class="resource-link-grid">
+              <a href="RELBot.html" class="resource-link-card">
+                <i class="bi bi-truck"></i>
+                <div>
+                  <div>RELBot Mobile Platform</div>
+                  <small class="text-muted">Real-time RTOS target tracking</small>
+                </div>
+              </a>
+              <a href="Go2.html" class="resource-link-card">
+                <i class="bi bi-compass"></i>
+                <div>
+                  <div>Unitree Go2 SLAM</div>
+                  <small class="text-muted">Quadruped LiDAR & Nav2 navigation</small>
+                </div>
+              </a>
+              <a href="../index.html#projects" class="resource-link-card">
+                <i class="bi bi-grid-3x3-gap"></i>
+                <div>
+                  <div>Back to All Projects</div>
+                  <small class="text-muted">Explore complete portfolio</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Contact</h3>
+      <p>Feel free to reach out for research collaboration or engineering inquiries:</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:farhadhosini60@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-hoseyni/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://t.me/mamdaliof" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/mamdaliof" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Farhad Hoseyni</strong> <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJZSNX0CWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EJZSNX0CWV');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Intracranial Hemorrhage Diagnosis & Triage AI - Farhad Hoseyni</title>
+  <meta name="description" content="APAC Research Group - Deep learning and fuzzy decision rules for intracranial hemorrhage detection, segmentation, and emergency CT triage." />
+  <meta name="keywords" content="Intracranial Hemorrhage, ICH, CT scan, Deep Learning, ResNet50, Medical AI, Image Segmentation" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="portfolio-details-page">
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Brain Hemorrhage AI Project</h1>
+      </a>
+      <nav id="navmenu" class="navmenu" style="background-color: #333">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <section id="hero" class="section light-background">
+      <div class="page-title light-background">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray">Intracranial Hemorrhage Diagnosis & Emergency Triage AI</h1>
+          <p class="mx-auto" style="max-width: 800px;">
+            Deep Learning Research Engineer at APAC Research Group (Jul 2022 to Sep 2023)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="single-column-wrapper">
+
+          <!-- Role Overview Card -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-hospital text-primary"></i> Project and Role Overview</h3>
+            <p>
+              Intracranial hemorrhages (ICH) are medical emergencies where fast and accurate diagnosis is critical for patient care. At the <strong>APAC Research Group</strong>, I built deep learning models and fuzzy decision rules to classify, localize, and segment brain hemorrhages across non-contrast head CT scan series.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-calendar3"></i> Jul. 2022 to Sep. 2023</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-journal-check"></i> Peer-Reviewed Publication</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> ResNet50 & Fuzzy Decision Rules</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-sliders"></i> Interactive Slider</span>
+            </div>
+          </div>
+
+          <!-- Section 1: The Challenge -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
+            <p>
+              Emergency radiologists often review dozens of 3D CT slices per patient under strict time limits. Severe class imbalance (far fewer slices show bleeding than healthy tissue) and subtle lesion boundaries make automated triage difficult.
+            </p>
+          </div>
+
+          <!-- Section 2: Technical Approach & Solution -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-3 text-primary"></i> Technical Approach and Methods</h3>
+            <p>
+              To tackle severe data scarcity and class imbalance, I deployed self-supervised pre-training and modern generative AI techniques to learn robust anatomical representations, drastically reducing dependency on extensive manual annotation.
+            </p>
+            <p>
+              For clinical explainability and patient-level triage, I paired <strong>Grad-CAM visual heatmaps</strong> with <strong>fuzzy decision rules</strong> that aggregate slice-level predictions across the full 3D scan volume, giving radiologists interpretable visual rationale and near-zero false-negative triage safety.
+            </p>
+          </div>
+
+          <!-- Section 3: Interactive Before/After CT Scan Slider -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-sliders text-primary"></i> Interactive Lesion Segmentation</h3>
+            <p class="text-muted small mb-3">
+              Drag the horizontal slider below to compare the raw head CT slice (left) with the AI lesion segmentation mask (right):
+            </p>
+
+            <div class="ich-slider-wrapper position-relative mx-auto my-3" style="max-width: 600px; height: 380px; overflow: hidden; border-radius: 12px; border: 2px solid #e2e8f0; user-select: none;">
+              <!-- Before Image (Raw CT) -->
+              <img src="../assets/img/projects/ICH/ICH_theme.webp" alt="Raw CT Scan Slice" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" />
+              <!-- After Image Container (Segmented Mask) -->
+              <div id="ich-after-container" style="position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; border-right: 3px solid #0d6efd;">
+                <img src="../assets/img/projects/ICH/ICH_theme_hover.webp" alt="Segmented Hemorrhage Lesion" style="position: absolute; top: 0; left: 0; width: 600px; height: 380px; max-width: none; object-fit: cover;" />
+                <span class="badge bg-primary position-absolute top-0 start-0 m-2">AI Segmented</span>
+              </div>
+              <span class="badge bg-dark position-absolute top-0 end-0 m-2">Raw CT Scan</span>
+              <input type="range" id="ich-slider-range" min="0" max="100" value="50" style="position: absolute; bottom: 12px; left: 5%; width: 90%; z-index: 10; cursor: pointer;" />
+            </div>
+
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                const slider = document.getElementById('ich-slider-range');
+                const afterContainer = document.getElementById('ich-after-container');
+                if (slider && afterContainer) {
+                  slider.addEventListener('input', function() {
+                    afterContainer.style.width = this.value + '%';
+                  });
+                }
+              });
+            </script>
+          </div>
+
+          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-trophy text-primary"></i> Clinical Benchmarks and Results</h3>
+            <p>
+              The system achieved high sensitivity and specificity across test datasets:
+            </p>
+
+            <div class="impact-stat-grid">
+              <div class="stat-card">
+                <div class="stat-number">1.00</div>
+                <div class="stat-label">Patient Sensitivity</div>
+                <div class="stat-desc">Zero missed hemorrhage cases across the test cohort</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">0.94</div>
+                <div class="stat-label">Slice Sensitivity</div>
+                <div class="stat-desc">High sensitivity despite severe slice imbalance</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">0.91</div>
+                <div class="stat-label">Slice Specificity</div>
+                <div class="stat-desc">Low false-positive rate for reliable emergency triage</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">0.88</div>
+                <div class="stat-label">Patient Accuracy</div>
+                <div class="stat-desc">Multi-slice fuzzy decision accuracy</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Technologies & Related Deep-Dives -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-secondary">PyTorch</span>
+              <span class="badge bg-secondary">ResNet50</span>
+              <span class="badge bg-secondary">Fuzzy Decision Logic</span>
+              <span class="badge bg-secondary">DICOM / NIfTI</span>
+              <span class="badge bg-secondary">Medical Image Augmentation</span>
+              <span class="badge bg-secondary">Class Imbalance Bootstrapping</span>
+            </div>
+
+            <div class="resource-link-grid">
+              <a href="Dental.html" class="resource-link-card">
+                <i class="bi bi-activity"></i>
+                <div>
+                  <div>Dental AI Assistant</div>
+                  <small class="text-muted">Clinical dental radiograph AI</small>
+                </div>
+              </a>
+              <a href="YoDINO.html" class="resource-link-card">
+                <i class="bi bi-shield-check"></i>
+                <div>
+                  <div>YoDINO Foundation Vision</div>
+                  <small class="text-muted">Zero-annotation anomaly detection</small>
+                </div>
+              </a>
+              <a href="../index.html#experience" class="resource-link-card">
+                <i class="bi bi-arrow-left-circle"></i>
+                <div>
+                  <div>Return to Experience</div>
+                  <small class="text-muted">View all career roles</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Contact</h3>
+      <p>Feel free to reach out for research collaboration or engineering inquiries:</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:farhadhosini60@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-hoseyni/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://t.me/mamdaliof" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/mamdaliof" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Farhad Hoseyni</strong> <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

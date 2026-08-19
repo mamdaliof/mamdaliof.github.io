@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Image Cropper & Live Hero Preview</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- Cropper.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
+  
+  <style>
+    body {
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 24px 16px;
+    }
+    .tool-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card-panel {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+    .image-crop-wrapper {
+      max-height: 520px;
+      background: #090d16;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #image-to-crop {
+      max-width: 100%;
+      display: block;
+    }
+    /* Live Preview Banner */
+    .hero-preview-banner {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      border: 2px solid #3b82f6;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(248, 249, 250, 0.35), rgba(248, 249, 250, 0.50));
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1e293b;
+      text-shadow: 0 1px 3px rgba(255, 255, 255, 0.95);
+      margin-bottom: 8px;
+    }
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 600;
+      color: #334155;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
+    }
+    .btn-action {
+      font-weight: 600;
+      border-radius: 8px;
+      padding: 10px 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tool-container">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary">
+      <div>
+        <h2 class="fw-bold mb-1"><i class="bi bi-crop text-primary"></i> Interactive Image Cropping Studio</h2>
+        <p class="text-secondary mb-0">Crop any project image interactively and download the exact cropped output.</p>
+      </div>
+      <div class="d-flex gap-2">
+        <a href="projects/Dental.html" class="btn btn-outline-info btn-sm"><i class="bi bi-hospital"></i> View Dental Page</a>
+        <a href="projects/FraunhoferBattery.html" class="btn btn-outline-light btn-sm"><i class="bi bi-arrow-left"></i> View Fraunhofer Page</a>
+      </div>
+    </div>
+
+    <!-- Image Selection & Controls Row -->
+    <div class="card-panel">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-5">
+          <label class="form-label text-light fw-bold mb-1"><i class="bi bi-image"></i> Project Image Preset:</label>
+          <select id="select-image-preset" class="form-select bg-dark text-white border-secondary" onchange="changeImagePreset(this.value)">
+            <optgroup label="Dental Project (.webp &amp; .png)">
+              <option value="assets/img/projects/dental/dental_theme_hover.webp" selected>Dental AI Hover Overlay (dental_theme_hover.webp)</option>
+              <option value="assets/img/projects/dental/dental_theme.webp">Dental Original Radiograph (dental_theme.webp)</option>
+              <option value="assets/img/projects/dental/dental Pan.webp">Dental Panoramic (dental Pan.webp)</option>
+              <option value="assets/img/projects/dental/dental BW.webp">Dental Bitewing (dental BW.webp)</option>
+              <option value="assets/img/projects/dental/dental_theme_hover.png">Dental AI Hover (PNG)</option>
+              <option value="assets/img/projects/dental/dental_theme.png">Dental Original (PNG)</option>
+            </optgroup>
+            <optgroup label="Other Projects">
+              <option value="assets/img/projects/fraunhofer/fip-background.png">Fraunhofer Banner (fip-background.png)</option>
+              <option value="assets/img/projects/yodino/YoDINO-main.jpeg">YoDINO Main (YoDINO-main.jpeg)</option>
+              <option value="assets/img/projects/yodino/YoDINO-hover.jpeg">YoDINO Hover (YoDINO-hover.jpeg)</option>
+              <option value="assets/img/projects/lerobot/so101.webp">LeRobot SO-101 (so101.webp)</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="col-md-3">
+          <label class="form-label text-light fw-bold mb-1"><i class="bi bi-upload"></i> Or Upload (WebP / PNG / JPG):</label>
+          <input type="file" id="file-uploader" class="form-control form-control-sm bg-dark text-white border-secondary" accept=".webp, .png, .jpg, .jpeg, .jpf, image/*" onchange="handleFileUpload(event)">
+        </div>
+
+        <div class="col-md-2">
+          <label class="form-label text-light fw-bold mb-1"><i class="bi bi-aspect-ratio"></i> Aspect Ratio:</label>
+          <div class="btn-group w-100" role="group">
+            <button type="button" class="btn btn-outline-primary active" onclick="setRatio(NaN, this)">Free</button>
+            <button type="button" class="btn btn-outline-primary" onclick="setRatio(16/9, this)">16:9</button>
+            <button type="button" class="btn btn-outline-primary" onclick="setRatio(4/3, this)">4:3</button>
+            <button type="button" class="btn btn-outline-primary" onclick="setRatio(1, this)">1:1</button>
+          </div>
+        </div>
+
+        <div class="col-md-2 text-md-end mt-md-4">
+          <button class="btn btn-secondary btn-sm me-1" onclick="cropper.reset()"><i class="bi bi-arrow-counterclockwise"></i> Reset</button>
+          <button class="btn btn-primary btn-action" onclick="downloadCropped()"><i class="bi bi-download"></i> Save</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Cropper Area -->
+    <div class="card-panel">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold text-light mb-0"><i class="bi bi-bounding-box"></i> 1. Drag, Pan &amp; Resize Crop Area</h5>
+        <span class="text-secondary small">Supports zoom &amp; rotation</span>
+      </div>
+      <div class="image-crop-wrapper">
+        <img id="image-to-crop" src="assets/img/projects/dental/dental_theme_hover.png" alt="Image to crop">
+      </div>
+    </div>
+
+    <!-- Live Cropped Preview -->
+    <div class="card-panel">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h5 class="fw-bold text-light mb-0"><i class="bi bi-eye"></i> 2. Cropped Image Result Preview</h5>
+        <span class="badge bg-success">Live Output</span>
+      </div>
+      <div class="text-center p-3" style="background: #090d16; border-radius: 8px; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+        <img id="cropped-result-img" src="" alt="Cropped Preview" style="max-width: 100%; max-height: 400px; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+      </div>
+      <div class="mt-3 text-secondary small">
+        <i class="bi bi-info-circle"></i> Once you click <strong>"Download"</strong>, save or replace your target file (e.g. at <code>assets/img/projects/dental/dental_theme_hover.webp</code> or <code>.png</code>).
+      </div>
+    </div>
+  </div>
+
+  <!-- Cropper.js JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+  <script>
+    let cropper;
+    const image = document.getElementById('image-to-crop');
+    const resultImg = document.getElementById('cropped-result-img');
+    const selectPreset = document.getElementById('select-image-preset');
+
+    function initCropper() {
+      if (cropper) cropper.destroy();
+      cropper = new Cropper(image, {
+        viewMode: 1,
+        dragMode: 'move',
+        autoCropArea: 0.95,
+        restore: false,
+        guides: true,
+        center: true,
+        highlight: true,
+        cropBoxMovable: true,
+        cropBoxResizable: true,
+        toggleDragModeOnDblclick: false,
+        crop: function(event) {
+          updateLivePreview();
+        }
+      });
+    }
+
+    image.addEventListener('load', function() {
+      initCropper();
+    });
+
+    if (image.complete) {
+      initCropper();
+    }
+
+    function handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          changeImagePreset(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function changeImagePreset(src) {
+      if (cropper) {
+        try {
+          cropper.destroy();
+          cropper = null;
+        } catch (e) {}
+      }
+      image.src = src;
+      image.onload = function() {
+        initCropper();
+      };
+      if (image.complete) {
+        initCropper();
+      }
+    }
+
+    function setRatio(ratio, btn) {
+      if (!cropper) return;
+      cropper.setAspectRatio(ratio);
+      document.querySelectorAll('.btn-group .btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    function updateLivePreview() {
+      if (!cropper) return;
+      const canvas = cropper.getCroppedCanvas({
+        maxWidth: 2000,
+        maxHeight: 2000,
+        fillColor: '#ffffff'
+      });
+      if (canvas && resultImg) {
+        resultImg.src = canvas.toDataURL('image/png');
+      }
+    }
+
+    function downloadCropped() {
+      if (!cropper) return;
+      const canvas = cropper.getCroppedCanvas({
+        fillColor: '#ffffff'
+      });
+      if (!canvas) return;
+
+      const currentSrc = selectPreset.value;
+      let filename = currentSrc.substring(currentSrc.lastIndexOf('/') + 1) || 'cropped-image.webp';
+      filename = filename.replace(/\.(png|jpg|jpeg|jpf)$/i, '.webp');
+
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/webp', 0.92);
+      link.click();
+    }
+  </script>
+</body>
+</html>

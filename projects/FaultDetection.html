@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJZSNX0CWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EJZSNX0CWV');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Machine Learning Industrial Fault Detection - Farhad Hoseyni</title>
+  <meta name="description" content="Industrial Fault Detection - Vibration signal processing, FFT and Wavelet decomposition, Random Forest, and SVM on CWRU bearing dataset." />
+  <meta name="keywords" content="Fault Detection, Predictive Maintenance, Vibration Analysis, FFT, Machine Learning, Signal Processing, CWRU" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="portfolio-details-page">
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Fault Detection AI</h1>
+      </a>
+      <nav id="navmenu" class="navmenu" style="background-color: #333">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <section id="hero" class="section light-background">
+      <div class="page-title light-background">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray">Machine Learning Industrial Fault Detection</h1>
+          <p class="mx-auto" style="max-width: 800px;">
+            Vibration Signal Processing, FFT and Wavelet Feature Extraction, and Predictive Maintenance Classifiers
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="single-column-wrapper">
+
+          <!-- Project Overview Card -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-activity text-primary"></i> Project Overview</h3>
+            <p>
+              In manufacturing and mechanical systems, early detection of bearing faults, gearbox damage, and motor wear prevents costly downtime. This project implements a condition monitoring pipeline that analyzes accelerometer vibrations using time-frequency feature engineering and machine learning classifiers.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-activity"></i> Vibration Signal Processing</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-soundwave"></i> FFT & Wavelet Transform</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-diagram-3"></i> Random Forest & SVM</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-database"></i> CWRU Bearing Dataset</span>
+            </div>
+          </div>
+
+          <!-- Section 1: The Challenge -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
+            <p>
+              Raw accelerometer data collected in active factories contains heavy harmonic background noise, changing loads, and non-stationary frequencies that obscure early micro-crack signatures.
+            </p>
+          </div>
+
+          <!-- Section 2: The Solution & Technical Approach -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <p>
+              I engineered an end-to-end predictive maintenance pipeline:
+            </p>
+            <ul>
+              <li><strong>Multi-Domain Feature Extraction:</strong> Computed time-domain statistical moments (kurtosis, skewness, crest factor) alongside Fast Fourier Transform (FFT) spectral energy peaks and Continuous Wavelet Transform (CWT) scalograms.</li>
+              <li><strong>Machine Learning Classifiers:</strong> Trained and benchmarked Random Forest, Support Vector Machines (SVM), and Gradient Boosting models, accurately identifying inner race, outer race, and ball bearing fault severities.</li>
+              <li><strong>Edge Threshold Monitoring:</strong> Embedded decision rules capable of running on lightweight industrial controllers and edge gateways.</li>
+            </ul>
+          </div>
+
+          <!-- Section 3: Visual Showcase / Image Showcase -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-images text-primary"></i> Vibration Analysis and Classification Dashboard</h3>
+            <div class="project-media-container my-3">
+              <img src="../assets/img/projects/others/fault-detection-dashboard.jpg" alt="Vibration Signal FFT and Fault Detection Classifier Dashboard" loading="lazy" />
+            </div>
+          </div>
+
+          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-trophy text-primary"></i> Diagnostic Accuracy and Results</h3>
+            <p>
+              The multi-domain feature pipeline achieved high diagnostic precision on standardized benchmarks:
+            </p>
+
+            <div class="impact-stat-grid">
+              <div class="stat-card">
+                <div class="stat-number">98.6%</div>
+                <div class="stat-label">CWRU Fault Accuracy</div>
+                <div class="stat-desc">Identifies bearing fault types and severities accurately</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Early Catch</div>
+                <div class="stat-label">Predictive Alerts</div>
+                <div class="stat-desc">Detects micro-wear before mechanical failure occurs</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">FFT + CWT</div>
+                <div class="stat-label">Time-Frequency Hybrid</div>
+                <div class="stat-desc">Effective noise rejection and harmonic decomposition</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Low Compute</div>
+                <div class="stat-label">Edge Ready</div>
+                <div class="stat-desc">Runs efficiently on low-power industrial hardware</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-secondary">Python</span>
+              <span class="badge bg-secondary">Scipy / NumPy</span>
+              <span class="badge bg-secondary">Scikit-Learn</span>
+              <span class="badge bg-secondary">FFT Spectral Analysis</span>
+              <span class="badge bg-secondary">Wavelet Transform</span>
+              <span class="badge bg-secondary">Condition Monitoring</span>
+            </div>
+
+            <div class="resource-link-grid">
+              <a href="AgenticAI.html" class="resource-link-card">
+                <i class="bi bi-cpu"></i>
+                <div>
+                  <div>Agentic AI Systems</div>
+                  <small class="text-muted">Autonomous LLM tool orchestration</small>
+                </div>
+              </a>
+              <a href="FraunhoferBattery.html" class="resource-link-card">
+                <i class="bi bi-building-gear"></i>
+                <div>
+                  <div>Fraunhofer Industrial AI</div>
+                  <small class="text-muted">Quality inspection robotics</small>
+                </div>
+              </a>
+              <a href="../index.html#projects" class="resource-link-card">
+                <i class="bi bi-grid-3x3-gap"></i>
+                <div>
+                  <div>Back to All Projects</div>
+                  <small class="text-muted">Explore complete portfolio</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Contact</h3>
+      <p>Feel free to reach out for research collaboration or engineering inquiries:</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:farhadhosini60@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-hoseyni/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://t.me/mamdaliof" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/mamdaliof" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Farhad Hoseyni</strong> <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

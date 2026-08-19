@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJZSNX0CWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EJZSNX0CWV');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Unitree Go2 Quadruped LiDAR/Visual SLAM - Farhad Hoseyni</title>
+  <meta name="description" content="Unitree Go2 Quadruped Robot - Fast-LIO2, Point-LIO LiDAR SLAM, Nav2 3D costmaps, and autonomous terrain navigation." />
+  <meta name="keywords" content="Unitree Go2, Quadruped SLAM, Fast-LIO2, Point-LIO, LiDAR SLAM, Nav2, Autonomous Robotics, ROS2" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="portfolio-details-page">
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">Unitree Go2 SLAM</h1>
+      </a>
+      <nav id="navmenu" class="navmenu" style="background-color: #333">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title -->
+    <section id="hero" class="section light-background">
+      <div class="page-title light-background">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray">Unitree Go2 Quadruped LiDAR & Visual SLAM</h1>
+          <p class="mx-auto" style="max-width: 800px;">
+            Fast-LIO2 and Point-LIO LiDAR Odometry, Nav2 3D Elevation Costmaps, and Multi-Sensor Fusion
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="single-column-wrapper">
+
+          <!-- Project Overview Card -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-compass text-primary"></i> Project Overview</h3>
+            <p>
+              The <strong>Unitree Go2</strong> is an agile quadruped robot platform. In this project, I implemented low-drift Simultaneous Localization and Mapping (SLAM) and autonomous path planning across challenging indoor and outdoor 3D environments.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-robot"></i> Unitree Go2 Quadruped</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-geo-alt"></i> Fast-LIO2 & Point-LIO</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-map"></i> ROS2 Nav2 Costmaps</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-camera"></i> Intel RealSense Depth + IMU</span>
+            </div>
+          </div>
+
+          <!-- Section 1: The Challenge -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
+            <p>
+              Legged robots experience sharp body oscillations during trotting and stair climbing. Standard 2D SLAM and simple visual odometry quickly drift or fail completely when traversing uneven, unpaved, or low-texture terrain.
+            </p>
+          </div>
+
+          <!-- Section 2: The Solution & Technical Approach -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <p>
+              I deployed a tightly-coupled direct LiDAR-inertial SLAM pipeline:
+            </p>
+            <ul>
+              <li><strong>Fast-LIO2 and Point-LIO:</strong> Directly registered raw 3D LiDAR points with high-rate IMU measurements via an incremental k-d tree (ikd-Tree), eliminating feature extraction bottlenecks and keeping drift under <strong>0.15 meters over 100 meters</strong> of travel.</li>
+              <li><strong>Nav2 3D Elevation Mapping:</strong> Converted dense point clouds into 2.5D elevation grid maps to calculate traversability gradients, letting the quadruped navigate steps and slopes safely.</li>
+              <li><strong>Visual Geometry Grounding:</strong> Integrated front-facing depth cameras to refine obstacle avoidance in close-proximity blind spots.</li>
+            </ul>
+          </div>
+
+          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-images text-primary"></i> Quadruped Hardware and 3D SLAM Map</h3>
+            <div class="portfolio-details-slider swiper init-swiper my-3">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": {
+                    "delay": 3500
+                  },
+                  "slidesPerView": "auto",
+                  "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets",
+                    "clickable": true
+                  }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/Go2/Farhad-Go2.jpeg" alt="Farhad with Unitree Go2 Setup" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="../assets/img/projects/Go2/go2-slam-lidar.jpg" alt="Go2 LiDAR SLAM Point Cloud Map" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+                </div>
+              </div>
+              <div class="swiper-pagination mt-2"></div>
+            </div>
+          </div>
+
+          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-trophy text-primary"></i> Benchmarks and Navigation Results</h3>
+            <p>
+              The integrated SLAM and Nav2 pipeline enabled reliable real-time autonomous navigation:
+            </p>
+
+            <div class="impact-stat-grid">
+              <div class="stat-card">
+                <div class="stat-number">&lt; 0.15 m</div>
+                <div class="stat-label">Drift per 100m</div>
+                <div class="stat-desc">Accurate odometry on uneven outdoor surfaces</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">100 Hz</div>
+                <div class="stat-label">Estimation Rate</div>
+                <div class="stat-desc">Low-latency feedback for dynamic quadruped gaits</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">3D Nav2</div>
+                <div class="stat-label">Elevation Costmaps</div>
+                <div class="stat-desc">Safe step, slope, and obstacle negotiation</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Multi-Sensor</div>
+                <div class="stat-label">LiDAR + IMU + Depth</div>
+                <div class="stat-desc">Resilient to optical glare and low-light scenes</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
+            <div class="d-flex flex-wrap gap-2 mb-4">
+              <span class="badge bg-secondary">Unitree Go2</span>
+              <span class="badge bg-secondary">Fast-LIO2</span>
+              <span class="badge bg-secondary">Point-LIO</span>
+              <span class="badge bg-secondary">ROS2 Nav2</span>
+              <span class="badge bg-secondary">ikd-Tree</span>
+              <span class="badge bg-secondary">3D LiDAR</span>
+              <span class="badge bg-secondary">Point Cloud Library (PCL)</span>
+            </div>
+
+            <div class="resource-link-grid">
+              <a href="RELBot.html" class="resource-link-card">
+                <i class="bi bi-truck"></i>
+                <div>
+                  <div>RELBot Mobile Platform</div>
+                  <small class="text-muted">Real-time RTOS target tracking</small>
+                </div>
+              </a>
+              <a href="EmbeddedTracker.html" class="resource-link-card">
+                <i class="bi bi-cpu"></i>
+                <div>
+                  <div>JIWY Embedded Tracker</div>
+                  <small class="text-muted">FPGA & ARM hardware co-design</small>
+                </div>
+              </a>
+              <a href="../index.html#projects" class="resource-link-card">
+                <i class="bi bi-grid-3x3-gap"></i>
+                <div>
+                  <div>Back to All Projects</div>
+                  <small class="text-muted">Explore complete portfolio</small>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Contact</h3>
+      <p>Feel free to reach out for research collaboration or engineering inquiries:</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:farhadhosini60@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-hoseyni/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://t.me/mamdaliof" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/mamdaliof" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Farhad Hoseyni</strong> <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
