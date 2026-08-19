@@ -14,8 +14,8 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>Intracranial Hemorrhage Diagnosis & Triage AI - Farhad Hoseyni</title>
-  <meta name="description" content="APAC Research Group - Deep learning and fuzzy decision rules for intracranial hemorrhage detection, segmentation, and emergency CT triage." />
-  <meta name="keywords" content="Intracranial Hemorrhage, ICH, CT scan, Deep Learning, ResNet50, Medical AI, Image Segmentation" />
+  <meta name="description" content="APAC Research Group - Deep learning and fuzzy decision rules for intracranial hemorrhage detection, volumetric segmentation, and emergency CT triage." />
+  <meta name="keywords" content="Intracranial Hemorrhage, ICH, CT scan, Deep Learning, Transformers, Medical AI, Image Segmentation, DICOM" />
 
   <!-- Favicons -->
   <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
@@ -42,7 +42,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="../index.html" class="logo d-flex align-items-center">
-        <h1 class="sitename">Brain Hemorrhage AI Project</h1>
+        <h1 class="sitename">Medical AI Project</h1>
       </a>
       <nav id="navmenu" class="navmenu" style="background-color: #333">
         <ul>
@@ -56,13 +56,22 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <div class="page-title light-background">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
         <div class="container position-relative text-center">
-          <h1 class="dark-gray">Intracranial Hemorrhage Diagnosis & Emergency Triage AI</h1>
-          <p class="mx-auto" style="max-width: 800px;">
-            Deep Learning Research Engineer at APAC Research Group (Jul 2022 to Sep 2023)
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            Intracranial Hemorrhage Diagnosis &amp; Emergency Triage AI
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Technical Manager and Computer Vision Engineer at APAC Research Group
           </p>
         </div>
       </div>
@@ -75,265 +84,337 @@
 
           <!-- Role Overview Card -->
           <div class="project-section-block">
-            <h3><i class="bi bi-hospital text-primary"></i> Project and Role Overview</h3>
+            <h3><i class="bi bi-hospital text-primary"></i> Role and Mission Overview</h3>
             <p>
-              Intracranial hemorrhages (ICH) are critical medical emergencies where rapid and precise diagnosis directly impacts patient survival. At the <strong>APAC Research Group</strong>, I served as Technical Manager and Deep Learning Engineer, leading the end-to-end development of AI-driven triage pipelines, volumetric hemorrhage quantification, and multi-specialist annotation tools across non-contrast head CT scan volumes.
+              Intracranial hemorrhages (ICH) are acute medical emergencies where fast and accurate diagnosis is critical for patient survival. At the <strong>APAC Research Group</strong>, I directed clinical deep learning pipelines, developing volumetric triage models, 3D hemorrhage quantification, and multi-specialist annotation tools across non-contrast head CT scans.
             </p>
             <div class="d-flex flex-wrap gap-2 mt-3">
-              <span class="badge bg-light text-dark border"><i class="bi bi-calendar3"></i> Jul. 2022 to Sep. 2023</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-database-check"></i> Hemorrica 300+ CT Dataset</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-trophy"></i> 98% F1 Transformer Diagnosis</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-eye"></i> XAI &amp; Generative AI</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-github"></i> Open-Source Annotation Web App</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-calendar3"></i> Jun. 2022 to Sep. 2025</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-geo-alt"></i> APAC Research Group</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-database-check"></i> 300+ Patient Hemorrica Dataset</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-trophy"></i> 98% F1 Transformer Triage</span>
             </div>
           </div>
 
-          <!-- Section 1: The Challenge -->
-          <div class="project-section-block">
-            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Clinical Challenge</h3>
-            <p>
-              Emergency radiologists must review dozens of 3D CT slices per patient under intense time constraints. The key bottlenecks include:
-            </p>
-            <ul>
-              <li><strong>Severe Class Imbalance:</strong> Hemorrhage lesions occupy a tiny percentage of overall volumetric brain parenchyma.</li>
-              <li><strong>High Annotation Burden:</strong> Pixel-level contour segmentation requires painstaking manual effort from certified radiologists.</li>
-              <li><strong>Inter-Slice Volumetric Context:</strong> Isolated 2D slice classification loses vital spatial continuity across the axial scan stack.</li>
-            </ul>
+          <!-- Interactive Sub-Project Navigation Tabs -->
+          <div class="subproject-tab-nav">
+            <button class="subproject-tab-btn active" data-tab-target="tab-brain-triage">
+              <i class="bi bi-heart-pulse"></i> AI Hemorrhage Triage
+            </button>
+            <button class="subproject-tab-btn" data-tab-target="tab-brain-xai">
+              <i class="bi bi-eye"></i> XAI &amp; Representation Learning
+            </button>
+            <button class="subproject-tab-btn" data-tab-target="tab-brain-dataset">
+              <i class="bi bi-database-check"></i> Hemorrica &amp; 3D Morphometry
+            </button>
+            <button class="subproject-tab-btn" data-tab-target="tab-brain-annotator">
+              <i class="bi bi-browser-chrome"></i> Medical Annotation Web App
+            </button>
           </div>
 
-          <!-- Section 2: Technical Approach & Core Contributions -->
-          <div class="project-section-block">
-            <h3><i class="bi bi-diagram-3 text-primary"></i> Technical Methodology &amp; Architecture</h3>
-            
-            <h5 class="fw-bold text-dark mt-3">1. Transformer-Based Triage &amp; CT-as-Video Modeling</h5>
-            <p>
-              To emulate how expert radiologists review consecutive slices, we formulated non-contrast head CT series as continuous volumetric video sequences. Using spatio-temporal Transformers, our architecture achieved a <strong>98% F1 score</strong> on binary hemorrhage detection, capturing subtle inter-slice dependencies.
-            </p>
+          <!-- ==============================================================
+               TAB 1: AI Hemorrhage Triage (Supervised DL & CT-as-Video)
+               ============================================================== -->
+          <div id="tab-brain-triage" class="subproject-tab-pane active">
+            <div class="project-section-block">
+              <h3><i class="bi bi-heart-pulse text-primary"></i> Automated AI Hemorrhage Triage &amp; CT-as-Video</h3>
 
-            <h5 class="fw-bold text-dark mt-3">2. XAI &amp; Generative AI for Annotation Independence</h5>
-            <p>
-              To overcome extreme medical data scarcity, we deployed <strong>Generative AI representations</strong> and <strong>Self-Supervised Pre-training</strong> to capture fundamental anatomical priors. Coupled with <strong>Grad-CAM visual heatmaps</strong>, the model generates trustworthy visual rationale for clinical decisions, slashing the dependency on expensive pixel-level manual segmentation masks.
-            </p>
+              <h5 class="fw-bold text-dark mt-3">The Clinical Challenge</h5>
+              <p>
+                Emergency physicians and on-call radiologists evaluate non-contrast head CT series under extreme time pressure. Class imbalance is severe (bleeding lesions occupy less than 2% of total scan volumes), and isolated 2D slice analysis often misses subtle hematoma margins and ventricle tracking.
+              </p>
 
-            <h5 class="fw-bold text-dark mt-3">3. Hemorrica Dataset Curation &amp; Open-Source Annotation Software</h5>
-            <p>
-              Curated the <strong>Hemorrica dataset</strong> comprising curated 3D CT scans from 300+ patients with expert multi-sub-type hemorrhage labels. To synchronize multi-specialist annotations, we engineered and open-sourced a high-performance web-based medical image annotation tool supporting standard DICOM/NIfTI viewing:
-            </p>
-            <div class="mt-2 mb-3">
-              <a href="https://github.com/MedAPAC/Medical-Image-Annotation-Web-App" target="_blank" class="btn btn-sm btn-outline-primary">
-                <i class="bi bi-github"></i> View Medical Image Annotation Web App on GitHub <i class="bi bi-box-arrow-up-right ms-1"></i>
-              </a>
-            </div>
-          </div>
+              <h5 class="fw-bold text-dark mt-3">Spatio-Temporal Sequence Modeling (CT-as-Video)</h5>
+              <p>
+                To replicate how clinicians scroll through sequential slices to recognize anatomical flow, we modeled the 3D CT axial stack as continuous video. Using a hybrid CNN-Transformer pipeline, the model aggregates slice-level features with temporal self-attention across the whole scan volume.
+              </p>
 
-          <!-- Section 3: Interactive Multi-Slice CT Scan Slider -->
-          <div class="project-section-block">
-            <h3><i class="bi bi-sliders text-primary"></i> Interactive Lesion Segmentation</h3>
-            <p class="text-muted small mb-2">
-              Select a CT slice below and drag the interactive slider to compare the raw non-contrast CT scan (left) with the AI lesion segmentation mask (right):
-            </p>
+              <!-- Interactive Multi-Slice Comparison Slider -->
+              <div class="my-4">
+                <h6 class="fw-bold text-dark mb-2"><i class="bi bi-sliders text-primary"></i> Multi-Slice Interactive Lesion Segmentation</h6>
+                <p class="text-muted small mb-3">
+                  Select a clinical slice and drag the slider to compare raw non-contrast CT against the AI segmentation mask:
+                </p>
 
-            <!-- Slice Switcher Buttons -->
-            <div class="d-flex justify-content-center gap-2 mb-3">
-              <button class="btn btn-sm btn-primary active" id="btn-slice-1" onclick="switchIchSlice(1, this)">
-                <i class="bi bi-layers"></i> Slice 1 (Basal Ganglia)
-              </button>
-              <button class="btn btn-sm btn-outline-secondary" id="btn-slice-2" onclick="switchIchSlice(2, this)">
-                <i class="bi bi-layers"></i> Slice 2 (Intraventricular)
-              </button>
-              <button class="btn btn-sm btn-outline-secondary" id="btn-slice-3" onclick="switchIchSlice(3, this)">
-                <i class="bi bi-layers"></i> Slice 3 (Subdural / Epidural)
-              </button>
-            </div>
+                <!-- Slice Switcher Buttons -->
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <button class="btn btn-sm btn-primary active" id="btn-slice-1" onclick="switchIchSlice(1, this)">
+                    <i class="bi bi-layers"></i> Slice 1 (Basal Ganglia)
+                  </button>
+                  <button class="btn btn-sm btn-outline-secondary" id="btn-slice-2" onclick="switchIchSlice(2, this)">
+                    <i class="bi bi-layers"></i> Slice 2 (Intraventricular)
+                  </button>
+                  <button class="btn btn-sm btn-outline-secondary" id="btn-slice-3" onclick="switchIchSlice(3, this)">
+                    <i class="bi bi-layers"></i> Slice 3 (Subdural / Epidural)
+                  </button>
+                </div>
 
-            <div class="image-compare-container my-3" id="ich-compare-container" style="max-width: 620px; height: 390px; margin: 0 auto;">
-              <!-- Before (Raw CT) -->
-              <img id="ich-img-base" src="../assets/img/projects/Brain/sliders/brain_theme1.webp" alt="Raw CT Scan Slice" loading="lazy" />
+                <div class="image-compare-container" id="ich-compare-container">
+                  <!-- Before (Raw CT) -->
+                  <img id="ich-img-base" src="../assets/img/projects/Brain/sliders/brain_theme1.webp" alt="Raw CT Scan Slice" loading="lazy" />
 
-              <!-- After (Segmented Mask Overlay) -->
-              <div class="image-compare-overlay" id="ich-compare-overlay" style="width: 45%;">
-                <img id="ich-img-overlay" src="../assets/img/projects/Brain/sliders/brain_theme_hover1.webp" alt="AI Segmented Hemorrhage" loading="lazy" />
-              </div>
-
-              <!-- Badges -->
-              <span class="image-compare-badge left">AI Segmentation</span>
-              <span class="image-compare-badge right">Raw CT Scan</span>
-
-              <!-- Handle & Slider -->
-              <div class="image-compare-handle" id="ich-compare-handle" style="left: 45%;">
-                <i class="bi bi-arrows-expand" style="transform: rotate(45deg);"></i>
-              </div>
-              <input type="range" min="0" max="100" value="45" class="image-compare-slider" id="ich-compare-slider" aria-label="Compare raw CT and AI segmentation" />
-            </div>
-
-            <script>
-              const ichSlices = {
-                1: {
-                  base: '../assets/img/projects/Brain/sliders/brain_theme1.webp',
-                  overlay: '../assets/img/projects/Brain/sliders/brain_theme_hover1.webp'
-                },
-                2: {
-                  base: '../assets/img/projects/Brain/sliders/segmentation2_before.jpg',
-                  overlay: '../assets/img/projects/Brain/sliders/segmentation2_after.jpg'
-                },
-                3: {
-                  base: '../assets/img/projects/Brain/sliders/segmentation3_before.jpg',
-                  overlay: '../assets/img/projects/Brain/sliders/segmentation3_after.jpg'
-                }
-              };
-
-              function switchIchSlice(sliceIdx, btn) {
-                const data = ichSlices[sliceIdx];
-                if (!data) return;
-                const baseImg = document.getElementById('ich-img-base');
-                const overlayImg = document.getElementById('ich-img-overlay');
-                if (baseImg && overlayImg) {
-                  baseImg.src = data.base;
-                  overlayImg.src = data.overlay;
-                }
-                document.querySelectorAll('[id^="btn-slice-"]').forEach(b => {
-                  b.classList.remove('btn-primary', 'active');
-                  b.classList.add('btn-outline-secondary');
-                });
-                if (btn) {
-                  btn.classList.add('btn-primary', 'active');
-                  btn.classList.remove('btn-outline-secondary');
-                }
-              }
-
-              document.addEventListener('DOMContentLoaded', () => {
-                const slider = document.getElementById('ich-compare-slider');
-                const overlay = document.getElementById('ich-compare-overlay');
-                const handle = document.getElementById('ich-compare-handle');
-                if (slider && overlay && handle) {
-                  slider.addEventListener('input', (e) => {
-                    const val = e.target.value;
-                    overlay.style.width = val + '%';
-                    handle.style.left = val + '%';
-                  });
-                }
-              });
-            </script>
-          </div>
-
-          <!-- Section 4: 3D Volumetric Reconstruction & Anatomical Planes -->
-          <div class="project-section-block">
-            <h3><i class="bi bi-box text-primary"></i> 3D Volumetric Reconstruction &amp; Anatomical Planes</h3>
-            <p class="text-muted small mb-4">
-              Comprehensive anatomical evaluation combining volumetric 3D hemorrhage quantification with multi-planar slice analysis:
-            </p>
-
-            <div class="row g-4 align-items-stretch">
-              <!-- 3D Reconstruction GIF -->
-              <div class="col-lg-5">
-                <div class="clinical-showcase-card h-100">
-                  <div class="showcase-img-frame" style="height: 260px; background: #000;">
-                    <a href="../assets/img/projects/Brain/skull.gif" class="glightbox" data-gallery="brain-gallery" data-title="3D Skull & Volumetric Hemorrhage Quantification">
-                      <img src="../assets/img/projects/Brain/skull.gif" alt="3D Skull & Hemorrhage Reconstruction" class="img-fluid" style="object-fit: contain;" />
-                      <span class="showcase-zoom-hint"><i class="bi bi-arrows-fullscreen"></i> Click to Zoom</span>
-                    </a>
+                  <!-- After (AI Segmented Overlay) -->
+                  <div class="image-compare-overlay" id="ich-compare-overlay">
+                    <img id="ich-img-overlay" src="../assets/img/projects/Brain/sliders/brain_theme_hover1.webp" alt="AI Segmented Hemorrhage" loading="lazy" />
                   </div>
-                  <div class="showcase-card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                      <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1">Volumetric AI</span>
-                      <span class="text-muted small fw-semibold"><i class="bi bi-activity"></i> 3D Segmentation</span>
-                    </div>
-                    <h6 class="fw-bold mb-1 text-dark">3D Lesion Quantification</h6>
-                    <p class="small text-muted mb-0">
-                      Full 3D volume reconstruction enabling automated hematoma volume measurement (mL), mass-effect estimation, and midline shift detection.
-                    </p>
+
+                  <!-- Badges -->
+                  <span class="image-compare-badge left">AI Segmentation (After)</span>
+                  <span class="image-compare-badge right">Raw CT Scan (Before)</span>
+
+                  <!-- Handle & Slider -->
+                  <div class="image-compare-handle" id="ich-compare-handle" style="left: 45%;">
+                    <i class="bi bi-arrows-expand" style="transform: rotate(45deg);"></i>
                   </div>
+                  <input type="range" min="0" max="100" value="45" class="image-compare-slider" id="ich-compare-slider" aria-label="Compare raw CT and AI segmentation" />
                 </div>
               </div>
 
-              <!-- Anatomical Planes (Axial, Coronal, Sagittal) -->
-              <div class="col-lg-7">
-                <div class="clinical-showcase-card h-100">
-                  <div class="p-3 bg-light border-bottom">
-                    <h6 class="fw-bold mb-0 text-dark"><i class="bi bi-grid-3x3-gap text-primary"></i> Multi-Planar Hemorrhage Typology</h6>
-                    <small class="text-muted">High-resolution anatomical illustrations across standard diagnostic planes</small>
-                  </div>
-                  <div class="p-3">
-                    <div class="row g-2 text-center">
-                      <div class="col-4">
-                        <div class="border rounded p-2 bg-white h-100">
-                          <a href="../assets/img/projects/Brain/Graphical/axial.png" class="glightbox" data-gallery="brain-gallery" data-title="Axial CT Plane — Transverse Hemorrhage Localization">
-                            <img src="../assets/img/projects/Brain/Graphical/axial.png" alt="Axial Plane" class="img-fluid rounded mb-2" style="height: 120px; object-fit: contain;" />
-                          </a>
-                          <div class="fw-bold small text-dark">Axial Plane</div>
-                          <span class="badge bg-secondary-subtle text-secondary" style="font-size: 10px;">Transverse</span>
-                        </div>
+              <!-- Impact Stats Grid -->
+              <div class="impact-stat-grid">
+                <div class="stat-card">
+                  <div class="stat-number">98%</div>
+                  <div class="stat-label">Hemorrhage F1-Score</div>
+                  <div class="stat-desc">Binary diagnosis using spatio-temporal Transformers</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">1.00</div>
+                  <div class="stat-label">Patient Sensitivity</div>
+                  <div class="stat-desc">Zero false negatives in emergency cohort triage</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">&lt; 3s</div>
+                  <div class="stat-label">Inference / Volume</div>
+                  <div class="stat-desc">Real-time alerts for emergency departments</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==============================================================
+               TAB 2: XAI & Representation Learning (Weakly & Self-Supervised)
+               ============================================================== -->
+          <div id="tab-brain-xai" class="subproject-tab-pane">
+            <div class="project-section-block">
+              <h3><i class="bi bi-eye text-primary"></i> Explainable AI, Weakly-Supervised &amp; Representation Learning</h3>
+
+              <h5 class="fw-bold text-dark mt-3">The Annotation Bottleneck</h5>
+              <p>
+                Pixel-level segmentation of 3D CT scans requires hundreds of hours of manual annotation by senior neuroradiologists. To break this dependency, we engineered self-supervised representation learning and weakly-supervised localization architectures.
+              </p>
+
+              <h5 class="fw-bold text-dark mt-3">Self-Supervised &amp; Generative AI Priors</h5>
+              <p>
+                By pre-training foundation visual encoders on unlabeled CT scan volumes, the network learns rich representations of healthy brain anatomy. Generative priors capture anatomical symmetry and tissue density distributions, allowing downstream classifiers to detect hemorrhage anomalies with zero or minimal fine-grained segmentation masks.
+              </p>
+
+              <!-- XAI Visual Heatmap Card -->
+              <div class="row g-4 my-3 align-items-center">
+                <div class="col-lg-6">
+                  <div class="clinical-showcase-card">
+                    <div class="showcase-img-frame" style="height: 250px; background: #000;">
+                      <a href="../assets/img/projects/Brain/heatmap.jpg" class="glightbox" data-gallery="brain-xai-gallery" data-title="Grad-CAM Visual Heatmap — Class Activation Mapping for Clinician Verification">
+                        <img src="../assets/img/projects/Brain/heatmap.jpg" alt="Grad-CAM Visual Heatmap" class="img-fluid" style="object-fit: contain;" />
+                        <span class="showcase-zoom-hint"><i class="bi bi-arrows-fullscreen"></i> Click to Zoom</span>
+                      </a>
+                    </div>
+                    <div class="showcase-card-body">
+                      <div class="d-flex justify-content-between align-items-center mb-1">
+                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">Grad-CAM XAI</span>
+                        <span class="text-muted small fw-semibold"><i class="bi bi-check2-circle"></i> Clinical Rationale</span>
                       </div>
-                      <div class="col-4">
-                        <div class="border rounded p-2 bg-white h-100">
-                          <a href="../assets/img/projects/Brain/Graphical/cronal.png" class="glightbox" data-gallery="brain-gallery" data-title="Coronal CT Plane — Frontal/Vertical Assessment">
-                            <img src="../assets/img/projects/Brain/Graphical/cronal.png" alt="Coronal Plane" class="img-fluid rounded mb-2" style="height: 120px; object-fit: contain;" />
-                          </a>
-                          <div class="fw-bold small text-dark">Coronal Plane</div>
-                          <span class="badge bg-secondary-subtle text-secondary" style="font-size: 10px;">Frontal</span>
-                        </div>
-                      </div>
-                      <div class="col-4">
-                        <div class="border rounded p-2 bg-white h-100">
-                          <a href="../assets/img/projects/Brain/Graphical/sagital.png" class="glightbox" data-gallery="brain-gallery" data-title="Sagittal CT Plane — Lateral Depth Analysis">
-                            <img src="../assets/img/projects/Brain/Graphical/sagital.png" alt="Sagittal Plane" class="img-fluid rounded mb-2" style="height: 120px; object-fit: contain;" />
-                          </a>
-                          <div class="fw-bold small text-dark">Sagittal Plane</div>
-                          <span class="badge bg-secondary-subtle text-secondary" style="font-size: 10px;">Lateral</span>
-                        </div>
-                      </div>
+                      <h6 class="fw-bold mb-1 text-dark">Visual Class Activation Mapping</h6>
+                      <p class="small text-muted mb-0">
+                        Highlights the specific parenchymal regions triggering the triage alert to give emergency clinicians immediate, verifiable rationale.
+                      </p>
                     </div>
                   </div>
-                  <div class="px-3 pb-3">
-                    <p class="small text-muted mb-0">
-                      Cross-sectional representations used for multi-planar feature extraction across Intraparenchymal (IPH), Intraventricular (IVH), Subarachnoid (SAH), Subdural (SDH), and Epidural (EDH) hemorrhage types.
-                    </p>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="border rounded-3 p-4 bg-light h-100">
+                    <h5 class="fw-bold text-dark mb-3"><i class="bi bi-diagram-3 text-primary"></i> Representation Learning Pipeline</h5>
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-3 d-flex gap-2">
+                        <i class="bi bi-check-circle-fill text-primary mt-1"></i>
+                        <div>
+                          <strong>Self-Supervised Pre-training:</strong> Contrastive feature representations trained across 3D volumes without manual slice labels.
+                        </div>
+                      </li>
+                      <li class="mb-3 d-flex gap-2">
+                        <i class="bi bi-check-circle-fill text-primary mt-1"></i>
+                        <div>
+                          <strong>Weakly-Supervised Localization:</strong> Extracts lesion boundaries directly from scan-level binary labels using Class Activation Maps.
+                        </div>
+                      </li>
+                      <li class="d-flex gap-2">
+                        <i class="bi bi-check-circle-fill text-primary mt-1"></i>
+                        <div>
+                          <strong>Fuzzy Aggregation Rules:</strong> Integrates multi-slice attention scores into patient-level risk predictions, ensuring near-zero false-negative safety.
+                        </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Section 5: Quantitative Results & Impact Stat Cards -->
-          <div class="project-section-block">
-            <h3><i class="bi bi-trophy text-primary"></i> Clinical Benchmarks and Results</h3>
-            <p>
-              The system achieved exceptional clinical triage benchmarks across the Hemorrica test cohort:
-            </p>
+          <!-- ==============================================================
+               TAB 3: Hemorrica Dataset & 3D Morphometry
+               ============================================================== -->
+          <div id="tab-brain-dataset" class="subproject-tab-pane">
+            <div class="project-section-block">
+              <h3><i class="bi bi-database-check text-primary"></i> Hemorrica 300+ Dataset &amp; 3D Morphometry</h3>
 
-            <div class="impact-stat-grid">
-              <div class="stat-card">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Hemorrhage F1-Score</div>
-                <div class="stat-desc">Binary diagnosis using spatio-temporal Transformers</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">1.00</div>
-                <div class="stat-label">Patient Sensitivity</div>
-                <div class="stat-desc">Zero missed hemorrhage cases across emergency triage</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">300+</div>
-                <div class="stat-label">Patient Dataset</div>
-                <div class="stat-desc">Curated multi-specialist Hemorrica benchmark</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">&lt; 3s</div>
-                <div class="stat-label">Inference / Volume</div>
-                <div class="stat-desc">Instant 3D triage report for emergency departments</div>
+              <h5 class="fw-bold text-dark mt-3">Hemorrica Dataset Overview</h5>
+              <p>
+                Curated and standardized the <strong>Hemorrica dataset</strong>, encompassing over 300 multi-slice non-contrast head CT scan volumes. Each volume was labeled and multi-verified across all 5 clinical hemorrhage subtypes: Intraparenchymal (IPH), Intraventricular (IVH), Subarachnoid (SAH), Subdural (SDH), and Epidural (EDH).
+              </p>
+
+              <!-- 3D Quantification & Multi-Planar Views Grid -->
+              <div class="row g-4 align-items-stretch my-3">
+                <!-- 3D Volumetric Skull GIF -->
+                <div class="col-lg-5">
+                  <div class="clinical-showcase-card h-100">
+                    <div class="showcase-img-frame" style="height: 260px; background: #000;">
+                      <a href="../assets/img/projects/Brain/skull.gif" class="glightbox" data-gallery="brain-morph-gallery" data-title="3D Skull & Volumetric Hemorrhage Reconstruction">
+                        <img src="../assets/img/projects/Brain/skull.gif" alt="3D Skull & Hemorrhage Reconstruction" class="img-fluid" style="object-fit: contain;" />
+                        <span class="showcase-zoom-hint"><i class="bi bi-arrows-fullscreen"></i> Click to Zoom</span>
+                      </a>
+                    </div>
+                    <div class="showcase-card-body">
+                      <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-2 py-1">Volumetric 3D</span>
+                        <span class="text-muted small fw-semibold"><i class="bi bi-activity"></i> Hematoma Volume</span>
+                      </div>
+                      <h6 class="fw-bold mb-1 text-dark">3D Lesion Quantification</h6>
+                      <p class="small text-muted mb-0">
+                        Voxel-wise 3D mesh reconstruction providing automated hematoma volume measurement (mL), midline shift estimation, and ventricular compression indices.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Anatomical Planes Gallery -->
+                <div class="col-lg-7">
+                  <div class="clinical-showcase-card h-100">
+                    <div class="p-3 bg-light border-bottom">
+                      <h6 class="fw-bold mb-0 text-dark"><i class="bi bi-grid-3x3-gap text-primary"></i> Multi-Planar Anatomical Perspectives</h6>
+                      <small class="text-muted">High-resolution diagnostic views used for multi-planar representation learning</small>
+                    </div>
+                    <div class="p-3">
+                      <div class="row g-2 text-center">
+                        <div class="col-4">
+                          <div class="border rounded p-2 bg-white h-100">
+                            <a href="../assets/img/projects/Brain/Graphical/axial.png" class="glightbox" data-gallery="brain-morph-gallery" data-title="Axial CT Plane — Transverse Lesion Localization">
+                              <img src="../assets/img/projects/Brain/Graphical/axial.png" alt="Axial Plane" class="img-fluid rounded mb-2" style="height: 120px; object-fit: contain;" />
+                            </a>
+                            <div class="fw-bold small text-dark">Axial Plane</div>
+                            <span class="badge bg-secondary-subtle text-secondary" style="font-size: 10px;">Transverse</span>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="border rounded p-2 bg-white h-100">
+                            <a href="../assets/img/projects/Brain/Graphical/cronal.png" class="glightbox" data-gallery="brain-morph-gallery" data-title="Coronal CT Plane — Frontal/Vertical Assessment">
+                              <img src="../assets/img/projects/Brain/Graphical/cronal.png" alt="Coronal Plane" class="img-fluid rounded mb-2" style="height: 120px; object-fit: contain;" />
+                            </a>
+                            <div class="fw-bold small text-dark">Coronal Plane</div>
+                            <span class="badge bg-secondary-subtle text-secondary" style="font-size: 10px;">Frontal</span>
+                          </div>
+                        </div>
+                        <div class="col-4">
+                          <div class="border rounded p-2 bg-white h-100">
+                            <a href="../assets/img/projects/Brain/Graphical/sagital.png" class="glightbox" data-gallery="brain-morph-gallery" data-title="Sagittal CT Plane — Lateral Depth Analysis">
+                              <img src="../assets/img/projects/Brain/Graphical/sagital.png" alt="Sagittal Plane" class="img-fluid rounded mb-2" style="height: 120px; object-fit: contain;" />
+                            </a>
+                            <div class="fw-bold small text-dark">Sagittal Plane</div>
+                            <span class="badge bg-secondary-subtle text-secondary" style="font-size: 10px;">Lateral</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="px-3 pb-3">
+                      <p class="small text-muted mb-0">
+                        Multi-planar views enable the network to resolve overlapping structures and differentiate extra-axial bleeds (subdural/epidural) from intraparenchymal lesions.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Section 6: Technologies & Related Deep-Dives -->
+          <!-- ==============================================================
+               TAB 4: Medical Image Annotation Web App
+               ============================================================== -->
+          <div id="tab-brain-annotator" class="subproject-tab-pane">
+            <div class="project-section-block">
+              <h3><i class="bi bi-browser-chrome text-primary"></i> Open-Source Medical Image Annotation Web Platform</h3>
+
+              <h5 class="fw-bold text-dark mt-3">Motivation &amp; Open-Source Contribution</h5>
+              <p>
+                Medical AI research frequently stalls due to the lack of lightweight, collaborative annotation tools capable of handling raw DICOM and NIfTI volumes. To address this, we developed and open-sourced a browser-based annotation platform for multi-specialist labeling workflows.
+              </p>
+
+              <!-- Video Showcase Card -->
+              <div class="clinical-showcase-card my-4">
+                <div class="p-3 bg-dark text-white d-flex justify-content-between align-items-center">
+                  <div class="d-flex align-items-center gap-2">
+                    <i class="bi bi-play-circle-fill text-warning fs-5"></i>
+                    <span class="fw-bold">Platform Demonstration — Interactive Annotation in Action</span>
+                  </div>
+                  <a href="https://github.com/MedAPAC/Medical-Image-Annotation-Web-App" target="_blank" class="btn btn-sm btn-outline-light">
+                    <i class="bi bi-github"></i> Repository
+                  </a>
+                </div>
+                <div style="background: #000; position: relative;">
+                  <video controls class="w-100" style="max-height: 480px; object-fit: contain; display: block;" poster="../assets/img/projects/Brain/sliders/brain_theme1.webp">
+                    <source src="../assets/img/projects/Brain/webannotator.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div class="showcase-card-body bg-light">
+                  <h6 class="fw-bold text-dark mb-1">Key Engineering Features</h6>
+                  <p class="small text-muted mb-3">
+                    Features dynamic window leveling (Hounsfield Unit presets for brain/bone/subdural windows), multi-slice brush &amp; polygon contouring, multi-specialist consensus review, and export to JSON/COCO/NIfTI deep learning training pipelines.
+                  </p>
+                  <a href="https://github.com/MedAPAC/Medical-Image-Annotation-Web-App" target="_blank" class="btn btn-primary btn-sm">
+                    <i class="bi bi-github"></i> Explore Medical Image Annotation Web App on GitHub <i class="bi bi-box-arrow-up-right ms-1"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Impact Stats -->
+              <div class="impact-stat-grid">
+                <div class="stat-card">
+                  <div class="stat-number">100%</div>
+                  <div class="stat-label">Web-Based</div>
+                  <div class="stat-desc">Zero local setup or heavy software installation</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">DICOM &amp; NIfTI</div>
+                  <div class="stat-label">Native Format Support</div>
+                  <div class="stat-desc">Full 3D volume &amp; 16-bit CT HU windowing</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-number">3x</div>
+                  <div class="stat-label">Annotation Throughput</div>
+                  <div class="stat-desc">Streamlined multi-expert consensus workflows</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technologies & Related Projects -->
           <div class="project-section-block">
             <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
             <div class="d-flex flex-wrap gap-2 mb-4">
               <span class="badge bg-secondary">PyTorch</span>
-              <span class="badge bg-secondary">Transformers &amp; Self-Supervised Learning</span>
+              <span class="badge bg-secondary">Transformers</span>
+              <span class="badge bg-secondary">CT-as-Video</span>
               <span class="badge bg-secondary">Grad-CAM (XAI)</span>
-              <span class="badge bg-secondary">Generative AI Representation</span>
-              <span class="badge bg-secondary">CT-as-Video Modeling</span>
+              <span class="badge bg-secondary">Self-Supervised Learning</span>
               <span class="badge bg-secondary">DICOM / NIfTI 3D Rendering</span>
               <span class="badge bg-secondary">Medical Annotation Web App</span>
             </div>
@@ -385,6 +466,231 @@
       </div>
     </div>
   </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Sub-Project Tab Switching Logic (Matching Dental.html)
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabButtons = document.querySelectorAll('.subproject-tab-btn');
+      const tabPanes = document.querySelectorAll('.subproject-tab-pane');
+
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const targetId = this.getAttribute('data-tab-target');
+
+          tabButtons.forEach(b => b.classList.remove('active'));
+          tabPanes.forEach(pane => pane.classList.remove('active'));
+
+          this.classList.add('active');
+          const targetPane = document.getElementById(targetId);
+          if (targetPane) {
+            targetPane.classList.add('active');
+            if (targetId === 'tab-brain-triage' && typeof window.syncIchCompare === 'function') {
+              window.syncIchCompare();
+            }
+          }
+        });
+      });
+    });
+
+    // Multi-Slice Switcher Logic
+    const ichSlices = {
+      1: {
+        base: '../assets/img/projects/Brain/sliders/brain_theme1.webp',
+        overlay: '../assets/img/projects/Brain/sliders/brain_theme_hover1.webp'
+      },
+      2: {
+        base: '../assets/img/projects/Brain/sliders/segmentation2_before.jpg',
+        overlay: '../assets/img/projects/Brain/sliders/segmentation2_after.jpg'
+      },
+      3: {
+        base: '../assets/img/projects/Brain/sliders/segmentation3_before.jpg',
+        overlay: '../assets/img/projects/Brain/sliders/segmentation3_after.jpg'
+      }
+    };
+
+    function switchIchSlice(sliceIdx, btn) {
+      const data = ichSlices[sliceIdx];
+      if (!data) return;
+      const baseImg = document.getElementById('ich-img-base');
+      const overlayImg = document.getElementById('ich-img-overlay');
+      if (baseImg && overlayImg) {
+        baseImg.src = data.base;
+        overlayImg.src = data.overlay;
+      }
+      document.querySelectorAll('[id^="btn-slice-"]').forEach(b => {
+        b.classList.remove('btn-primary', 'active');
+        b.classList.add('btn-outline-secondary');
+      });
+      if (btn) {
+        btn.classList.add('btn-primary', 'active');
+        btn.classList.remove('btn-outline-secondary');
+      }
+    }
+
+    // Interactive Image Comparison Slider Logic (Matching Dental.html)
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.getElementById('ich-compare-container');
+      const overlay = document.getElementById('ich-compare-overlay');
+      const overlayImg = document.getElementById('ich-img-overlay');
+      const baseImg = document.getElementById('ich-img-base');
+      const slider = document.getElementById('ich-compare-slider');
+      const handle = document.getElementById('ich-compare-handle');
+
+      if (!container || !slider || !overlay || !overlayImg) return;
+
+      function syncImageWidth() {
+        if (baseImg) {
+          const width = baseImg.getBoundingClientRect().width;
+          if (width > 0) {
+            overlayImg.style.width = width + 'px';
+          }
+        }
+      }
+
+      window.syncIchCompare = function() {
+        setTimeout(syncImageWidth, 50);
+      };
+
+      function updateCompare() {
+        const val = slider.value;
+        overlay.style.width = val + '%';
+        handle.style.left = val + '%';
+        syncImageWidth();
+      }
+
+      slider.addEventListener('input', updateCompare);
+      window.addEventListener('resize', syncImageWidth);
+      if (baseImg.complete) {
+        syncImageWidth();
+      } else {
+        baseImg.addEventListener('load', syncImageWidth);
+      }
+      updateCompare();
+    });
+
+    // Dynamic Network Graph Canvas Animation (Matching Dental.html)
+    document.addEventListener('DOMContentLoaded', function () {
+      const canvas = document.getElementById('network-canvas');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      let particles = [];
+
+      const brandPalette = {
+        primary: '184, 160, 126', // Warm Gold
+        line: '184, 160, 126',
+        mouseLine: '184, 160, 126'
+      };
+
+      const particleCount = 45;
+      const maxDistance = 140;
+      const lineOpacity = 0.25;
+
+      const mouse = { x: null, y: null, radius: 150 };
+
+      function resize() {
+        width = canvas.width = canvas.parentElement.offsetWidth;
+        height = canvas.height = canvas.parentElement.offsetHeight;
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+
+      canvas.parentElement.addEventListener('mousemove', function (e) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+
+      canvas.parentElement.addEventListener('mouseleave', function () {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.vx = (Math.random() - 0.5) * 0.8;
+          this.vy = (Math.random() - 0.5) * 0.8;
+          this.radius = Math.random() * 2 + 1.5;
+        }
+
+        update() {
+          this.x += this.vx;
+          this.y += this.vy;
+
+          if (this.x < 0 || this.x > width) this.vx *= -1;
+          if (this.y < 0 || this.y > height) this.vy *= -1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${brandPalette.primary}, 0.5)`;
+          ctx.fill();
+        }
+      }
+
+      function initParticles() {
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < maxDistance) {
+              const alpha = (1 - dist / maxDistance) * lineOpacity;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(${brandPalette.line}, ${alpha})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        if (mouse.x !== null && mouse.y !== null) {
+          for (let i = 0; i < particles.length; i++) {
+            const dx = mouse.x - particles[i].x;
+            const dy = mouse.y - particles[i].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < mouse.radius) {
+              const alpha = (1 - dist / mouse.radius) * lineOpacity * 1.4;
+              ctx.beginPath();
+              ctx.moveTo(mouse.x, mouse.y);
+              ctx.lineTo(particles[i].x, particles[i].y);
+              ctx.strokeStyle = `rgba(${brandPalette.mouseLine}, ${alpha})`;
+              ctx.lineWidth = 1.2;
+              ctx.stroke();
+            }
+          }
+        }
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      initParticles();
+      animate();
+    });
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
