@@ -377,7 +377,7 @@
   /**
    * Dynamic Network Particle Graph (Dots and lines interactive hero background)
    */
-  function initNetworkCanvas() {
+    function initNetworkCanvas() {
     const canvas = document.getElementById('network-canvas');
     if (!canvas || canvas.dataset.netInit) return;
     canvas.dataset.netInit = 'true';
@@ -387,13 +387,18 @@
 
     let width, height;
     let particles = [];
-    const particleCount = 83;
-    const maxDistance = 173;
+    
+    // RESPONSIVE PARTICLE COUNT (Optimization)
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 30 : 83;
+    const maxDistance = isMobile ? 110 : 173;
+    const maxDistanceSq = maxDistance * maxDistance; // SQUARED DISTANCE (Optimization)
+    
     const dotOpacity = 0.28;
     const lineOpacity = 0.31;
     let mouse = { x: null, y: null, radius: 150 };
+    const mouseRadiusSq = mouse.radius * mouse.radius;
 
-    // Dark shades compatible with website theme (#545454 heading, #b8a07e accent, #333 header)
     const brandPalette = {
       dots: ['rgba(84, 84, 84, ', 'rgba(51, 51, 51, ', 'rgba(184, 160, 126, '],
       line: '84, 84, 84',
@@ -442,8 +447,9 @@
         if (mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < mouse.radius && dist > 0) {
+          const distSq = dx * dx + dy * dy;
+          if (distSq < mouseRadiusSq && distSq > 0) {
+            const dist = Math.sqrt(distSq);
             const force = (mouse.radius - dist) / mouse.radius;
             this.x -= (dx / dist) * force * 1.5;
             this.y -= (dy / dist) * force * 1.5;
@@ -467,7 +473,22 @@
       }
     }
 
+    let isVisible = true;
+    
+    // THROTTLING OBSERVER (Optimization)
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        isVisible = entries[0].isIntersecting;
+      }, { rootMargin: '100px' });
+      if (canvas.parentElement) {
+        observer.observe(canvas.parentElement);
+      }
+    }
+
     function animate() {
+      requestAnimationFrame(animate);
+      if (!isVisible) return; // Skip drawing and math if out of view
+
       ctx.clearRect(0, 0, width, height);
 
       // Draw connections between dots
@@ -475,9 +496,10 @@
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const distSq = dx * dx + dy * dy;
 
-          if (dist < maxDistance) {
+          if (distSq < maxDistanceSq) { // Squared distance check
+            const dist = Math.sqrt(distSq);
             const alpha = (1 - dist / maxDistance) * lineOpacity;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -494,8 +516,9 @@
         for (let i = 0; i < particles.length; i++) {
           const dx = mouse.x - particles[i].x;
           const dy = mouse.y - particles[i].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < mouse.radius) {
+          const distSq = dx * dx + dy * dy;
+          if (distSq < mouseRadiusSq) {
+            const dist = Math.sqrt(distSq);
             const alpha = (1 - dist / mouse.radius) * lineOpacity * 1.4;
             ctx.beginPath();
             ctx.moveTo(mouse.x, mouse.y);
@@ -512,8 +535,6 @@
         particles[i].update();
         particles[i].draw();
       }
-
-      requestAnimationFrame(animate);
     }
 
     initParticles();
