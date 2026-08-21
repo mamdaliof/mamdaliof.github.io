@@ -527,3 +527,39 @@
   }
 
 })();
+
+// Experience section logic
+const expCards = ['card-fip', 'card-smartory', 'card-apac'];
+const expNavs = ['exp-nav-fip', 'exp-nav-smartory', 'exp-nav-apac'];
+let currentExpIdx = 0;
+
+function setExpActiveIndex(idx) {
+    if (idx === currentExpIdx) return;
+    currentExpIdx = idx;
+
+    // Instantly switch active card with subtle 3D pop animation
+    expCards.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el) {
+            if (i === idx) {
+                el.classList.add('active');
+            } else {
+                el.classList.remove('active');
+            }
+        }
+    });
+
+    // Update active nav item
+    expNavs.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el) {
+            if (i === idx) {
+                el.classList.add('active', 'fw-bold', 'text-primary');
+                el.classList.remove('text-secondary');
+            } else {
+                el.classList.remove('active', 'fw-bold', 'text-primary');
+                el.classList.add('text-secondary');
+            }
+        }
+    });
+}
