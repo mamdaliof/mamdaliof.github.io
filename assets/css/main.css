@@ -3067,3 +3067,7 @@ section,
     min-height: auto;
   }
 }
+/* A11y Contrast Overrides */
+.text-secondary, .text-muted { color: #5a5a5a !important; }
+p, .content { color: #3a3a3a; }
+.resume-item p { color: #3a3a3a; }
