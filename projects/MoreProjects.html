@@ -46,9 +46,10 @@
       </a>
       <nav id="navmenu" class="navmenu" style="background-color: #333">
         <ul>
-          <li><a href="../index.html" class="active">Home</a></li>
+          <li><a href="../index.html">Home</a></li>
           <li><a href="../index.html#experience">Experience</a></li>
           <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -56,12 +57,23 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <div class="page-title light-background">
-        <div class="container position-relative">
-          <h1 class="dark-gray">Projects Index and Technical Archive</h1>
-          <p>Full suite of industry projects, autonomous robotics, foundation vision models, and archived research</p>
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            Projects Index and Technical Archive
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Full suite of industry projects, autonomous robotics, foundation vision models, and archived research
+          </p>
         </div>
       </div>
     </section>
@@ -204,7 +216,7 @@
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-content">
               <img src="../assets/img/projects/relbot/RelBot.jpeg" class="img-fluid custom-img-height base-img" alt="RELBot" loading="lazy" width="600" height="400" />
-              <img src="../assets/img/projects/relbot/relbot-tracking.jpg" class="img-fluid custom-img-height hover-img" alt="RELBot hover" loading="lazy" width="600" height="400" />
+              <img src="../assets/img/projects/relbot/RelBot-hover.jpeg" class="img-fluid custom-img-height hover-img" alt="RELBot hover" loading="lazy" width="600" height="400" />
               <div class="portfolio-info">
                 <span class="impact-badge precision">Xenomai RTOS</span>
                 <h4>RELBot</h4>
@@ -240,31 +252,31 @@
               <img src="../assets/img/projects/yodino/YoDINO-main.jpeg" class="img-fluid custom-img-height base-img" alt="YoDINO" loading="lazy" width="600" height="400" />
               <img src="../assets/img/projects/yodino/YoDINO-hover.jpeg" class="img-fluid custom-img-height hover-img" alt="YoDINO hover" loading="lazy" width="600" height="400" />
               <div class="portfolio-info">
-                <span class="impact-badge">PEFT & Anomaly Detection</span>
+                <span class="impact-badge">Foundation Backbone</span>
                 <h4>YoDINO</h4>
-                <p>Self-supervised DINO representation learning for zero-annotation anomaly detection</p>
+                <p>DINO foundation models integrated into YOLO via Meta ViTDet for multi-task representation learning</p>
                 <a href="YoDINO.html" title="More Details" class="details-link"></a>
               </div>
             </div>
             <h5 class="dark-gray mt-2 text-center">
-              <a href="YoDINO.html" style="color: inherit; text-decoration: none;">YoDINO: DINO is all YOLO needs</a>
+              <a href="YoDINO.html" style="color: inherit; text-decoration: none;">YoDINO: Foundation Vision Backbone for YOLO</a>
             </h5>
           </div>
 
           <!-- Class-Agnostic Counting -->
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-content h-100">
-              <img src="../assets/img/projects/counting/counting_theme.webp" class="img-fluid custom-img-height base-img" alt="Counting" loading="lazy" width="600" height="400" />
-              <img src="../assets/img/projects/counting/counting_theme_hover.webp" class="img-fluid custom-img-height hover-img" alt="Counting hover" loading="lazy" width="600" height="400" />
+              <img src="../assets/img/projects/cac/cac_exemplar_raw.webp" class="img-fluid custom-img-height base-img" alt="Class-Agnostic Counting Exemplars" loading="lazy" width="600" height="400" />
+              <img src="../assets/img/projects/cac/cac_density_overlay.webp" class="img-fluid custom-img-height hover-img" alt="2D Gaussian Splatting Density Map" loading="lazy" width="600" height="400" />
               <div class="portfolio-info">
-                <span class="impact-badge">14.91 MAE</span>
-                <h4>Zero-Shot Counting</h4>
-                <p>DINO channel bypass, 2D Gaussian Splatting, and MoCA PEFT cognitive screening</p>
+                <span class="impact-badge">Training-Free</span>
+                <h4>Class-Agnostic Counting</h4>
+                <p>DINO color channel bypass and 2D Gaussian Splatting density maps for open-world counting</p>
                 <a href="ClassAgnosticCounting.html" title="More Details" class="details-link"></a>
               </div>
             </div>
             <h5 class="dark-gray mt-2 text-center">
-              <a href="ClassAgnosticCounting.html" style="color: inherit; text-decoration: none;">Class-Agnostic Object Counting & MoCA</a>
+              <a href="ClassAgnosticCounting.html" style="color: inherit; text-decoration: none;">Class-Agnostic Object Counting AI</a>
             </h5>
           </div>
 
@@ -302,20 +314,20 @@
             </h5>
           </div>
 
-          <!-- KAN -->
+          <!-- MoCA Vision Screening (Replacing KAN) -->
           <div class="col-lg-4 col-md-6 portfolio-item">
             <div class="portfolio-content h-100">
-              <img src="../assets/img/projects/kan/kan_theme.webp" class="img-fluid custom-img-height base-img" alt="KAN" loading="lazy" width="600" height="400" />
-              <img src="../assets/img/projects/kan/kan_theme_hover.webp" class="img-fluid custom-img-height hover-img" alt="KAN hover" loading="lazy" width="600" height="400" />
+              <img src="../assets/img/projects/moca/moca_clock_healthy.webp" class="img-fluid custom-img-height base-img" alt="MoCA Healthy Clock Test" loading="lazy" width="600" height="400" />
+              <img src="../assets/img/projects/moca/moca_clock_unhealthy.webp" class="img-fluid custom-img-height hover-img" alt="MoCA Impaired Clock Test" loading="lazy" width="600" height="400" />
               <div class="portfolio-info">
-                <span class="impact-badge">Pre-Print Review</span>
-                <h4>KAN Review</h4>
-                <p>Comprehensive benchmarking of Kolmogorov-Arnold Networks across diverse datasets</p>
-                <a href="KAN.html" title="More Details" class="details-link"></a>
+                <span class="impact-badge">PEFT Medical AI</span>
+                <h4>MoCA Vision Screening</h4>
+                <p>Parameter-efficient DINOv2 prompt tuning for early dementia and Alzheimer screening from drawing tests</p>
+                <a href="MoCA.html" title="More Details" class="details-link"></a>
               </div>
             </div>
             <h5 class="dark-gray mt-2 text-center">
-              <a href="KAN.html" style="color: inherit; text-decoration: none;">Kolmogorov-Arnold Networks (KAN) Review</a>
+              <a href="MoCA.html" style="color: inherit; text-decoration: none;">MoCA: Cognitive Impairment Screening AI</a>
             </h5>
           </div>
         </div>

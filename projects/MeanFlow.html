@@ -14,8 +14,10 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>MeanFlow 1-Step Generative Robot Policy - Farhad Hoseyni</title>
-  <meta name="description" content="MeanFlow - 1-step Flow Matching generative robot trajectory policy via Jacobian-Vector Products (JVP) for 10x faster inference on Push-T." />
-  <meta name="keywords" content="MeanFlow, Flow Matching, Diffusion Policy, Generative Robot Learning, PyTorch, JVP, Push-T Benchmark" />
+  <meta name="description"
+    content="MeanFlow - 1-step Flow Matching generative robot trajectory policy via Jacobian-Vector Products (JVP) for 10x faster inference on Push-T." />
+  <meta name="keywords"
+    content="MeanFlow, Flow Matching, Diffusion Policy, Generative Robot Learning, PyTorch, JVP, Push-T Benchmark" />
 
   <!-- Favicons -->
   <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
@@ -24,7 +26,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -49,6 +53,7 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="../index.html#experience">Experience</a></li>
           <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -56,13 +61,22 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <div class="page-title light-background">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
         <div class="container position-relative text-center">
-          <h1 class="dark-gray">MeanFlow 1-Step Generative Trajectory Policy</h1>
-          <p class="mx-auto" style="max-width: 800px;">
-            Continuous Normalizing Flows and 1-Step Flow Matching via JVP for 10x Faster Robot Action Generation
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            MeanFlow: Flow Matching for Robot Manipulation
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Accelerating diffusion policies with Flow Matching and MeanFlow for fast 1-step trajectory generation
           </p>
         </div>
       </div>
@@ -77,12 +91,12 @@
           <div class="project-section-block">
             <h3><i class="bi bi-activity text-primary"></i> Project Overview</h3>
             <p>
-              Generative diffusion models excel at learning multi-modal robot behaviors, but their step-by-step sampling creates latency bottlenecks. <strong>MeanFlow</strong> is a flow matching policy architecture that generates full robotic action trajectories in a <strong>single forward pass</strong>, achieving sub-4ms decision cycles on challenging manipulation benchmarks like Push-T.
+              Generative AI models excel at teaching robots complex manipulation skills, but standard models are slow because they generate movements through 10 to 50 repeated calculation steps. This project advances robot learning by adopting <strong>Flow Matching</strong> instead of traditional diffusion, creating straighter, more dependable motion paths. To make the robot react in real time, <strong>MeanFlow</strong> is implemented to eliminate step-by-step delays and generate complete robot action trajectories in a <strong>single instant step</strong>.
             </p>
             <div class="d-flex flex-wrap gap-2 mt-3">
-              <span class="badge bg-light text-dark border"><i class="bi bi-lightning-charge"></i> 1-Step Flow Matching</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-stopwatch"></i> 3.6 ms Inference Latency</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> Jacobian-Vector Products (JVP)</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-lightning-charge"></i> 1-Step Robot Motion</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-shield-check"></i> Robust Flow Matching</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-speedometer2"></i> Fast Real-Time Inference</span>
               <span class="badge bg-light text-dark border"><i class="bi bi-controller"></i> Push-T Benchmark</span>
             </div>
           </div>
@@ -91,119 +105,83 @@
           <div class="project-section-block">
             <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
             <p>
-              Standard diffusion policies require 20 to 100 sequential denoising steps per action chunk. In closed-loop robotic control, this introduces 50 to 200 ms of latency per step, which is too slow for dynamic obstacle avoidance or fast contact tasks.
+              Applying generative AI to real-time robotics involves balancing movement quality with speed:
             </p>
+            <ul>
+              <li><strong>The Multi-Step Speed Bottleneck:</strong> Conventional diffusion policies take 10 to 50 iterative steps to plan a single movement. In robotics, this delay makes the robot sluggish and unable to adapt quickly to changing environments.</li>
+              <li><strong>Curved, Complex Paths:</strong> Traditional diffusion models follow curved, indirect mathematical paths from random noise to final actions, which can introduce instability during training and execution.</li>
+            </ul>
           </div>
 
           <!-- Section 2: The Solution & Technical Approach -->
           <div class="project-section-block">
-            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Solution</h3>
             <p>
-              I formulated and implemented a 1-step trajectory generation framework:
+              To make robot movement both faster and more reliable, I developed an improved generative trajectory system:
             </p>
             <ul>
-              <li><strong>Continuous Normalizing Flows (CNF):</strong> Modeled action distributions as straight probability paths between random Gaussian noise and expert demonstration chunks.</li>
-              <li><strong>Jacobian-Vector Product (JVP) Optimization:</strong> Enforced straight-flow velocity vector fields during training using forward-mode automatic differentiation, allowing single-step Euler integration at inference.</li>
-              <li><strong>Multimodal Retention:</strong> Preserved the ability to capture distinct multimodal strategies (such as pushing from the left versus the right) while eliminating sampling loops.</li>
+              <li><strong>Straighter, More Reliable Movement (Flow Matching):</strong> Replaced traditional diffusion with Flow Matching, which guides the robot from random starting noise to desired actions along straight, predictable paths. This makes the robot's behavior noticeably more robust.</li>
+              <li><strong>Instant 1-Step Action Generation (MeanFlow):</strong> Implemented MeanFlow to bypass repeated iterative loops, enabling the policy to generate full trajectory plans in a single forward pass without losing motion quality.</li>
+              <li><strong>Hands-On Benchmark Testing:</strong> Validated the models on the Push-T manipulation task, systematically evaluating speed, trajectory smoothness, and task performance under different operating conditions.</li>
             </ul>
           </div>
 
-          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <!-- Section 3: Visual Showcase / Video Demonstration -->
           <div class="project-section-block">
-            <h3><i class="bi bi-images text-primary"></i> Flow Matching and Trajectory Visualizer</h3>
-            <div class="portfolio-details-slider swiper init-swiper my-3">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 3500
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/meanflow/meanflow_theme.webp" alt="MeanFlow Architecture Diagram" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/meanflow/meanflow_theme_hover.webp" alt="MeanFlow Push-T Flow Trajectories" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-              </div>
-              <div class="swiper-pagination mt-2"></div>
+            <h3><i class="bi bi-play-circle text-primary"></i> Push-T Trajectory Generation Video Demonstration</h3>
+            <div class="project-media-container shadow-sm my-3">
+              <video autoplay muted loop playsinline controls preload="metadata"
+                poster="../assets/img/projects/meanflow/meanflow_theme.png"
+                style="width: 100%; max-height: 540px; object-fit: contain; background: #0b0f19;">
+                <source src="../assets/img/projects/meanflow/meanflow.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
 
           <!-- Section 4: Quantitative Results & Impact Stat Cards -->
           <div class="project-section-block">
-            <h3><i class="bi bi-trophy text-primary"></i> Benchmarks and Latency Results</h3>
+            <h3><i class="bi bi-trophy text-primary"></i> Benchmark Metrics &amp; Success Rates</h3>
             <p>
-              MeanFlow delivered a 10x reduction in inference time compared to standard diffusion baselines:
+              Evaluating policy performance across 100 simulation trials per configuration on the Push-T task proved that reducing the generation process from 10 steps down to a single step achieves fast and effective robotic manipulation:
             </p>
 
             <div class="impact-stat-grid">
               <div class="stat-card">
-                <div class="stat-number">3.6 ms</div>
-                <div class="stat-label">Inference Latency</div>
-                <div class="stat-desc">Single forward pass action generation</div>
+                <div class="stat-number">10 &rarr; 1 Step</div>
+                <div class="stat-label">Iteration Reduction</div>
+                <div class="stat-desc">Cut multi-step sampling down to a single forward evaluation</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">10x</div>
-                <div class="stat-label">Speedup vs. Diffusion</div>
-                <div class="stat-desc">Replaces 50-step denoising loops with single-step pass</div>
+                <div class="stat-number">0.62</div>
+                <div class="stat-label">Flow Matching Reward</div>
+                <div class="stat-desc">Peak average target overlap score at 1-step inference</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">1-NFE</div>
-                <div class="stat-label">Single Evaluation</div>
-                <div class="stat-desc">Straight probability trajectories via JVP loss</div>
+                <div class="stat-number">0.55</div>
+                <div class="stat-label">MeanFlow 1-Step Reward</div>
+                <div class="stat-desc">Maintained solid task success with single-pass generation</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">Push-T</div>
-                <div class="stat-label">Benchmark Validated</div>
-                <div class="stat-desc">Maintains high success rate matching iterative baselines</div>
+                <div class="stat-number">100</div>
+                <div class="stat-label">Evaluation Trials</div>
+                <div class="stat-desc">Tested per configuration under reproducible seeds</div>
               </div>
             </div>
           </div>
 
-          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <!-- Section 5: Technologies -->
           <div class="project-section-block">
-            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
-            <div class="d-flex flex-wrap gap-2 mb-4">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies</h3>
+            <div class="d-flex flex-wrap gap-2">
               <span class="badge bg-secondary">PyTorch</span>
               <span class="badge bg-secondary">Flow Matching</span>
-              <span class="badge bg-secondary">Continuous Normalizing Flows</span>
-              <span class="badge bg-secondary">Jacobian-Vector Products (JVP)</span>
+              <span class="badge bg-secondary">MeanFlow</span>
               <span class="badge bg-secondary">Diffusion Policy</span>
+              <span class="badge bg-secondary">Continuous Normalizing Flows</span>
               <span class="badge bg-secondary">Push-T Benchmark</span>
-            </div>
-
-            <div class="resource-link-grid">
-              <a href="LeRobot.html" class="resource-link-card">
-                <i class="bi bi-robot"></i>
-                <div>
-                  <div>LeRobot SmolVLA</div>
-                  <small class="text-muted">Intent-conditioned manipulation</small>
-                </div>
-              </a>
-              <a href="YoDINO.html" class="resource-link-card">
-                <i class="bi bi-shield-check"></i>
-                <div>
-                  <div>YoDINO Foundation Vision</div>
-                  <small class="text-muted">Zero-shot feature extractors</small>
-                </div>
-              </a>
-              <a href="../index.html#projects" class="resource-link-card">
-                <i class="bi bi-grid-3x3-gap"></i>
-                <div>
-                  <div>Back to All Projects</div>
-                  <small class="text-muted">Explore complete portfolio</small>
-                </div>
-              </a>
+              <span class="badge bg-secondary">Robot Manipulation</span>
+              <span class="badge bg-secondary">Generative Policy Learning</span>
             </div>
           </div>
 

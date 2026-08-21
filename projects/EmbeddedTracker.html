@@ -14,8 +14,10 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>JIWY Embedded Vision Tracker - Farhad Hoseyni</title>
-  <meta name="description" content="JIWY - Altera DE10-Nano FPGA and ARM co-design, real-time 3D LUT color segmentation (12 ms), and 100 Hz PID servo tracking." />
-  <meta name="keywords" content="JIWY, Embedded Vision, FPGA, Altera DE10-Nano, ARM Cortex-A9, PID Control, Real-Time C++, University of Twente" />
+  <meta name="description"
+    content="JIWY - Altera DE10-Nano FPGA and ARM co-design, real-time 3D LUT color segmentation (12 ms), and 100 Hz PID servo tracking." />
+  <meta name="keywords"
+    content="JIWY, Embedded Vision, FPGA, Altera DE10-Nano, ARM Cortex-A9, PID Control, Real-Time C++, University of Twente" />
 
   <!-- Favicons -->
   <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
@@ -24,7 +26,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -49,6 +53,7 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="../index.html#experience">Experience</a></li>
           <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -56,13 +61,22 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <div class="page-title light-background">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
         <div class="container position-relative text-center">
-          <h1 class="dark-gray">JIWY Embedded Vision & 2-Axis Servo Tracker</h1>
-          <p class="mx-auto" style="max-width: 800px;">
-            Altera DE10-Nano FPGA and ARM Co-Design, Real-Time 3D LUT Color Segmentation, and 100 Hz PID Control
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            JIWY Embedded Vision, a 2-Axis Servo Tracker
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Cyber-physical design and hardware/software co-design for a 2-axis vision tracker
           </p>
         </div>
       </div>
@@ -77,13 +91,20 @@
           <div class="project-section-block">
             <h3><i class="bi bi-cpu text-primary"></i> Project Overview</h3>
             <p>
-              The <strong>JIWY Embedded Tracker</strong> is a pan-tilt robotic vision platform developed at the University of Twente (Robotics and Mechatronics Lab). It demonstrates low-level embedded software engineering, custom memory-mapped I/O, and hardware/software co-design to track moving targets with minimal latency.
+              The <strong>JIWY Embedded Tracker</strong> is a 2-axis pan-tilt robotic vision platform. The project
+              focuses on the complete cyber-physical development and hardware/software co-design: integrating custom
+              Verilog modules on FPGA fabric with high-level software running on an ARM core to track moving targets
+              with minimal latency.
             </p>
             <div class="d-flex flex-wrap gap-2 mt-3">
-              <span class="badge bg-light text-dark border"><i class="bi bi-motherboard"></i> Altera DE10-Nano FPGA</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> ARM Cortex-A9 Core</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-speedometer2"></i> 100 Hz PID Servo Loop</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-code-slash"></i> Embedded C++ / Linux</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-motherboard"></i> Intel/Altera Cyclone V
+                (DE10-Nano)</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> ARM Cortex-A9</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-motherboard-fill"></i> Lattice iCE40
+                (icoBoard)</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-cpu-fill"></i> Raspberry Pi</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-diagram-3"></i> Verilog/FPGA</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-code-slash"></i> Embedded C++</span>
             </div>
           </div>
 
@@ -91,55 +112,83 @@
           <div class="project-section-block">
             <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
             <p>
-              Standard image segmentation in RGB color space is computationally heavy and sensitive to changing lighting. Running complex vision models on low-power embedded processors often causes frame drops and sluggish servo response.
+              The primary challenge was architecting the end-to-end cyber-physical co-design between the FPGA fabric and
+              the ARM host processor across distinct hardware platforms (evaluating the Intel Cyclone V SoC on DE10-Nano
+              versus a Raspberry Pi with Lattice iCE40 FPGA). Key engineering hurdles included:
             </p>
+            <ul>
+              <li><strong>Hardware/Software Partitioning:</strong> Designing custom Verilog modules on the FPGA to
+                handle high-frequency quadrature encoder decoding and 20 kHz PWM generation, while bridging them
+                seamlessly to the ARM processor.</li>
+              <li><strong>Inter-Domain SPI Communication:</strong> Implementing high-speed SPI communication between the
+                FPGA and the ARM processor to transmit encoder counts and control signals deterministically without
+                timing jitter or packet loss.</li>
+              <li><strong>Resource-Constrained Vision:</strong> Due to limited on-board processing capacity and specific
+                raw camera output formats, standard color-space conversions were too costly, requiring optimized,
+                high-throughput image processing techniques to sustain real-time frame rates.</li>
+            </ul>
           </div>
 
           <!-- Section 2: The Solution & Technical Approach -->
           <div class="project-section-block">
-            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <h3><i class="bi bi-diagram-3 text-primary"></i> Engineering Solution &amp; Co-Design Architecture</h3>
             <p>
-              I engineered an optimized embedded vision and motion control pipeline:
+              I implemented a complete hardware/software co-design pipeline connecting sensor acquisition, real-time
+              image processing, and closed-loop motor actuation:
             </p>
             <ul>
-              <li><strong>3D Look-Up Table (LUT) Segmentation:</strong> Built a pre-computed 3D indexing table in YUV color space, processing camera frames in just <strong>12.05 ms</strong> with direct bounding-box centroid extraction.</li>
-              <li><strong>FPGA and ARM Co-Design:</strong> Connected the Linux userspace application to FPGA fabric registers via memory-mapped <code>/dev/mem</code> interfaces, controlling a hardware-enforced 20 kHz PWM driver.</li>
-              <li><strong>100 Hz PID Control with Hardware Safety:</strong> Tuned digital PID controllers with software angle limits and hardware watchdog monitors to prevent mechanical overshoot.</li>
+              <li><strong>Custom FPGA Hardware Modules (Verilog):</strong> Developed hardware blocks on the Cyclone V
+                FPGA fabric, including dual-channel quadrature encoder counters and high-frequency 20 kHz PWM motor
+                drivers equipped with hardware-level duty-cycle limits and dead-time safety protection for the H-bridge
+                drivers.</li>
+              <li><strong>Memory-Mapped Bus Communication:</strong> Mapped FPGA hardware registers directly into the
+                Linux user-space application via the Avalon Memory-Mapped bus, enabling
+                microsecond-level register reads and writes with zero driver overhead.</li>
+              <li><strong>Automated Self-Calibration Routine:</strong> Because the physical configuration and zero
+                positions are unknown at startup, developed a self-calibration routine. It drives motors at a safe duty
+                cycle, detects mechanical end-stops by monitoring encoder feedback variations, measures physical axis
+                ranges, calculates the true center, and sets deterministic zero references.</li>
+              <li><strong>Optimized 3D LUT Color Segmentation:</strong> Overcame camera format and compute bottlenecks
+                by building a quantized 3D Look-Up Table (LUT) in YUV color space. This reduced per-frame processing
+                time
+                from <strong>45.27 ms down to 12.05 ms (3.75x faster)</strong>, eliminating frame drops and comfortably
+                fitting within the 33.3 ms (30 FPS) real-time budget while saving memory.</li>
+              <li><strong>Closed-Loop 2-Axis Motion Control:</strong> Modeled the pan-tilt dynamics and
+                implemented dual digital PID controllers in embedded C++, running at 100 Hz with software limit switches
+                and safety watchdog monitoring to keep the target centered smoothly.</li>
             </ul>
           </div>
 
-          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <!-- Section 3: Visual Showcase / Video Demonstration -->
           <div class="project-section-block">
-            <h3><i class="bi bi-images text-primary"></i> JIWY Platform and Experimental Setup</h3>
-            <div class="portfolio-details-slider swiper init-swiper my-3">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 3500
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/embedded-tracker/jiwy-theme.jpeg" alt="JIWY Pan-Tilt Platform" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover; object-position: top center;" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/embedded-tracker/jiwy-theme-hover.jpeg" alt="JIWY FPGA Real Experimental Hardware Setup" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover; object-position: top center;" />
-                </div>
-              </div>
-              <div class="swiper-pagination mt-2"></div>
+            <h3><i class="bi bi-play-circle text-primary"></i> Real-Time Pan-Tilt Visual Tracking Demonstration</h3>
+            <div class="project-media-container shadow-sm my-3">
+              <video autoplay muted loop playsinline controls preload="metadata"
+                poster="../assets/img/projects/embedded-tracker/jiwy-theme.jpeg"
+                style="width: 100%; max-height: 540px; object-fit: contain; background: #0b0f19;">
+                <source src="../assets/img/projects/embedded-tracker/JIWY.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
 
-          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <!-- Section 4: System Architecture & Software Design -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-3-fill text-primary"></i> Hardware &amp; Software Co-Design Architecture</h3>
+            <p>
+              System data flow across the ARM host application and custom FPGA fabric:
+            </p>
+            <div class="my-3 text-center">
+              <a href="../assets/img/projects/embedded-tracker/JIWY-software-architecture.png" class="glightbox"
+                data-gallery="jiwy-arch">
+                <img src="../assets/img/projects/embedded-tracker/JIWY-software-architecture.png"
+                  alt="JIWY Hardware and Software Architecture Diagram" class="img-fluid rounded-3 shadow-sm border"
+                  style="width: 100%; height: auto; max-height: 520px; object-fit: contain; background: #ffffff; padding: 12px;" />
+              </a>
+            </div>
+          </div>
+
+          <!-- Section 5: Quantitative Results & Impact Stat Cards -->
           <div class="project-section-block">
             <h3><i class="bi bi-trophy text-primary"></i> Embedded Benchmarks and Results</h3>
             <p>
@@ -148,9 +197,9 @@
 
             <div class="impact-stat-grid">
               <div class="stat-card">
-                <div class="stat-number">12.05 ms</div>
-                <div class="stat-label">Frame Time</div>
-                <div class="stat-desc">3D Look-Up Table color segmentation</div>
+                <div class="stat-number">3.75x</div>
+                <div class="stat-label">Vision Speedup</div>
+                <div class="stat-desc">12.05 ms vs 45.27 ms standard HSV frame time</div>
               </div>
               <div class="stat-card">
                 <div class="stat-number">100 Hz</div>
@@ -170,41 +219,42 @@
             </div>
           </div>
 
-          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <!-- Section 6: Technologies -->
           <div class="project-section-block">
-            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
-            <div class="d-flex flex-wrap gap-2 mb-4">
-              <span class="badge bg-secondary">Altera DE10-Nano</span>
+            <h3><i class="bi bi-tools text-primary"></i> Technologies</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-secondary">Intel/Altera Cyclone V</span>
               <span class="badge bg-secondary">ARM Cortex-A9</span>
+              <span class="badge bg-secondary">Lattice iCE40</span>
+              <span class="badge bg-secondary">Raspberry Pi</span>
+              <span class="badge bg-secondary">Verilog HDL</span>
+              <span class="badge bg-secondary">SPI Communication Protocol</span>
+              <span class="badge bg-secondary">Avalon Memory-Mapped Bus</span>
               <span class="badge bg-secondary">Embedded C++</span>
-              <span class="badge bg-secondary">3D LUT YUV</span>
-              <span class="badge bg-secondary">PWM Motor Driver</span>
-              <span class="badge bg-secondary">PID Servo Control</span>
-              <span class="badge bg-secondary">POSIX Threads</span>
+              <span class="badge bg-secondary">3D LUT YUV Vision</span>
+              <span class="badge bg-secondary">20 kHz PWM Hardware Driver</span>
+              <span class="badge bg-secondary">Dual-Axis PID Control</span>
             </div>
+          </div>
 
-            <div class="resource-link-grid">
-              <a href="RELBot.html" class="resource-link-card">
-                <i class="bi bi-truck"></i>
-                <div>
-                  <div>RELBot Mobile Platform</div>
-                  <small class="text-muted">Real-time RTOS target tracking</small>
+          <!-- Section 7: Open Source Repository -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-github text-primary"></i> Open Source Repository</h3>
+            <div class="row g-3 mb-2">
+              <div class="col-12">
+                <div class="border rounded p-3 bg-white h-100 shadow-sm d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-github text-dark fs-2"></i>
+                    <div>
+                      <h6 class="fw-bold text-dark mb-0">Embedded Vision Tracker Repository</h6>
+                      <small class="text-muted">Real-Time FPGA and SoC Dual-Axis Vision Tracking with Hardware Accelerated Pipeline</small>
+                    </div>
+                  </div>
+                  <a href="https://github.com/mamdaliof/embedded-vision-tracker" target="_blank" class="btn btn-sm btn-primary">
+                    <i class="bi bi-github"></i> View GitHub Repository <i class="bi bi-box-arrow-up-right ms-1"></i>
+                  </a>
                 </div>
-              </a>
-              <a href="Go2.html" class="resource-link-card">
-                <i class="bi bi-compass"></i>
-                <div>
-                  <div>Unitree Go2 SLAM</div>
-                  <small class="text-muted">Quadruped LiDAR & Nav2 navigation</small>
-                </div>
-              </a>
-              <a href="../index.html#projects" class="resource-link-card">
-                <i class="bi bi-grid-3x3-gap"></i>
-                <div>
-                  <div>Back to All Projects</div>
-                  <small class="text-muted">Explore complete portfolio</small>
-                </div>
-              </a>
+              </div>
             </div>
           </div>
 

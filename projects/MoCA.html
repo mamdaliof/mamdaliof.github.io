@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EJZSNX0CWV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EJZSNX0CWV');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>MoCA Vision Screening: Prompt Tuning for Cognitive Impairment - Farhad Hoseyni</title>
+  <meta name="description"
+    content="Parameter-efficient prompt tuning of DINOv2 vision foundation models with adaptive focal loss for interpretable Mild Cognitive Impairment (MCI) screening from clinical drawing tests." />
+  <meta name="keywords"
+    content="MoCA, Mild Cognitive Impairment, Alzheimer's, DINOv2, Prompt Tuning, PEFT, Medical AI, Healthcare Vision, PyTorch" />
+
+  <!-- Favicons -->
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
+  <link href="../assets/img/icons/Mohamamd icon.webp" rel="apple-touch-icon" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet" />
+</head>
+
+<body class="portfolio-details-page">
+  <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="../index.html" class="logo d-flex align-items-center">
+        <h1 class="sitename">MoCA Vision Screening</h1>
+      </a>
+      <nav id="navmenu" class="navmenu" style="background-color: #333">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            MoCA AI: Cognitive Impairment Screening
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Parameter-efficient foundation vision tuning for early dementia and Alzheimer screening from drawing tests
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="single-column-wrapper">
+
+          <!-- Project Overview Card -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-heart-pulse text-primary"></i> Project Overview</h3>
+            <p>
+              Mild Cognitive Impairment (MCI) is a critical early stage of cognitive decline that often precedes
+              Alzheimer's disease. Standard clinical screening relies on neuropsychological drawing tests (such as clock
+              drawing, cube copying, and trail making). This project introduces a parameter-efficient AI framework that
+              adapts a frozen <strong>DINOv2</strong> vision foundation model to accurately detect cognitive impairment
+              from patient drawings, training under <strong>6% of total parameters</strong> while providing built-in
+              visual explanations for clinicians.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> DINOv2 Foundation Vision</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-sliders"></i> Parameter-Efficient Prompt
+                Tuning</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-eye"></i> Built-In Visual
+                Explainability</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-hospital"></i> Clinical Drawing Tests</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-shield-check"></i> MoCA-Adapted Focal
+                Loss</span>
+            </div>
+          </div>
+
+          <!-- Section 1: The Challenge -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
+            <p>
+              Automating clinical screening from neuropsychological drawings presents unique medical and technical
+              hurdles:
+            </p>
+            <ul>
+              <li><strong>Scarcity of Medical Training Data:</strong> Collecting large annotated clinical datasets is
+                difficult, making heavy models with tens of millions of trainable parameters prone to severe
+                overfitting.</li>
+              <li><strong>Diagnostic Ambiguity Near Boundaries:</strong> Patients near the standard Montreal Cognitive
+                Assessment (MoCA) cutoff score of 25 show subtle, borderline drawing patterns that hard binary
+                classification fails to capture reliably.</li>
+              <li><strong>The Black-Box Dilemma:</strong> Healthcare professionals require trustworthy, interpretable
+                visual evidence explaining why a patient's drawing indicates potential impairment rather than opaque
+                probability scores.</li>
+            </ul>
+          </div>
+
+          <!-- Section 2: The Solution & Technical Approach -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Solution &amp; Architecture</h3>
+            <p>
+              To deliver accurate, lightweight, and explainable medical screening, I developed a prompt-tuned foundation
+              model architecture:
+            </p>
+            <ul>
+              <li><strong>Modality-Specific Prompt Tuning (PEFT):</strong> Attached three learnable prompt tokens (one
+                for each drawing test: clock, cube, and trail) to a frozen DINOv2 backbone. This trains only 1.19
+                million parameters (under 6%), keeping 94%+ of the model frozen to preserve general vision intelligence.
+              </li>
+              <li><strong>Direct Visual Explainability:</strong> The learnable prompt tokens act as queries over the
+                drawing patches in a shared cross-attention layer, automatically producing clear spatial attention
+                heatmaps that show clinicians which drawing irregularities influenced the diagnosis.</li>
+              <li><strong>MoCA-Adapted Loss Function:</strong> Formulated a specialized loss function that incorporates
+                continuous clinical MoCA scores into soft training targets, guiding the network smoothly through
+                borderline cases.</li>
+            </ul>
+          </div>
+
+          <!-- Section 3: Visual Showcase -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-eye text-primary"></i> Clinical Inference &amp; Spatial Attention Heatmaps</h3>
+            <p class="text-muted small mb-3">
+              Cross-attention maps and modality pooling weights during inference across clinical drawing tests (Clock
+              Drawing, Trail Making, and Cube Copying), highlighting subtle cognitive impairment indicators:
+            </p>
+            <div class="project-media-container shadow-sm my-3"
+              style="border-radius: 10px; overflow: hidden; background: #fff; text-align: center;">
+              <a href="../assets/img/projects/moca/moca_inference_attention.png" class="glightbox"
+                data-gallery="moca-gallery">
+                <img src="../assets/img/projects/moca/moca_inference_attention.png"
+                  alt="MoCA Cross-Attention Inference Heatmaps"
+                  style="width: 100%; height: auto; object-fit: contain; padding: 10px;" />
+              </a>
+            </div>
+          </div>
+
+          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-trophy text-primary"></i> Benchmark Metrics &amp; Diagnostic Impact</h3>
+            <p>
+              Under stratified 5-fold cross-validation on clinical drawing datasets, the lightweight model outperformed
+              the heavy reference baseline:
+            </p>
+
+            <div class="impact-stat-grid">
+              <div class="stat-card">
+                <div class="stat-number">&lt; 6%</div>
+                <div class="stat-label">Trainable Parameters</div>
+                <div class="stat-desc">Operates with just 1.19M parameters, 27x smaller than heavy baselines</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">+7.1%</div>
+                <div class="stat-label">Diagnostic AUC Gain</div>
+                <div class="stat-desc">Substantial AUC improvement over reference paper baseline</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">+11.0%</div>
+                <div class="stat-label">MCI F1-Score Gain</div>
+                <div class="stat-desc">Boost in cognitive impairment sensitivity over reference paper baseline</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Intrinsic</div>
+                <div class="stat-label">Spatial Heatmaps</div>
+                <div class="stat-desc">Direct attention visualizations without post-hoc approximations</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Technologies -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-secondary">DINOv2 Vision Foundation Model</span>
+              <span class="badge bg-secondary">Prompt Tuning (PEFT)</span>
+              <span class="badge bg-secondary">Medical Image Analysis</span>
+              <span class="badge bg-secondary">Explainable AI (XAI)</span>
+              <span class="badge bg-secondary">Attention Mechanisms</span>
+              <span class="badge bg-secondary">PyTorch</span>
+              <span class="badge bg-secondary">Neuropsychological Screening</span>
+            </div>
+          </div>
+
+          <!-- Section 6: Publications & Research -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-journal-text text-primary"></i> Publications</h3>
+            <div class="row g-3 mb-2">
+              <div class="col-12">
+                <a href="https://arxiv.org/abs/2607.15047" target="_blank" class="text-decoration-none">
+                  <div class="border rounded p-3 bg-white h-100 shadow-sm resource-hover-card">
+                    <div class="d-flex align-items-start gap-3">
+                      <i class="bi bi-file-earmark-text text-danger fs-3 mt-1"></i>
+                      <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                          <h6 class="fw-bold text-dark mb-0">Interpretable Mild Cognitive Impairment Screening from Drawing Triplets</h6>
+                          <i class="bi bi-box-arrow-up-right text-muted small"></i>
+                        </div>
+                        <p class="small text-muted mb-2">Parameter-efficient prompt tuning of frozen vision foundation models for interpretable cognitive impairment screening from drawing tests.</p>
+                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle">arXiv:2607.15047</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer light-background">
+    <div class="container">
+      <h3 class="sitename">Contact</h3>
+      <p>Feel free to reach out for research collaboration or engineering inquiries:</p>
+      <div class="social-links d-flex justify-content-center">
+        <a href="mailto:farhadhosini60@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mohammad-hoseyni/" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://t.me/mamdaliof" target="_blank"><i class="bi bi-telegram"></i></a>
+        <a href="https://github.com/mamdaliof" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <div class="container">
+        <div class="copyright">
+          <span>Copyright</span> <strong class="px-1 sitename">Farhad Hoseyni</strong> <span>All Rights Reserved</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

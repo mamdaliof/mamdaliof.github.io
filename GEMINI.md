@@ -50,6 +50,12 @@ All custom styling is located in `assets/css/main.css`. It follows a standard CS
 ### Deployment
 This project is configured for GitHub Pages (evidenced by the `CNAME` file and repository name `mamdaliof.github.io`). Deployment is as simple as pushing changes to the main branch.
 
+## Content & Persona Guidelines
+- **HR & Recruiter-Friendly Tone:** Present complex engineering and AI topics in clear, accessible, and intuitive language that hiring managers, technical recruiters, and general audiences can easily understand without needing deep math derivations.
+- **Concise & Direct:** Keep overviews, problem statements, and solutions grounded, punchy, and professional without AI hype or wordy fluff.
+- **Avoid Formatting Markers:** Do not use em dashes (`—`) or en dashes (`–`). Use clean commas, parentheses, or colons.
+- **Visuals & Layout:** Focus on clean, single high-value architecture diagrams or responsive video embeds instead of crowded image carousels where appropriate. Keep technology tags clean and remove related-project card links.
+
 ## Key Commands
 Since this is a static site, there are no build or test scripts.
 -   **To View:** Open `index.html` in any modern web browser.

@@ -13,9 +13,9 @@
 
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>YoDINO Zero-Annotation Anomaly AI - Farhad Hoseyni</title>
-  <meta name="description" content="YoDINO - DINOv3 vision foundation models, bottleneck parameter-efficient adapters (91.13% acc), and zero-annotation Isolation Forest (0.849 AUROC)." />
-  <meta name="keywords" content="YoDINO, DINOv3, Foundation Models, Anomaly Detection, Parameter-Efficient Fine-Tuning, PEFT, Isolation Forest" />
+  <title>YoDINO: Foundation Vision Backbone for YOLO - Farhad Hoseyni</title>
+  <meta name="description" content="YoDINO - DINOv3 vision foundation models, Meta ViTDet Simple Feature Pyramid, and PEFT adapters for multi-downstream YOLO representation learning." />
+  <meta name="keywords" content="YoDINO, DINOv3, YOLO, ViTDet, Vision Foundation Models, Parameter-Efficient Fine-Tuning, PEFT, Multi-Task Learning, PyTorch" />
 
   <!-- Favicons -->
   <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
@@ -42,13 +42,14 @@
   <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="../index.html" class="logo d-flex align-items-center">
-        <h1 class="sitename">YoDINO Anomaly AI</h1>
+        <h1 class="sitename">YoDINO Vision Backbone</h1>
       </a>
       <nav id="navmenu" class="navmenu" style="background-color: #333">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="../index.html#experience">Experience</a></li>
           <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -56,13 +57,22 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <div class="page-title light-background">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
         <div class="container position-relative text-center">
-          <h1 class="dark-gray">YoDINO Zero-Annotation Battery Anomaly Detection</h1>
-          <p class="mx-auto" style="max-width: 800px;">
-            DINOv3 Vision Foundation Models, Parameter-Efficient Bottleneck Adapters and Unsupervised Isolation Forest
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            YoDINO: Foundation Vision Backbone for YOLO
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Connecting DINO foundation vision to YOLO via Meta ViTDet for efficient multi-task learning
           </p>
         </div>
       </div>
@@ -75,15 +85,16 @@
 
           <!-- Project Overview Card -->
           <div class="project-section-block">
-            <h3><i class="bi bi-shield-check text-primary"></i> Project Overview</h3>
+            <h3><i class="bi bi-eye text-primary"></i> Project Overview</h3>
             <p>
-              In battery manufacturing, rare defects cannot be anticipated with large supervised training sets. <strong>YoDINO</strong> is a computer vision research pipeline that combines self-supervised <strong>DINOv3 vision foundation models</strong> with parameter-efficient fine-tuning (PEFT) and unsupervised anomaly scoring to detect novel battery defects with zero prior defect annotations.
+              Traditional computer vision systems train separate models for each individual task, wasting compute and struggling when training data is limited. <strong>YoDINO</strong> connects the rich, pre-trained visual understanding of <strong>DINO foundation models</strong> with the speed of <strong>YOLO</strong>. Using architectural principles from Meta's <strong>ViTDet</strong>, a single visual encoding of the environment can power multiple tasks simultaneously (such as object detection and segmentation). Parameter-Efficient Fine-Tuning (<strong>PEFT</strong>) is used to adapt the model quickly while keeping its foundation intact.
             </p>
             <div class="d-flex flex-wrap gap-2 mt-3">
-              <span class="badge bg-light text-dark border"><i class="bi bi-eye"></i> DINOv3 Foundation Model</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> Bottleneck PEFT Adapters</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-shield-plus"></i> Isolation Forest Anomaly</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-graph-up"></i> 0.849 Unsupervised AUROC</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> DINO Vision Backbone</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-diagram-3"></i> Meta ViTDet Bridge</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-lightning-charge"></i> Fast YOLO Head</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-sliders"></i> PEFT Efficiency</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-layers"></i> Multi-Task Learning</span>
             </div>
           </div>
 
@@ -91,119 +102,101 @@
           <div class="project-section-block">
             <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
             <p>
-              Production lines produce millions of normal parts but few defective examples. Supervised classification fails when new, unseen defect types emerge, and fine-tuning billions of parameters in foundation models is computationally impractical on manufacturing edge devices.
+              Deploying large vision foundation models into real-world applications faces practical hurdles:
             </p>
+            <ul>
+              <li><strong>Redundant Task Processing:</strong> Running separate AI models for every single task wastes heavy computational power when one shared visual understanding could serve all of them.</li>
+              <li><strong>Architecture Incompatibility:</strong> Vision Transformers process images differently than standard fast detectors like YOLO, making it difficult to connect them directly without custom architectural adapters.</li>
+              <li><strong>Heavy Retraining Costs:</strong> Fully retraining massive foundation models is slow, expensive, and risks erasing their broad general intelligence.</li>
+            </ul>
           </div>
 
           <!-- Section 2: The Solution & Technical Approach -->
           <div class="project-section-block">
-            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Solution &amp; Architecture</h3>
             <p>
-              I formulated a two-tier foundation vision architecture:
+              To create an efficient, generalizable vision pipeline, I combined DINO, YOLO, and Meta's ViTDet concepts:
             </p>
             <ul>
-              <li><strong>Parameter-Efficient Bottleneck Adapters:</strong> Inserted linear bottleneck adapters into intermediate Vision Transformer layers, freezing 99.1% of backbone weights while achieving <strong>91.13% classification accuracy</strong>.</li>
-              <li><strong>Zero-Annotation Isolation Forest:</strong> Extracted patch-level self-supervised embeddings from normal battery surfaces and fitted an unsupervised Isolation Forest, scoring anomalies without requiring defect labels.</li>
-              <li><strong>Edge Inference:</strong> Pre-computed feature dictionaries for millisecond-level anomaly heatmaps on the line.</li>
+              <li><strong>ViTDet Bridge to YOLO:</strong> Connected the DINO backbone directly to the neck and head of YOLO using Meta's ViTDet approach, allowing YOLO to easily use rich foundation features.</li>
+              <li><strong>Preserving DINO for Multi-Tasking:</strong> Kept the core DINO foundation frozen so its rich visual representations can be reused across different downstream tasks simultaneously without retraining from scratch.</li>
+              <li><strong>Lightweight Adaptation with PEFT:</strong> Applied Parameter-Efficient Fine-Tuning (PEFT) to train less than 1% of the model's parameters, dramatically cutting training time and resource requirements while protecting the model's overall generalization.</li>
             </ul>
           </div>
 
-          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <!-- Section 3: Visual Showcase -->
           <div class="project-section-block">
-            <h3><i class="bi bi-images text-primary"></i> Feature Maps and Anomaly Localization</h3>
-            <div class="portfolio-details-slider swiper init-swiper my-3">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 3500
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/yodino/YoDINO-main.jpeg" alt="YoDINO Architecture Diagram" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/yodino/YoDINO-hover.jpeg" alt="YoDINO Attention Feature Maps" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-              </div>
-              <div class="swiper-pagination mt-2"></div>
+            <h3><i class="bi bi-diagram-3 text-primary"></i> Architecture Overview</h3>
+            <div class="project-media-container shadow-sm my-3" style="border-radius: 10px; overflow: hidden; background: #fff; text-align: center;">
+              <a href="../assets/img/projects/yodino/YoDINO-arch.png" class="glightbox" data-gallery="yodino-gallery">
+                <img src="../assets/img/projects/yodino/YoDINO-arch.png" alt="YoDINO ViTDet Architecture Pipeline" style="width: 100%; max-height: 520px; object-fit: contain; padding: 10px;" />
+              </a>
             </div>
           </div>
 
           <!-- Section 4: Quantitative Results & Impact Stat Cards -->
           <div class="project-section-block">
-            <h3><i class="bi bi-trophy text-primary"></i> Anomaly Benchmarks and Results</h3>
+            <h3><i class="bi bi-trophy text-primary"></i> Key Architecture Advantages</h3>
             <p>
-              The adapter-tuned foundation model outperformed fully fine-tuned baselines with a small computational footprint:
+              YoDINO establishes an efficient, practical approach for using foundation vision models in multi-task setups:
             </p>
 
             <div class="impact-stat-grid">
               <div class="stat-card">
-                <div class="stat-number">91.13%</div>
-                <div class="stat-label">Classification Accuracy</div>
-                <div class="stat-desc">Achieved via bottleneck adapter parameter tuning</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">0.90%</div>
+                <div class="stat-number">&lt; 1%</div>
                 <div class="stat-label">Trained Parameters</div>
-                <div class="stat-desc">99.1% parameter freeze for fast convergence</div>
+                <div class="stat-desc">PEFT adapters preserve 99%+ of foundation model weights</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">0.849</div>
-                <div class="stat-label">Zero-Shot AUROC</div>
-                <div class="stat-desc">Unsupervised Isolation Forest anomaly detection</div>
+                <div class="stat-number">Meta ViTDet</div>
+                <div class="stat-label">Seamless Integration</div>
+                <div class="stat-desc">Bridges plain ViT outputs into fast YOLO detection heads</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">DINOv3</div>
-                <div class="stat-label">Foundation Vision</div>
-                <div class="stat-desc">Self-supervised patch representations</div>
+                <div class="stat-number">Multi-Task</div>
+                <div class="stat-label">Shared Visual Encoding</div>
+                <div class="stat-desc">Single environmental pass powers multiple downstream objectives</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number">Preserved</div>
+                <div class="stat-label">General Intelligence</div>
+                <div class="stat-desc">Fast adaptation without losing foundational knowledge</div>
               </div>
             </div>
           </div>
 
-          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <!-- Section 5: Technologies -->
           <div class="project-section-block">
-            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
-            <div class="d-flex flex-wrap gap-2 mb-4">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-secondary">DINO Foundation Models</span>
+              <span class="badge bg-secondary">YOLO Architecture</span>
+              <span class="badge bg-secondary">Meta ViTDet</span>
+              <span class="badge bg-secondary">PEFT (Adapters &amp; LoRA)</span>
+              <span class="badge bg-secondary">Multi-Task Learning</span>
+              <span class="badge bg-secondary">Vision Transformers</span>
               <span class="badge bg-secondary">PyTorch</span>
-              <span class="badge bg-secondary">DINOv3 / ViT</span>
-              <span class="badge bg-secondary">PEFT Adapters</span>
-              <span class="badge bg-secondary">Isolation Forest</span>
-              <span class="badge bg-secondary">Self-Supervised Learning</span>
-              <span class="badge bg-secondary">Industrial Anomaly AI</span>
             </div>
+          </div>
 
-            <div class="resource-link-grid">
-              <a href="FraunhoferBattery.html" class="resource-link-card">
-                <i class="bi bi-building-gear"></i>
-                <div>
-                  <div>Fraunhofer Battery AI</div>
-                  <small class="text-muted">Industrial line deployment</small>
+          <!-- Section 6: Open Source & Code -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-github text-primary"></i> Open Source Repository</h3>
+            <div class="row g-3 mb-2">
+              <div class="col-12">
+                <div class="border rounded p-3 bg-white h-100 shadow-sm d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-github text-dark fs-2"></i>
+                    <div>
+                      <h6 class="fw-bold text-dark mb-0">YoDINO Open-Source Implementation</h6>
+                      <small class="text-muted">Integrating DINO Foundation Model Features with YOLO via Meta ViTDet and PEFT</small>
+                    </div>
+                  </div>
+                  <a href="https://github.com/mamdaliof/YoDINO-DINO-is-all-YOLO-needs" target="_blank" class="btn btn-sm btn-primary">
+                    <i class="bi bi-github"></i> View GitHub Repository <i class="bi bi-box-arrow-up-right ms-1"></i>
+                  </a>
                 </div>
-              </a>
-              <a href="ClassAgnosticCounting.html" class="resource-link-card">
-                <i class="bi bi-bounding-box-circles"></i>
-                <div>
-                  <div>Counting & MoCA PEFT</div>
-                  <small class="text-muted">Gaussian splatting & DINOv2 tuning</small>
-                </div>
-              </a>
-              <a href="../index.html#projects" class="resource-link-card">
-                <i class="bi bi-grid-3x3-gap"></i>
-                <div>
-                  <div>Back to All Projects</div>
-                  <small class="text-muted">Explore complete portfolio</small>
-                </div>
-              </a>
+              </div>
             </div>
           </div>
 

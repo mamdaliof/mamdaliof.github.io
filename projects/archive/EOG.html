@@ -53,7 +53,10 @@
       </a>
       <nav id="navmenu" class="navmenu" style="background-color: #333">
         <ul>
-          <li><a href="../index.html" class="active">Home</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#experience">Experience</a></li>
+          <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -61,12 +64,17 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <!-- Image removed -->
-      <div class="page-title light-background">
-        <div class="container position-relative">
-          <h1 class="dark-gray">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
+        <div class="container position-relative text-center">
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
             Cognitive Load with Electrooculography Signal
           </h1>
         </div>

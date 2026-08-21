@@ -14,8 +14,10 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>LeRobot SmolVLA Intent-Conditioned Manipulation - Farhad Hoseyni</title>
-  <meta name="description" content="LeRobot SmolVLA - Two-stage intent classification (BERT F1 85%) and Vision-Language-Action manipulation on SO-101 robot arm." />
-  <meta name="keywords" content="LeRobot, SmolVLA, VLA, Robot Learning, Action Chunking, Hugging Face, SO-101, PyTorch" />
+  <meta name="description"
+    content="LeRobot SmolVLA - Two-stage intent classification (BERT F1 85%) and Vision-Language-Action manipulation on SO-101 robot arm." />
+  <meta name="keywords"
+    content="LeRobot, SmolVLA, VLA, Robot Learning, Action Chunking, Hugging Face, SO-101, PyTorch" />
 
   <!-- Favicons -->
   <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
@@ -24,7 +26,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -49,6 +53,7 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="../index.html#experience">Experience</a></li>
           <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -56,13 +61,22 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <div class="page-title light-background">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
         <div class="container position-relative text-center">
-          <h1 class="dark-gray">LeRobot SmolVLA Intent-Conditioned Manipulation</h1>
-          <p class="mx-auto" style="max-width: 800px;">
-            Two-Stage Intent Classification (BERT F1 85%), SO-101 Robot Arm Manipulation and Hugging Face Dataset
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            LeRobot SmolVLA Intent-Conditioned Manipulation
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Two-stage intent classification and Vision-Language-Action manipulation on the SO-101 robot arm
           </p>
         </div>
       </div>
@@ -77,12 +91,19 @@
           <div class="project-section-block">
             <h3><i class="bi bi-robot text-primary"></i> Project Overview</h3>
             <p>
-              Vision-Language-Action (VLA) models enable robots to follow human instructions. This project addresses prompt ambiguity and policy stability on the <strong>SO-101 robotic arm</strong> using a two-stage intent pipeline and Hugging Face's LeRobot framework.
+              Vision-Language-Action (VLA) models unify visual perception, natural language understanding, and physical
+              manipulation. However, standard end-to-end VLAs struggle with ambiguous instructions and non-English
+              prompts. This project investigates a two-stage approach: using intent classification as a pre-processing
+              frontend to decouple linguistic ambiguity before executing physical actions with a lightweight
+              <strong>SmolVLA (0.45B)</strong> policy on a 6-DOF <strong>SO-101 robotic arm</strong>.
             </p>
             <div class="d-flex flex-wrap gap-2 mt-3">
-              <span class="badge bg-light text-dark border"><i class="bi bi-robot"></i> SO-101 Robot Arm</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-chat-text"></i> BERT Intent Classifier</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-database"></i> 170-Episode Dataset</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-robot"></i> SO-101 6-DOF Arm</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> SmolVLA (0.45B) Policy</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-chat-text"></i> BERT Intent Classifier (F1:
+                85%)</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-translate"></i> Multilingual
+                Grounding</span>
               <span class="badge bg-light text-dark border"><i class="bi bi-code-slash"></i> Hugging Face LeRobot</span>
             </div>
           </div>
@@ -91,126 +112,94 @@
           <div class="project-section-block">
             <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
             <p>
-              End-to-end VLA models often struggle when user instructions are phrased in informal or ambiguous ways. Training large monolithic models directly on diverse natural language requires huge datasets and frequently leads to incorrect grasping motions.
+              Deploying monolithic end-to-end VLA models in real-world human-robot interaction environments revealed
+              critical points of failure:
             </p>
+            <ul>
+              <li><strong>Severe Prompt Ambiguity Sensitivity:</strong> Standard VLA policies fail when instructions are
+                informal, conversational, or slightly ambiguous, causing physical success rates to drop to zero without
+                explicit structured commands.</li>
+              <li><strong>Multilingual Language Failure:</strong> Providing prompts in languages other than English
+                (such as Dutch or German) causes the model to fail completely or execute random motor actions because
+                the vision-language policy lacks non-English grounding.</li>
+              <li><strong>Data Scarcity for Full End-to-End Training:</strong> Collecting enough multimodal
+                demonstration data to teach a monolithic model all linguistic nuances, grammar variations, and
+                multi-language instructions directly is prohibitively expensive.</li>
+            </ul>
           </div>
 
           <!-- Section 2: The Solution & Technical Approach -->
           <div class="project-section-block">
-            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <h3><i class="bi bi-diagram-3 text-primary"></i> Engineering Solution &amp; Two-Stage Architecture</h3>
             <p>
-              I engineered a decoupled, reliable architecture:
+              To solve prompt fragility, a decoupled two-stage architecture is developed that separates intent
+              interpretation from physical motor control:
             </p>
             <ul>
-              <li><strong>Two-Stage Intent Disambiguation:</strong> Built a fine-tuned BERT intent classifier that parses unstructured user text, extracts goal parameters, and resolves ambiguity before the policy executes.</li>
-              <li><strong>170-Episode Teleoperated Dataset:</strong> Collected and formatted a multimodal dataset of physical manipulation demonstrations on the SO-101 arm following Hugging Face LeRobot standards.</li>
-              <li><strong>Action Chunking with Transformers (ACT):</strong> Deployed flow-based action prediction for smooth pick-and-place trajectories.</li>
+              <li><strong>Stage 1: Lightweight Intent &amp; VLM Pre-Processing:</strong> Designed a lightweight first stage that introduces minimal computational overhead, serving as a proof of concept for using a low-frequency VLM frontend to preprocess the scene and retranslate/standardize ambiguous or multilingual prompts (such as Dutch and German) into structured goals. Evaluated across 2,600 prompt variations, fine-tuned <strong>BERT</strong> achieved an <strong>85% F1-score</strong>.</li>
+              <li><strong>Stage 2: SmolVLA Manipulation Execution:</strong> Fed standardized intent targets to the
+                <strong>SmolVLA 0.45B</strong> policy running within Hugging Face LeRobot, controlling the 6-DOF SO-101
+                follower arm equipped with dual camera feeds (overhead fixed camera and wrist gripper camera).</li>
+              <li><strong>Robust Task Disambiguation:</strong> Breaking complex commands into clean, standardized subtasks prevents error propagation and allows the downstream VLA policy to maintain high physical accuracy without linguistic distraction.</li>
             </ul>
           </div>
 
-          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <!-- Section 3: Visual Showcase / Video Demonstration -->
           <div class="project-section-block">
-            <h3><i class="bi bi-images text-primary"></i> Robot Arm and Manipulation Setup</h3>
-            <div class="portfolio-details-slider swiper init-swiper my-3">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 3500
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/lerobot/so101-no-grasp.jpeg" alt="SO-101 Open-Gripper Approach Phase" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/lerobot/so101-grasp.jpeg" alt="SO-101 Physical Grasp Execution" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-              </div>
-              <div class="swiper-pagination mt-2"></div>
+            <h3><i class="bi bi-play-circle text-primary"></i> Physical Robot Arm Video Demonstration</h3>
+            <div class="project-media-container shadow-sm my-3 ratio ratio-16x9"
+              style="border-radius: 10px; overflow: hidden; background: #000;">
+              <iframe src="https://www.youtube.com/embed/82rqNkbjjcw"
+                title="LeRobot SmolVLA Intent-Conditioned Manipulation"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen style="border: 0; width: 100%; height: 100%;"></iframe>
             </div>
           </div>
 
           <!-- Section 4: Quantitative Results & Impact Stat Cards -->
           <div class="project-section-block">
-            <h3><i class="bi bi-trophy text-primary"></i> Benchmarks and Results</h3>
+            <h3><i class="bi bi-trophy text-primary"></i> Experimental Results and Success Rates</h3>
             <p>
-              The intent-guided policy achieved reliable command parsing and physical execution:
+              Physical experiments on the SO-101 setup proved that monolithic end-to-end VLA models degrade steeply
+              under linguistic variations, confirming the necessity of intent classification:
             </p>
 
             <div class="impact-stat-grid">
               <div class="stat-card">
                 <div class="stat-number">85%</div>
-                <div class="stat-label">Intent F1 Score</div>
-                <div class="stat-desc">Accurate semantic grounding of user commands</div>
+                <div class="stat-label">BERT Intent F1 Score</div>
+                <div class="stat-desc">Resolves ambiguous and multi-language user prompts</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">170</div>
-                <div class="stat-label">Curated Episodes</div>
-                <div class="stat-desc">Multimodal teleoperated demonstration dataset</div>
+                <div class="stat-number">75% vs 0%</div>
+                <div class="stat-label">SmolVLA Success Gap</div>
+                <div class="stat-desc">Baseline prompt (15/20) vs ambiguous prompt (0/10) without intent frontend</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">SO-101</div>
-                <div class="stat-label">Physical Hardware</div>
-                <div class="stat-desc">Validated on real 6-DOF robotic manipulator</div>
+                <div class="stat-number">2,600</div>
+                <div class="stat-label">Prompt Dataset</div>
+                <div class="stat-desc">Diverse prompts across 10 tabletop manipulation tasks</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">Hugging Face</div>
-                <div class="stat-label">Open Community</div>
-                <div class="stat-desc">Standard LeRobot dataset format</div>
+                <div class="stat-number">Two-Stage</div>
+                <div class="stat-label">Decoupled Architecture</div>
+                <div class="stat-desc">Intent classifier frontend paired with SmolVLA policy</div>
               </div>
             </div>
           </div>
 
-          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <!-- Section 5: Technologies -->
           <div class="project-section-block">
-            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
-            <div class="d-flex flex-wrap gap-2 mb-4">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies</h3>
+            <div class="d-flex flex-wrap gap-2">
               <span class="badge bg-secondary">Hugging Face LeRobot</span>
+              <span class="badge bg-secondary">SmolVLA (0.45B)</span>
+              <span class="badge bg-secondary">BERT Intent Classifier</span>
               <span class="badge bg-secondary">PyTorch</span>
-              <span class="badge bg-secondary">BERT NLP</span>
-              <span class="badge bg-secondary">Action Chunking (ACT)</span>
-              <span class="badge bg-secondary">SO-101 Manipulator</span>
-              <span class="badge bg-secondary">Teleoperation</span>
-            </div>
-
-            <div class="resource-link-grid">
-              <a href="MeanFlow.html" class="resource-link-card">
-                <i class="bi bi-activity"></i>
-                <div>
-                  <div>MeanFlow 1-Step Policy</div>
-                  <small class="text-muted">Fast flow matching generative policy</small>
-                </div>
-              </a>
-              <a href="https://youtu.be/5bHl2b14s9s" target="_blank" class="resource-link-card">
-                <i class="bi bi-play-circle"></i>
-                <div>
-                  <div>YouTube Video Demo</div>
-                  <small class="text-muted">Watch physical robot arm execution</small>
-                </div>
-              </a>
-              <a href="https://huggingface.co/datasets/Farhad-Hoseyni/so100_teleop" target="_blank" class="resource-link-card">
-                <i class="bi bi-database"></i>
-                <div>
-                  <div>Hugging Face Dataset</div>
-                  <small class="text-muted">Explore 170-episode dataset</small>
-                </div>
-              </a>
-              <a href="../index.html#projects" class="resource-link-card">
-                <i class="bi bi-grid-3x3-gap"></i>
-                <div>
-                  <div>Back to All Projects</div>
-                  <small class="text-muted">Explore complete portfolio</small>
-                </div>
-              </a>
+              <span class="badge bg-secondary">SO-101 6-DOF Manipulator</span>
+              <span class="badge bg-secondary">Multilingual NLP (Dutch / German)</span>
+              <span class="badge bg-secondary">Dual-Camera Visual Grounding</span>
+              <span class="badge bg-secondary">Teleoperation &amp; Robot Learning</span>
             </div>
           </div>
 

@@ -13,9 +13,11 @@
 
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Class-Agnostic Counting & MoCA PEFT - Farhad Hoseyni</title>
-  <meta name="description" content="2D Gaussian Splatting Class-Agnostic Counting (CARPK MAE 14.91) and MoCA Cognitive Screening via prompt-tuned DINOv2." />
-  <meta name="keywords" content="Class-Agnostic Counting, 2D Gaussian Splatting, DINOv2, MoCA, PEFT, Computer Vision, Deep Learning" />
+  <title>Class-Agnostic Object Counting via DINO &amp; Gaussian Splatting - Farhad Hoseyni</title>
+  <meta name="description"
+    content="Training-free Class-Agnostic Counting (CAC) using DINO feature channel bypassing, Fourier log-polar analysis, and 2D Gaussian Splatting density modeling." />
+  <meta name="keywords"
+    content="Class-Agnostic Counting, CAC, CountingDINO, DINOv2, 2D Gaussian Splatting, Density Maps, Computer Vision, PyTorch" />
 
   <!-- Favicons -->
   <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
@@ -24,7 +26,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -42,13 +46,14 @@
   <header id="header" class="header d-flex align-items-center fixed-top" style="background-color: #333">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
       <a href="../index.html" class="logo d-flex align-items-center">
-        <h1 class="sitename">Counting & MoCA AI</h1>
+        <h1 class="sitename">Class-Agnostic Counting</h1>
       </a>
       <nav id="navmenu" class="navmenu" style="background-color: #333">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="../index.html#experience">Experience</a></li>
           <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -56,13 +61,22 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <div class="page-title light-background">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
         <div class="container position-relative text-center">
-          <h1 class="dark-gray">Class-Agnostic Counting & MoCA Vision Screening</h1>
-          <p class="mx-auto" style="max-width: 800px;">
-            2D Gaussian Splatting Density Modeling and DINOv2 Parameter-Efficient Adaptation
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            Class-Agnostic Object Counting AI
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Few-shot object counting in dense scenes without training or fine-tuning
           </p>
         </div>
       </div>
@@ -77,13 +91,20 @@
           <div class="project-section-block">
             <h3><i class="bi bi-bounding-box-circles text-primary"></i> Project Overview</h3>
             <p>
-              This research explores foundational vision adaptation across two tasks: <strong>Class-Agnostic Counting (CAC)</strong>, which estimates counts of novel object categories using few visual exemplars, and <strong>Montreal Cognitive Assessment (MoCA) Screening</strong>, which analyzes hand-drawn clock tests for automated cognitive impairment detection.
+              Counting objects in dense or complex environments usually requires training specialized models from
+              scratch. This project explores few-shot object counting: given just 3 visual samples of any object in a
+              scene, the system accurately counts all occurrences without any model training or fine-tuning. By refining
+              foundation model feature matching and spatial density estimation, this approach accurately counts
+              repetitive objects across complex, crowded scenes while staying completely training-free.
             </p>
             <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-bounding-box"></i> Few-Shot Object
+                Counting</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-shield-check"></i> Zero Training &amp;
+                Fine-Tuning</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-filter"></i> DINO Feature Filtering</span>
               <span class="badge bg-light text-dark border"><i class="bi bi-circle"></i> 2D Gaussian Splatting</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-eye"></i> DINOv2 Prompt Tuning</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-graph-up"></i> CARPK MAE 14.91</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-hospital"></i> Clinical MoCA Screening</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-layers"></i> Dense Scene Enumeration</span>
             </div>
           </div>
 
@@ -91,119 +112,135 @@
           <div class="project-section-block">
             <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
             <p>
-              Standard density-map counting models fail when object scales or categories change (for instance, counting microscopic cells versus vehicles). In cognitive screening, patient drawings have wide stylistic variations that confuse rigid rule-based systems, while training data is scarce.
+              Counting objects from only a few visual samples with zero model training presents several core vision
+              hurdles:
             </p>
+            <ul>
+              <li><strong>Strict Zero-Training Requirement:</strong> The model must recognize and enumerate completely
+                unfamiliar objects using only 3 visual samples, without any weight fine-tuning or category-specific
+                dataset training.</li>
+              <li><strong>Color Sensitivity Distractions:</strong> Pre-trained foundation models naturally encode strong
+                color features. If the sample objects differ in color from other items in the scene, standard feature
+                matching fails to group them together.</li>
+              <li><strong>Scale and Rotation Variations:</strong> Objects appear at varying angles, orientations, and
+                distances, causing similarity matches to degrade and leading to severe undercounting.</li>
+              <li><strong>Dense Scene Overlapping:</strong> In tightly packed scenes, overlapping objects blend together
+                in raw activation maps, making it difficult to isolate individual instances.</li>
+            </ul>
           </div>
 
           <!-- Section 2: The Solution & Technical Approach -->
           <div class="project-section-block">
-            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <h3><i class="bi bi-diagram-3 text-primary"></i> The Solution &amp; Technical Approach</h3>
             <p>
-              I engineered density representation and prompt-tuning architectures:
+              To make few-shot counting reliable across diverse environments without retraining, a targeted pipeline
+              enhancements was implemented:
             </p>
             <ul>
-              <li><strong>2D Gaussian Splatting for Counting:</strong> Replaced static isotropic Gaussian kernels with learnable 2D anisotropic Gaussian splats, capturing directional object orientations and reducing CARPK Mean Absolute Error (MAE) from 23.40 down to <strong>14.91</strong>.</li>
-              <li><strong>DINO Channel Bypass:</strong> Passed exemplar query tokens directly into intermediate attention layers without altering pretrained backbone features.</li>
-              <li><strong>Prompt-Tuned DINOv2 for MoCA:</strong> Fine-tuned soft prefix visual prompts on frozen DINOv2 encoders to evaluate drawing distortion markers with high diagnostic reliability.</li>
+              <li><strong>Filtering Color Channels in DINO:</strong> Removed color-sensitive feature channels from the
+                pre-trained DINO backbone, allowing the model to match objects based on fundamental shape and structure
+                rather than superficial color differences.</li>
+              <li><strong>Fourier Frequency Shift Processing:</strong> Analyzed rotation and scale shifts in the
+                frequency domain using log-polar representations and Fourier shift theorems to handle variations between
+                visual samples and target objects.</li>
+              <li><strong>2D Gaussian Splatting Inference:</strong> Fixed count inference by converting peak activations
+                into smooth 2D Gaussian density distributions, accurately separating overlapping objects in dense scenes
+                without retraining.</li>
             </ul>
           </div>
 
-          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <!-- Section 3: Interactive Visual Showcase -->
           <div class="project-section-block">
-            <h3><i class="bi bi-images text-primary"></i> Gaussian Splatting and Interpretability</h3>
-            <div class="portfolio-details-slider swiper init-swiper my-3">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 3500
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/others/cac-gaussian-splat.jpg" alt="2D Gaussian Splatting Density Map" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+            <h3><i class="bi bi-sliders text-primary"></i> Interactive Density Estimation Showcase</h3>
+            <p class="text-muted small mb-3">
+              Drag the slider to compare the raw input scene with 3 visual sample exemplars against the predicted 2D
+              Gaussian Splatting density map:
+            </p>
+            <div class="border rounded-3 p-2 bg-white shadow-sm my-3">
+              <div class="image-compare-container" id="cac-compare-container">
+                <!-- Base Image (Right side / Raw Image with 3 Exemplars) -->
+                <img id="cac-img-base" src="../assets/img/projects/cac/cac_exemplar_raw.webp"
+                  alt="Raw Scene with 3 Exemplars" loading="lazy" />
+
+                <!-- Overlay Image (Left side / Gaussian Splatting Density) -->
+                <div class="image-compare-overlay" id="cac-compare-overlay" style="width: 50%;">
+                  <img id="cac-img-overlay" src="../assets/img/projects/cac/cac_density_overlay.webp"
+                    alt="Gaussian Splatting Density Map" loading="lazy" />
                 </div>
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/others/GradCam.webp" alt="GradCAM Attention Localization" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
+
+                <!-- Badges -->
+                <span class="image-compare-badge left">Gaussian Splatting Density</span>
+                <span class="image-compare-badge right">3 Input Exemplars</span>
+
+                <!-- Handle & Slider Input -->
+                <div class="image-compare-handle" id="cac-compare-handle" style="left: 50%;">
+                  <i class="bi bi-arrows-expand" style="transform: rotate(45deg);"></i>
                 </div>
+                <input type="range" min="0" max="100" value="50" class="image-compare-slider" id="cac-compare-slider"
+                  aria-label="Compare raw exemplars and Gaussian Splatting density" />
               </div>
-              <div class="swiper-pagination mt-2"></div>
             </div>
           </div>
 
           <!-- Section 4: Quantitative Results & Impact Stat Cards -->
           <div class="project-section-block">
-            <h3><i class="bi bi-trophy text-primary"></i> Benchmarks and Counting Results</h3>
+            <h3><i class="bi bi-trophy text-primary"></i> Benchmark Metrics &amp; Key Results</h3>
             <p>
-              The Gaussian splatting formulation improved density localization and counting accuracy:
+              Experimental evaluations across dense object benchmarks demonstrated substantial accuracy gains over
+              baseline models:
             </p>
 
             <div class="impact-stat-grid">
               <div class="stat-card">
                 <div class="stat-number">14.91</div>
-                <div class="stat-label">CARPK Dataset MAE</div>
-                <div class="stat-desc">Substantial error reduction versus 23.40 baseline</div>
+                <div class="stat-label">Mean of Absolute Error in Counting</div>
+                <div class="stat-desc">Lowest error achieved via 2D Gaussian Splatting, down from 31.28 baseline</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">2D Splats</div>
-                <div class="stat-label">Anisotropic Density</div>
-                <div class="stat-desc">Adaptive spatial orientation for crowded scenes</div>
+                <div class="stat-number">52%</div>
+                <div class="stat-label">Error Reduction</div>
+                <div class="stat-desc">More than halved the mean of absolute error in counting across dense scenes</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">DINOv2</div>
-                <div class="stat-label">Prompt-Tuned MoCA</div>
-                <div class="stat-desc">Zero-shot feature transfer for cognitive screening</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">Few-Shot</div>
-                <div class="stat-label">Class-Agnostic</div>
-                <div class="stat-desc">Generalizes to novel categories from 3 exemplars</div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Training-Free</div>
+                <div class="stat-desc">Operates purely on 3 visual samples with zero model weight updates</div>
               </div>
             </div>
           </div>
 
-          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <!-- Section 5: Technologies -->
           <div class="project-section-block">
-            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
-            <div class="d-flex flex-wrap gap-2 mb-4">
-              <span class="badge bg-secondary">PyTorch</span>
+            <h3><i class="bi bi-tools text-primary"></i> Technologies</h3>
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge bg-secondary">Few-Shot Object Counting</span>
+              <span class="badge bg-secondary">DINO Foundation Models</span>
               <span class="badge bg-secondary">2D Gaussian Splatting</span>
-              <span class="badge bg-secondary">DINOv2</span>
-              <span class="badge bg-secondary">Prompt Tuning</span>
-              <span class="badge bg-secondary">Class-Agnostic Counting</span>
-              <span class="badge bg-secondary">GradCAM</span>
+              <span class="badge bg-secondary">Fourier Frequency Analysis</span>
+              <span class="badge bg-secondary">Density Map Estimation</span>
+              <span class="badge bg-secondary">PyTorch</span>
+              <span class="badge bg-secondary">Zero-Shot Vision</span>
             </div>
+          </div>
 
-            <div class="resource-link-grid">
-              <a href="YoDINO.html" class="resource-link-card">
-                <i class="bi bi-shield-check"></i>
-                <div>
-                  <div>YoDINO Foundation Vision</div>
-                  <small class="text-muted">Parameter-efficient anomaly AI</small>
+          <!-- Section 6: Open Source & Code -->
+          <div class="project-section-block">
+            <h3><i class="bi bi-github text-primary"></i> Open Source Repository</h3>
+            <div class="row g-3 mb-2">
+              <div class="col-12">
+                <div class="border rounded p-3 bg-white h-100 shadow-sm d-flex align-items-center justify-content-between flex-wrap gap-3">
+                  <div class="d-flex align-items-center gap-3">
+                    <i class="bi bi-github text-dark fs-2"></i>
+                    <div>
+                      <h6 class="fw-bold text-dark mb-0">Class-Agnostic Counting Repository</h6>
+                      <small class="text-muted">Training-Free Few-Shot Object Counting with Fourier Processing and 2D Gaussian Splatting</small>
+                    </div>
+                  </div>
+                  <a href="https://github.com/fburlacu/MML_project_CAC/tree/FFT" target="_blank" class="btn btn-sm btn-primary">
+                    <i class="bi bi-github"></i> View GitHub Repository <i class="bi bi-box-arrow-up-right ms-1"></i>
+                  </a>
                 </div>
-              </a>
-              <a href="KAN.html" class="resource-link-card">
-                <i class="bi bi-diagram-2"></i>
-                <div>
-                  <div>KAN Networks Review</div>
-                  <small class="text-muted">Spline activation architectures</small>
-                </div>
-              </a>
-              <a href="../index.html#projects" class="resource-link-card">
-                <i class="bi bi-grid-3x3-gap"></i>
-                <div>
-                  <div>Back to All Projects</div>
-                  <small class="text-muted">Explore complete portfolio</small>
-                </div>
-              </a>
+              </div>
             </div>
           </div>
 
@@ -236,6 +273,46 @@
   <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="../assets/js/main.js"></script>
+
+  <script>
+    // Interactive Image Comparison Slider Logic
+    document.addEventListener('DOMContentLoaded', function () {
+      const container = document.getElementById('cac-compare-container');
+      const overlay = document.getElementById('cac-compare-overlay');
+      const overlayImg = document.getElementById('cac-img-overlay');
+      const baseImg = document.getElementById('cac-img-base');
+      const slider = document.getElementById('cac-compare-slider');
+      const handle = document.getElementById('cac-compare-handle');
+
+      if (!container || !slider || !overlay || !overlayImg) return;
+
+      function syncImageWidth() {
+        if (baseImg && overlayImg) {
+          const rect = baseImg.getBoundingClientRect();
+          if (rect.width > 0) {
+            overlayImg.style.width = rect.width + 'px';
+            overlayImg.style.height = rect.height + 'px';
+          }
+        }
+      }
+
+      function updateCompare() {
+        const val = slider.value;
+        overlay.style.width = val + '%';
+        handle.style.left = val + '%';
+        syncImageWidth();
+      }
+
+      slider.addEventListener('input', updateCompare);
+      window.addEventListener('resize', syncImageWidth);
+      if (baseImg.complete) {
+        syncImageWidth();
+      } else {
+        baseImg.addEventListener('load', syncImageWidth);
+      }
+      updateCompare();
+    });
+  </script>
 </body>
 
 </html>

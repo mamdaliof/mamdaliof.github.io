@@ -59,7 +59,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#publications">Publications</a></li>
-                    <li><a href="assets/CV/Farhad Hoseyni.pdf" target="_blank">CV</a></li>
+                    <li><a href="assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -231,7 +231,7 @@
                                 <div class="exp-nav-card">
                                     <div class="exp-nav-title">Fraunhofer Innovation Platform</div>
                                     <div class="exp-nav-role">CV &amp; Robotics Engineer</div>
-                                    <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Oct. 2025 – Present &bull;
+                                    <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Oct. 2025 - Present &bull;
                                         Enschede, NL</div>
                                 </div>
                             </div>
@@ -244,8 +244,8 @@
                                 <div class="exp-nav-card">
                                     <div class="exp-nav-title">Smartory Labs</div>
                                     <div class="exp-nav-role">AI &amp; Computer Vision Engineer</div>
-                                    <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Mar. 2023 – Sep. 2024
-                                        &bull; Istanbul, TR</div>
+                                    <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Mar. 2023 - Sep. 2024
+                                        &bull; Tehran, IR</div>
                                 </div>
                             </div>
 
@@ -257,7 +257,7 @@
                                 <div class="exp-nav-card">
                                     <div class="exp-nav-title">APAC Research Group</div>
                                     <div class="exp-nav-role">Technical Manager &amp; CV Engineer</div>
-                                    <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Jun. 2022 – Sep. 2025
+                                    <div class="exp-nav-date"><i class="bi bi-calendar3"></i> Jun. 2022 - Sep. 2025
                                         &bull; Medical AI</div>
                                 </div>
                             </div>
@@ -495,7 +495,7 @@
                             </div>
                             <div class="track-card-body">
                                 <h4>AI for Image Processing & Foundation Vision</h4>
-                                <p>YoDINO zero-annotation anomaly AI, 2D Gaussian Splatting counting, MoCA PEFT screening, and KAN review.</p>
+                                <p>YoDINO vision backbone, Class-Agnostic Counting via 2D Gaussian Splatting, and MoCA prompt tuning.</p>
                                 <div class="track-card-footer">
                                     <span class="track-explore-btn">
                                         Explore Sub-Projects <i class="bi bi-arrow-right"></i>
@@ -676,7 +676,7 @@
                                     <div class="track-modal-img-container">
                                         <img src="assets/img/projects/relbot/RelBot.jpeg" class="modal-base-img"
                                             alt="RELBot Mobile Platform" loading="lazy" />
-                                        <img src="assets/img/projects/relbot/relbot-tracking.jpg"
+                                        <img src="assets/img/projects/relbot/RelBot-hover.jpeg"
                                             class="modal-hover-img" alt="RELBot Edge YOLO Depth" loading="lazy" />
                                     </div>
                                     <h4><i class="bi bi-truck text-primary me-1"></i> RELBot Mobile Platform</h4>
@@ -793,34 +793,31 @@
                                 <div>
                                     <div class="track-modal-img-container">
                                         <img src="assets/img/projects/yodino/YoDINO-main.jpeg" class="modal-base-img"
-                                            alt="YoDINO Anomaly AI" loading="lazy" />
+                                            alt="YoDINO Vision Backbone" loading="lazy" />
                                         <img src="assets/img/projects/yodino/YoDINO-hover.jpeg" class="modal-hover-img"
                                             alt="YoDINO Feature Map" loading="lazy" />
                                     </div>
-                                    <h4><i class="bi bi-shield-check text-primary me-1"></i> YoDINO Anomaly AI</h4>
-                                    <p>DINOv3 vision foundation models with bottleneck adapters (91.13% acc) and
-                                        zero-annotation Isolation Forest (0.849 AUROC) for battery cell inspection.</p>
+                                    <h4><i class="bi bi-eye text-primary me-1"></i> YoDINO Vision Backbone</h4>
+                                    <p>DINO foundation models integrated into YOLO via Meta ViTDet and PEFT for multi-downstream representations.</p>
                                 </div>
                                 <a href="projects/YoDINO.html" class="btn-custom-outline w-100 text-center mt-2">
                                     View Project <i class="bi bi-arrow-right"></i>
                                 </a>
                             </div>
                         </div>
-                        <!-- Sub-project 2: Class-Agnostic Counting & MoCA -->
+                        <!-- Sub-project 2: Class-Agnostic Counting -->
                         <div class="col-md-4">
                             <div class="track-modal-card">
                                 <div>
                                     <div class="track-modal-img-container">
-                                        <img src="assets/img/projects/others/GradCam.webp" class="modal-base-img"
-                                            alt="Counting & MoCA PEFT" loading="lazy" />
-                                        <img src="assets/img/projects/others/cac-gaussian-splat.jpg"
-                                            class="modal-hover-img" alt="2D Gaussian Splatting Counting"
+                                        <img src="assets/img/projects/cac/cac_exemplar_raw.webp" class="modal-base-img"
+                                            alt="Class-Agnostic Counting Exemplars" loading="lazy" />
+                                        <img src="assets/img/projects/cac/cac_density_overlay.webp"
+                                            class="modal-hover-img" alt="2D Gaussian Splatting Density Map"
                                             loading="lazy" />
                                     </div>
-                                    <h4><i class="bi bi-bounding-box-circles text-primary me-1"></i> Counting & MoCA
-                                        PEFT</h4>
-                                    <p>2D Gaussian Splatting (reducing CARPK MAE to 14.91), DINO channel bypass, and
-                                        MoCA prompt-tuned DINOv2 for cognitive screening.</p>
+                                    <h4><i class="bi bi-bounding-box-circles text-primary me-1"></i> Class-Agnostic Counting</h4>
+                                    <p>Training-free object counting using DINO color channel bypass and 2D Gaussian Splatting density maps.</p>
                                 </div>
                                 <a href="projects/ClassAgnosticCounting.html"
                                     class="btn-custom-outline w-100 text-center mt-2">
@@ -828,25 +825,24 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- Sub-project 3: KAN -->
+                        <!-- Sub-project 3: MoCA Vision Screening -->
                         <div class="col-md-4">
                             <div class="track-modal-card">
                                 <div>
                                     <div class="track-modal-img-container">
-                                        <img src="assets/img/projects/kan/KAN_theme.webp" class="modal-base-img"
-                                            alt="KAN Review" loading="lazy" />
-                                        <img src="assets/img/projects/kan/KAN_theme_hover.webp" class="modal-hover-img"
-                                            alt="KAN Spline Activation Function" loading="lazy" />
+                                        <img src="assets/img/projects/moca/moca_clock_healthy.webp" class="modal-base-img"
+                                            alt="MoCA Healthy Clock Test" loading="lazy" />
+                                        <img src="assets/img/projects/moca/moca_clock_unhealthy.webp" class="modal-hover-img"
+                                            alt="MoCA Impaired Clock Test" loading="lazy" />
                                     </div>
-                                    <h4><i class="bi bi-diagram-2 text-primary me-1"></i> KAN Review</h4>
-                                    <p>Kolmogorov-Arnold Networks review and benchmarks, analyzing edge-learnable spline
-                                        activations, accuracy, and interpretability.</p>
+                                    <h4><i class="bi bi-heart-pulse text-primary me-1"></i> MoCA Vision Screening</h4>
+                                    <p>Parameter-efficient DINOv2 prompt tuning with adaptive loss for interpretable cognitive impairment screening.</p>
                                 </div>
-                                <a href="projects/KAN.html" class="btn-custom-outline w-100 text-center mt-2">
+                                <a href="projects/MoCA.html" class="btn-custom-outline w-100 text-center mt-2">
                                     View Project <i class="bi bi-arrow-right"></i>
                                 </a>
                             </div>
-                        </div>
+                        </div></div>
                     </div>
                 </div>
             </div>

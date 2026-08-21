@@ -14,8 +14,10 @@
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>RELBot Autonomous Mobile Robot Tracking - Farhad Hoseyni</title>
-  <meta name="description" content="RELBot - Real-time Xenomai 4 / EVL control on Raspberry Pi 4, ROS2 XRF2 framework, edge YOLO detection, and Single Image Depth Estimation." />
-  <meta name="keywords" content="RELBot, mobile robot, Xenomai 4, EVL, ROS2, Raspberry Pi 4, YOLO, MiDaS, single image depth estimation, University of Twente" />
+  <meta name="description"
+    content="RELBot - Real-time Xenomai 4 / EVL control on Raspberry Pi 4, ROS2 XRF2 framework, edge YOLO detection, and Single Image Depth Estimation." />
+  <meta name="keywords"
+    content="RELBot, mobile robot, Xenomai 4, EVL, ROS2, Raspberry Pi 4, YOLO, MiDaS, single image depth estimation, University of Twente" />
 
   <!-- Favicons -->
   <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
@@ -24,7 +26,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -49,6 +53,7 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="../index.html#experience">Experience</a></li>
           <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -56,13 +61,22 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <div class="page-title light-background">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
         <div class="container position-relative text-center">
-          <h1 class="dark-gray">RELBot Autonomous Mobile Robot Tracking</h1>
-          <p class="mx-auto" style="max-width: 800px;">
-            Real-Time Xenomai 4 / EVL Control Loop (1 ms), ROS2 Bridge, Edge YOLO and Monocular Depth Tracking
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            RELBot Autonomous Mobile Robot Tracking
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Real-Time Object Tracking with Mobile Robot
           </p>
         </div>
       </div>
@@ -77,13 +91,13 @@
           <div class="project-section-block">
             <h3><i class="bi bi-truck text-primary"></i> Project Overview</h3>
             <p>
-              The <strong>RELBot</strong> is a differential-drive mobile robot built at the University of Twente (Robotics and Mechatronics Lab). The project combines computer vision (YOLO object detection and monocular depth estimation) with strict, microsecond-level motor control on an embedded Raspberry Pi 4.
+              The <strong>RELBot</strong> is a differential-drive mobile robot built to track and follow objects autonomously in real time. The project brings together single-camera vision and deterministic motor control on an embedded Raspberry Pi 4, balancing fast on-board processing with remote GPU computation.
             </p>
             <div class="d-flex flex-wrap gap-2 mt-3">
               <span class="badge bg-light text-dark border"><i class="bi bi-cpu"></i> Raspberry Pi 4</span>
               <span class="badge bg-light text-dark border"><i class="bi bi-stopwatch"></i> Xenomai 4 / EVL RTOS</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-robot"></i> ROS2 Humble + XRF2</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-eye"></i> Edge YOLO + MiDaS Depth</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-broadcast"></i> Sensor Telemetry</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-eye"></i> Computer Vision &amp; Depth</span>
             </div>
           </div>
 
@@ -91,51 +105,43 @@
           <div class="project-section-block">
             <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
             <p>
-              Standard Linux kernels have timing variations of 10 to 15 ms due to general process scheduling. While unnoticeable on desktops, this jitter makes motor control erratic and unstable in dynamic mobile robots. Additionally, dedicated stereo cameras or LiDAR units add weight and power draw on lightweight platforms.
+              Making a compact mobile robot follow moving targets smoothly in real time came with several key engineering challenges:
             </p>
+            <ul>
+              <li><strong>Limited Processing Resources &amp; Real-Time Execution:</strong> Running vision algorithms while maintaining strict real-time control on an embedded Raspberry Pi 4 required careful resource budgeting, CPU core isolation, and low-level code optimization to prevent computation bottlenecks.</li>
+              <li><strong>OS Timing Jitter:</strong> Standard Linux kernels introduce 10 to 15 ms of unpredictable scheduling delays. For closed-loop motor control, this jitter causes jerky movement and unstable tracking.</li>
+              <li><strong>Single-Camera Perception:</strong> With only a lightweight monocular camera on board, the robot had to detect targets and estimate distances in real time without the extra weight or power draw of bulky sensor suites.</li>
+            </ul>
           </div>
 
           <!-- Section 2: The Solution & Technical Approach -->
           <div class="project-section-block">
-            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <h3><i class="bi bi-diagram-3 text-primary"></i> Engineering Solution &amp; Live Implementation</h3>
             <p>
-              I engineered a dual-layer cyber-physical system:
+              To solve this, I designed a multi-tier cyber-physical setup dividing tasks between deterministic on-board motor control and flexible vision processing:
             </p>
             <ul>
-              <li><strong>Real-Time Motor Control:</strong> Isolated CPU Core 1 on the Raspberry Pi 4 for a <strong>Xenomai 4 / EVL real-time kernel</strong>, running a 1 kHz PID motion control loop with under 15 microseconds of timing jitter.</li>
-              <li><strong>Edge AI Perception:</strong> Deployed lightweight YOLO on the remaining CPU cores to detect target persons, paired with <strong>Single Image Depth Estimation (MiDaS)</strong> to estimate distance using a standard monocular camera.</li>
-              <li><strong>Lockless XRF2 Bridge:</strong> Connected ROS2 navigation topics directly to the real-time motor controller via lockless shared-memory buffers.</li>
+              <li><strong>Firm Real-Time Motor Control:</strong> Modeled the robot kinematics and wrote a custom PID controller in low-level C++. Running on an isolated CPU core with the <strong>Xenomai 4 / EVL</strong> real-time framework, the control loop hits a rock-solid 1 kHz rate with under 15 microseconds of jitter.</li>
+              <li><strong>Hybrid Vision Pipeline:</strong>
+                <ul>
+                  <li><em>On-Board Edge Processing:</em> Fast morphological image filters run directly on the Raspberry Pi CPU for high-rate line and visual pattern tracking.</li>
+                  <li><em>Workstation GPU Telemetry:</em> For complex target detection, video frames stream over low-latency telemetry to a workstation running <strong>YOLOv8</strong> and <strong>MiDaS monocular depth estimation</strong>, which computes bounding boxes and depth maps before sending velocity commands back to the robot in real time.</li>
+                </ul>
+              </li>
+              <li><strong>Live Autonomous Following Tests:</strong> In physical trials, the RELBot reliably locked onto a moving engineer wearing a safety helmet and smoothly adjusted its drive motors to maintain an exact 3-meter following distance throughout the run.</li>
             </ul>
           </div>
 
-          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <!-- Section 3: Visual Showcase / Video Demonstration -->
           <div class="project-section-block">
-            <h3><i class="bi bi-images text-primary"></i> Robot Hardware and Tracking Visualizer</h3>
-            <div class="portfolio-details-slider swiper init-swiper my-3">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 3500
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/relbot/RelBot.jpeg" alt="RELBot Mobile Hardware" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/relbot/relbot-tracking.jpg" alt="Edge YOLO and Depth Tracking" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-              </div>
-              <div class="swiper-pagination mt-2"></div>
+            <h3><i class="bi bi-play-circle text-primary"></i> Real-Time Object Following Demonstration</h3>
+            <div class="project-media-container shadow-sm my-3">
+              <video autoplay muted loop playsinline controls preload="metadata"
+                poster="../assets/img/projects/relbot/RelBot.jpeg"
+                style="width: 100%; max-height: 540px; object-fit: contain; background: #0b0f19;">
+                <source src="../assets/img/projects/relbot/following%20object.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
 
@@ -143,68 +149,47 @@
           <div class="project-section-block">
             <h3><i class="bi bi-trophy text-primary"></i> Performance Results</h3>
             <p>
-              The system achieved tight microsecond timing and stable autonomous tracking:
+              The multi-tier architecture delivers deterministic control and stable distance tracking:
             </p>
 
             <div class="impact-stat-grid">
               <div class="stat-card">
                 <div class="stat-number">&lt; 15 µs</div>
                 <div class="stat-label">Control Loop Jitter</div>
-                <div class="stat-desc">Reduced timing variation from ±12 ms down to microsecond level</div>
+                <div class="stat-desc">Deterministic 1 ms cycle on Xenomai 4 / EVL isolated core</div>
               </div>
               <div class="stat-card">
                 <div class="stat-number">1 kHz</div>
                 <div class="stat-label">Loop Frequency</div>
-                <div class="stat-desc">Strict 1 ms cycle on isolated CPU Core 1</div>
+                <div class="stat-desc">Low-level C++ PID controller executing on dedicated CPU core</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">±1.8 cm</div>
-                <div class="stat-label">Tracking Precision</div>
-                <div class="stat-desc">Smooth autonomous follow-me tracking</div>
+                <div class="stat-number">3.0 m</div>
+                <div class="stat-label">Following Distance</div>
+                <div class="stat-desc">Maintained steady distance with monocular depth feedback</div>
               </div>
               <div class="stat-card">
-                <div class="stat-number">Monocular</div>
-                <div class="stat-label">Depth Estimation</div>
-                <div class="stat-desc">Single standard RGB camera without extra sensors</div>
+                <div class="stat-number">Hybrid</div>
+                <div class="stat-label">Edge + GPU Telemetry</div>
+                <div class="stat-desc">On-board morphological vision paired with remote deep learning</div>
               </div>
             </div>
           </div>
 
-          <!-- Section 5: Technologies & Connected Deep-Dives -->
+          <!-- Section 5: Technologies -->
           <div class="project-section-block">
-            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
-            <div class="d-flex flex-wrap gap-2 mb-4">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies</h3>
+            <div class="d-flex flex-wrap gap-2">
               <span class="badge bg-secondary">Raspberry Pi 4</span>
-              <span class="badge bg-secondary">Xenomai 4 / EVL</span>
-              <span class="badge bg-secondary">ROS2 Humble</span>
-              <span class="badge bg-secondary">XRF2 Bridge</span>
+              <span class="badge bg-secondary">Xenomai 4 / EVL RTOS</span>
+              <span class="badge bg-secondary">Low-Level C++ Programming</span>
+              <span class="badge bg-secondary">PID Controller</span>
+              <span class="badge bg-secondary">Morphological Image Processing</span>
               <span class="badge bg-secondary">YOLOv8</span>
-              <span class="badge bg-secondary">MiDaS Depth</span>
-              <span class="badge bg-secondary">20-sim C++</span>
-            </div>
-
-            <div class="resource-link-grid">
-              <a href="Go2.html" class="resource-link-card">
-                <i class="bi bi-compass"></i>
-                <div>
-                  <div>Unitree Go2 SLAM</div>
-                  <small class="text-muted">Quadruped LiDAR and Nav2 navigation</small>
-                </div>
-              </a>
-              <a href="EmbeddedTracker.html" class="resource-link-card">
-                <i class="bi bi-cpu"></i>
-                <div>
-                  <div>JIWY Embedded Tracker</div>
-                  <small class="text-muted">FPGA and ARM hardware co-design</small>
-                </div>
-              </a>
-              <a href="../index.html#projects" class="resource-link-card">
-                <i class="bi bi-grid-3x3-gap"></i>
-                <div>
-                  <div>Back to All Projects</div>
-                  <small class="text-muted">Explore complete portfolio</small>
-                </div>
-              </a>
+              <span class="badge bg-secondary">MiDaS Depth Estimation</span>
+              <span class="badge bg-secondary">Sensor Telemetry</span>
+              <span class="badge bg-secondary">ROS2 Humble</span>
+              <span class="badge bg-secondary">Monocular Vision</span>
             </div>
           </div>
 

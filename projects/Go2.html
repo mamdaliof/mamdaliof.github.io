@@ -13,9 +13,9 @@
 
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Unitree Go2 Quadruped LiDAR/Visual SLAM - Farhad Hoseyni</title>
-  <meta name="description" content="Unitree Go2 Quadruped Robot - Fast-LIO2, Point-LIO LiDAR SLAM, Nav2 3D costmaps, and autonomous terrain navigation." />
-  <meta name="keywords" content="Unitree Go2, Quadruped SLAM, Fast-LIO2, Point-LIO, LiDAR SLAM, Nav2, Autonomous Robotics, ROS2" />
+  <title>Unitree Go2 Quadruped Autonomous Navigation &amp; LiDAR SLAM - Farhad Hoseyni</title>
+  <meta name="description" content="Unitree Go2 Quadruped Robot - Ongoing exploration in 3D LiDAR odometry, Fast-LIO, Point-LIO SLAM, and ROS2 Nav2 autonomous navigation." />
+  <meta name="keywords" content="Unitree Go2, Quadruped Robot, 3D LiDAR SLAM, Fast-LIO, Point-LIO, LiDAR Odometry, Nav2, Autonomous Navigation, ROS2" />
 
   <!-- Favicons -->
   <link href="../assets/img/icons/Mohamamd icon.webp" rel="icon" />
@@ -49,6 +49,7 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="../index.html#experience">Experience</a></li>
           <li><a href="../index.html#projects">Projects</a></li>
+          <li><a href="../assets/CV/Farhad Hoseyni.pdf" target="_blank" download>CV</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -56,13 +57,22 @@
   </header>
 
   <main class="main">
-    <!-- Page Title -->
-    <section id="hero" class="section light-background">
-      <div class="page-title light-background">
+    <!-- Page Title with Dynamic Graph Background -->
+    <section id="hero" class="section position-relative d-flex align-items-center justify-content-center"
+      style="background: #f8f9fa; padding: 160px 20px 80px 20px; min-height: 320px; overflow: hidden;">
+      <!-- Interactive Network Graph Canvas -->
+      <canvas id="network-canvas"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: auto; z-index: 1;"></canvas>
+
+      <div class="page-title p-0 bg-transparent position-relative"
+        style="background: transparent; z-index: 2; pointer-events: none;">
         <div class="container position-relative text-center">
-          <h1 class="dark-gray">Unitree Go2 Quadruped LiDAR & Visual SLAM</h1>
-          <p class="mx-auto" style="max-width: 800px;">
-            Fast-LIO2 and Point-LIO LiDAR Odometry, Nav2 3D Elevation Costmaps, and Multi-Sensor Fusion
+          <h1 class="dark-gray" style="text-shadow: 0 1px 3px rgba(255,255,255,0.95); pointer-events: auto;">
+            Unitree Go2 Quadruped Autonomous Navigation &amp; SLAM
+          </h1>
+          <p class="mx-auto text-dark"
+            style="max-width: 800px; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.95); pointer-events: auto;">
+            Ongoing exploration in 3D LiDAR odometry, Fast-LIO and Point-LIO SLAM, and Nav2 autonomous navigation
           </p>
         </div>
       </div>
@@ -77,134 +87,68 @@
           <div class="project-section-block">
             <h3><i class="bi bi-compass text-primary"></i> Project Overview</h3>
             <p>
-              The <strong>Unitree Go2</strong> is an agile quadruped robot platform. In this project, I implemented low-drift Simultaneous Localization and Mapping (SLAM) and autonomous path planning across challenging indoor and outdoor 3D environments.
+              This is an ongoing robotics project focused on autonomous navigation and inspection using the <strong>Unitree Go2</strong> quadruped platform. Because the final system architecture is still under active development, the current work is an exploration dedicated to 3D LiDAR odometry and direct LiDAR-inertial SLAM pipelines.
+            </p>
+            <p class="mb-0">
+              The investigation currently focuses on evaluating algorithms like <strong>Fast-LIO</strong> and <strong>Point-LIO</strong> to achieve low-drift state estimation during dynamic locomotion, paired with the <strong>ROS2 Nav2</strong> stack for autonomous path planning and terrain traversal.
             </p>
             <div class="d-flex flex-wrap gap-2 mt-3">
+              <span class="badge bg-light text-dark border"><i class="bi bi-hourglass-split text-warning"></i> Ongoing Project</span>
               <span class="badge bg-light text-dark border"><i class="bi bi-robot"></i> Unitree Go2 Quadruped</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-geo-alt"></i> Fast-LIO2 & Point-LIO</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-map"></i> ROS2 Nav2 Costmaps</span>
-              <span class="badge bg-light text-dark border"><i class="bi bi-camera"></i> Intel RealSense Depth + IMU</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-broadcast"></i> 3D LiDAR Focus</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-geo-alt"></i> Fast-LIO &amp; Point-LIO</span>
+              <span class="badge bg-light text-dark border"><i class="bi bi-map"></i> ROS2 Nav2</span>
             </div>
           </div>
 
-          <!-- Section 1: The Challenge -->
+          <!-- Section 1: Project Goal -->
           <div class="project-section-block">
-            <h3><i class="bi bi-exclamation-triangle text-primary"></i> The Challenge</h3>
+            <h3><i class="bi bi-bullseye text-primary"></i> Project Goals: Autonomous Navigation and Inspection</h3>
             <p>
-              Legged robots experience sharp body oscillations during trotting and stair climbing. Standard 2D SLAM and simple visual odometry quickly drift or fail completely when traversing uneven, unpaved, or low-texture terrain.
+              The primary objective is building an autonomous quadruped system capable of routine inspection runs, environment mapping, and obstacle negotiation in complex environments where wheeled platforms cannot operate.
+            </p>
+            <p class="mb-0">
+              Legged robots introduce significant body oscillations, abrupt foot-ground impacts, and rapid rotational motions. Achieving reliable autonomy requires solid 3D LiDAR-inertial odometry that stays accurate without drifting when the robot trots across slopes, stairs, or uneven floors.
             </p>
           </div>
 
-          <!-- Section 2: The Solution & Technical Approach -->
+          <!-- Section 2: Current State & Exploration -->
           <div class="project-section-block">
-            <h3><i class="bi bi-diagram-3 text-primary"></i> The Engineering Solution</h3>
+            <h3><i class="bi bi-cpu text-primary"></i> Current State: 3D LiDAR SLAM and Nav2 Exploration</h3>
             <p>
-              I deployed a tightly-coupled direct LiDAR-inertial SLAM pipeline:
+              Rather than locking into a single pipeline, work is actively focused on testing and evaluating 3D LiDAR methods:
             </p>
             <ul>
-              <li><strong>Fast-LIO2 and Point-LIO:</strong> Directly registered raw 3D LiDAR points with high-rate IMU measurements via an incremental k-d tree (ikd-Tree), eliminating feature extraction bottlenecks and keeping drift under <strong>0.15 meters over 100 meters</strong> of travel.</li>
-              <li><strong>Nav2 3D Elevation Mapping:</strong> Converted dense point clouds into 2.5D elevation grid maps to calculate traversability gradients, letting the quadruped navigate steps and slopes safely.</li>
-              <li><strong>Visual Geometry Grounding:</strong> Integrated front-facing depth cameras to refine obstacle avoidance in close-proximity blind spots.</li>
+              <li><strong>LiDAR-Inertial SLAM Evaluation:</strong> Comparing <strong>Fast-LIO</strong> and <strong>Point-LIO</strong> to measure odometry stability and processing overhead under dynamic quadruped gaits and vibration profiles.</li>
+              <li><strong>Direct Point Registration:</strong> Testing incremental k-d tree (ikd-Tree) structures to maintain dense point clouds and high-frequency state estimation directly from raw LiDAR scans and IMU measurements.</li>
+              <li><strong>ROS2 Nav2 Path Planning:</strong> Feeding LiDAR-generated point clouds into Nav2 costmaps to evaluate 3D elevation mapping, obstacle clearance, and goal-directed autonomous path execution.</li>
             </ul>
           </div>
 
-          <!-- Section 3: Visual Showcase / Multi-Image Slider -->
+          <!-- Section 3: Visual Showcase -->
           <div class="project-section-block">
-            <h3><i class="bi bi-images text-primary"></i> Quadruped Hardware and 3D SLAM Map</h3>
-            <div class="portfolio-details-slider swiper init-swiper my-3">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 3500
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/Go2/go2_theme.jpeg" alt="Unitree Go2 Quadruped Robot Hardware" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="../assets/img/projects/Go2/go2_theme_hover.jpeg" alt="Go2 LiDAR SLAM Point Cloud Map" style="width: 100%; border-radius: 10px; max-height: 440px; object-fit: cover;" />
-                </div>
-              </div>
-              <div class="swiper-pagination mt-2"></div>
+            <h3><i class="bi bi-images text-primary"></i> Hardware Setup</h3>
+            <div class="my-3 text-center">
+              <a href="../assets/img/projects/Go2/Farhad-Go2.jpeg" class="glightbox" data-gallery="go2-gallery">
+                <img src="../assets/img/projects/Go2/Farhad-Go2.jpeg" alt="Farhad Hoseyni with Unitree Go2 Quadruped Robot" class="img-fluid rounded-3 shadow-sm" style="width: 100%; height: auto; display: block;" />
+              </a>
             </div>
           </div>
 
-          <!-- Section 4: Quantitative Results & Impact Stat Cards -->
+          <!-- Section 4: Technologies -->
           <div class="project-section-block">
-            <h3><i class="bi bi-trophy text-primary"></i> Benchmarks and Navigation Results</h3>
-            <p>
-              The integrated SLAM and Nav2 pipeline enabled reliable real-time autonomous navigation:
-            </p>
-
-            <div class="impact-stat-grid">
-              <div class="stat-card">
-                <div class="stat-number">&lt; 0.15 m</div>
-                <div class="stat-label">Drift per 100m</div>
-                <div class="stat-desc">Accurate odometry on uneven outdoor surfaces</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">100 Hz</div>
-                <div class="stat-label">Estimation Rate</div>
-                <div class="stat-desc">Low-latency feedback for dynamic quadruped gaits</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">3D Nav2</div>
-                <div class="stat-label">Elevation Costmaps</div>
-                <div class="stat-desc">Safe step, slope, and obstacle negotiation</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-number">Multi-Sensor</div>
-                <div class="stat-label">LiDAR + IMU + Depth</div>
-                <div class="stat-desc">Resilient to optical glare and low-light scenes</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Section 5: Technologies & Connected Deep-Dives -->
-          <div class="project-section-block">
-            <h3><i class="bi bi-tools text-primary"></i> Technologies and Related Projects</h3>
-            <div class="d-flex flex-wrap gap-2 mb-4">
+            <h3><i class="bi bi-tools text-primary"></i> Technologies</h3>
+            <div class="d-flex flex-wrap gap-2">
               <span class="badge bg-secondary">Unitree Go2</span>
-              <span class="badge bg-secondary">Fast-LIO2</span>
+              <span class="badge bg-secondary">3D LiDAR</span>
+              <span class="badge bg-secondary">Fast-LIO</span>
               <span class="badge bg-secondary">Point-LIO</span>
               <span class="badge bg-secondary">ROS2 Nav2</span>
-              <span class="badge bg-secondary">ikd-Tree</span>
-              <span class="badge bg-secondary">3D LiDAR</span>
+              <span class="badge bg-secondary">LiDAR-Inertial Odometry</span>
+              <span class="badge bg-secondary">IMU Integration</span>
               <span class="badge bg-secondary">Point Cloud Library (PCL)</span>
-            </div>
-
-            <div class="resource-link-grid">
-              <a href="RELBot.html" class="resource-link-card">
-                <i class="bi bi-truck"></i>
-                <div>
-                  <div>RELBot Mobile Platform</div>
-                  <small class="text-muted">Real-time RTOS target tracking</small>
-                </div>
-              </a>
-              <a href="EmbeddedTracker.html" class="resource-link-card">
-                <i class="bi bi-cpu"></i>
-                <div>
-                  <div>JIWY Embedded Tracker</div>
-                  <small class="text-muted">FPGA & ARM hardware co-design</small>
-                </div>
-              </a>
-              <a href="../index.html#projects" class="resource-link-card">
-                <i class="bi bi-grid-3x3-gap"></i>
-                <div>
-                  <div>Back to All Projects</div>
-                  <small class="text-muted">Explore complete portfolio</small>
-                </div>
-              </a>
+              <span class="badge bg-secondary">3D Elevation Costmaps</span>
+              <span class="badge bg-secondary">Autonomous Inspection</span>
             </div>
           </div>
 
